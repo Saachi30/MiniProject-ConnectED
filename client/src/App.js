@@ -1,5 +1,6 @@
 import logo from './logo.svg';
 import './App.css';
+import LandingPage from './components/LandingPage/LandingPage';
 
 function App() {
   return (
@@ -13,9 +14,7 @@ function App() {
         <button class="Login">Login/ Sign up</button>
       </div>
 
-      <div class="main">
-        
-      </div>
+      <LandingPage/>
     </div>
 
     

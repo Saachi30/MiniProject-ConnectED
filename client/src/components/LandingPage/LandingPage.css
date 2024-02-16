@@ -1,0 +1,59 @@
+.main {
+    height: 80vh;
+    width: 90vw;
+    margin: auto;
+    background-color: rgb(255, 255, 255);
+    border-radius: 20px;
+    margin-top: 2.5rem;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+  }
+  
+.outerdiv{
+    width: 90%;
+    height: 90%;
+    /* background-color: brown; */
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: row;
+}
+.left{
+    width: 50%;
+    height: 90%;
+    /* background-color: rgb(224, 217, 15); */
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    color: #11113a;
+    font-size: large;
+    padding-right: 1.3rem;
+
+}
+.right{
+    width: 40%;
+    height: 65%;
+    background:url("https://edutechversity.com/wp-content/uploads/2023/12/F3F6F3-14.jpg")
+}
+.btn1{
+    width: 14rem;
+    height: 3rem;
+    background-color: #304674;
+    color: #ffffff;
+    border-radius: 20px;
+    font-size: 1rem;
+    margin-top: 40px;
+    border: 0px;
+    padding: 2px 10px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+}
+#abt-btn:hover{
+    cursor: pointer;
+    box-shadow: inset 400px 0 0 0#315a9c;
+      
+}
