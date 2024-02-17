@@ -1,4 +1,4 @@
-body {
+/* body {
   background: linear-gradient(to bottom right, #304674, #98bad5);
 }
 
@@ -12,7 +12,7 @@ body {
   display: flex;
 }
 .loggo {
-  background-image: url("../ConnectED.jpg");
+  background-image: url("../../imgs/ConnectED.jpg");
   background-size: cover;
   height: 35px;
   width: 35px;
@@ -21,7 +21,7 @@ body {
 .logoName {
   color: white;
   margin-left: 15px;
-}
+} */
 .middle {
   display: flex;
   justify-content: space-between;
@@ -42,7 +42,7 @@ body {
   margin-right: 1rem;
 }
 
-.main {
+.mainChoice {
   display: flex;
   flex-direction: row;
   align-items: center;

@@ -1,14 +1,15 @@
 import React from "react";
-import "./page.css";
+import "./Choice.css";
 
-function choice() {
+const Choice=()=> {
   return (
+    <>
     <div className="PageChoice">
-      <div className="navbar">
+      {/* <div className="navbar">
         <div className="logo">
           <div className="loggo"></div>
           <h2 className="logoName">ConnectED</h2>
-        </div>
+        </div> */}
         <div className="middle">
           <h2>Mentors</h2>
           <h2>Alumni</h2>
@@ -17,31 +18,32 @@ function choice() {
         <div className="right">Profile</div>
       </div>
 
-      <div className="main">
+      <div className="mainChoice">
         <div className="Stu-Sec">
           <img
-            src={require("./client/components/img/student.jpg")}
+            src={require("../../imgs/student.jpg")}
             alt="student"
           />
           <h4 className="Student">STUDENT</h4>
         </div>
         <div className="Alumni-Sec">
           <img
-            src={require("./client/components/img/alumni.jpg")}
+            src={require("../../imgs/alumni.jpg")}
             alt="alumni"
           />
           <h4 className="Student">ALUMNI</h4>
         </div>
         <div className="Mentor-Sec">
           <img
-            src={require("./client/components/img/mentor.jpg")}
+            src={require("../../imgs/mentor.jpg")}
             alt="mentor"
           />
           <h4 className="Student">MENTOR</h4>
         </div>
       </div>
-    </div>
+    {/* </div> */}
+    </>
   );
 }
 
-export default choice;
+export default Choice;

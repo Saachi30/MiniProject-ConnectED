@@ -1,6 +1,8 @@
 import logo from './logo.svg';
 import './App.css';
 import LandingPage from './components/LandingPage/LandingPage';
+import Login from './components/LoginPage/Login';
+import Choice from './components/ChoicePage/Choice';
 
 function App() {
   return (
@@ -15,6 +17,8 @@ function App() {
       </div>
 
       <LandingPage/>
+      {/* <Choice/>
+      <Login/> */}
     </div>
 
     

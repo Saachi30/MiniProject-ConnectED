@@ -1,4 +1,4 @@
-.main {
+.mainLanding {
     height: 80vh;
     width: 90vw;
     margin: auto;
@@ -20,7 +20,7 @@
     align-items: center;
     flex-direction: row;
 }
-.left{
+.leftLanding{
     width: 50%;
     height: 90%;
     /* background-color: rgb(224, 217, 15); */
@@ -32,7 +32,7 @@
     padding-right: 1.3rem;
 
 }
-.right{
+.rightLanding{
     width: 40%;
     height: 65%;
     background:url("https://edutechversity.com/wp-content/uploads/2023/12/F3F6F3-14.jpg")
