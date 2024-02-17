@@ -1,0 +1,86 @@
+body {
+  background: linear-gradient(to bottom right, #304674, #98bad5);
+}
+
+.navbar {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.logo {
+  margin-left: 20px;
+  display: flex;
+}
+.loggo {
+  background-image: url("../ConnectED.jpg");
+  background-size: cover;
+  height: 35px;
+  width: 35px;
+  margin-top: 10px;
+}
+.logoName {
+  color: white;
+  margin-left: 15px;
+}
+.middle {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.middle h2 {
+  margin-right: 2rem;
+  color: white;
+  padding-right: 50px;
+}
+
+.navbar h2 {
+  font-weight: 450;
+  font-size: 1.2rem;
+}
+.right {
+  color: white;
+  margin-right: 1rem;
+}
+
+.main {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  margin-top: 20vh;
+}
+
+.Stu-Sec,
+.Alumni-Sec,
+.Mentor-Sec {
+  width: 300px;
+  height: 300px;
+  display: inline-block;
+  margin: 20px;
+  background-color: white;
+  position: relative;
+  border-radius: 10px;
+  overflow: hidden;
+  margin-right: 50px;
+}
+
+.Stu-Sec img,
+.Alumni-Sec img,
+.Mentor-Sec img {
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 50%;
+  max-width: none;
+  max-height: none;
+}
+
+.Student {
+  position: absolute;
+  bottom: 100px;
+  width: 100%;
+  font-weight: 10;
+  padding-left: 10px;
+}
