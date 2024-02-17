@@ -57,3 +57,26 @@
     box-shadow: inset 400px 0 0 0#315a9c;
       
 }
+.Loginbtn {
+    margin-right: 20px;
+    background-color: white;
+    color: rgb(23, 4, 65);
+    border: none;
+    padding: 8px 20px;
+    cursor: pointer;
+    border-radius: 20px;
+    font-weight: 500;
+    font-size: 1rem;
+    position: absolute;
+    top: 30px;
+    right: 30px;
+    text-decoration: none;
+    color: #11113a;
+    
+  }
+  Link{
+    text-decoration: none;
+    
+  }
+
+  

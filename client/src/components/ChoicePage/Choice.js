@@ -1,5 +1,6 @@
 import React from "react";
 import "./Choice.css";
+import { Link } from "react-router-dom";
 
 const Choice=()=> {
   return (
@@ -14,13 +15,14 @@ const Choice=()=> {
       </div>
 
       <div className="mainChoice">
-        <div className="Stu-Sec">
+        <Link to="/register"><div className="Stu-Sec">
           <img
             src="https://img.pikbest.com/png-images/20191103/cartoon-student-study-college-graduation-png-element_2525410.png!sw800"
             alt="student"
           />
           <h4 className="boxtext">STUDENT</h4>
         </div>
+        </Link>
         <div className="Alumni-Sec">
           <img
             src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Education%2C_Studying%2C_University%2C_Alumni_-_icon.png"

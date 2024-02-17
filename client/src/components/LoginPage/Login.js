@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import { Link } from 'react-router-dom';
+import { Link } from 'react-router-dom';
 import './Login.css';
 
 
@@ -67,7 +67,7 @@ const Login = () => {
                 />
               </div>
               <button className="btn1" onClick={handleLogin}>
-                Login
+               <Link to="/student" style={{textDecoration:"none",color:"#ffffff"}}>Login</Link> 
               </button>
               <p>
                 Don't have an account?{' '}
@@ -108,7 +108,7 @@ const Login = () => {
                 />
               </div>
               <button className="btn1" onClick={handleRegister}>
-                Register
+              <Link to="/student" style={{textDecoration:"none",color:"#ffffff"}}>Register</Link>
               </button>
               <p>
                 Already have an account?{' '}

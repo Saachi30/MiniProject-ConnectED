@@ -1,7 +1,11 @@
 body {
-    padding: 2rem;
-    height: 100vh;
+  
+   
     width: 100vw;
+    max-width: 100vw;
+    box-sizing: border-box;
+    overflow-x: hidden;
+    overflow-y: scroll;
   }
   
   .navbar {
@@ -21,7 +25,7 @@ body {
   }
   
   .loggo {
-    background-image: url("../ConnectED.jpg");
+    background-image: url("../../imgs/ConnectED.jpg");
     background-size: cover;
     height: 35px;
     width: 35px;
@@ -59,7 +63,7 @@ body {
     }
   }
   
-  .main {
+  .mainStudent {
     display: flex;
     flex-direction: column;
   }
@@ -79,11 +83,11 @@ body {
     max-width: 100%;
     height: auto;
   }
-  body {
+  /* body {
     padding: 2rem;
     height: 100vh;
     width: 100vw;
-  }
+  } */
   
   .navbar {
     display: flex;
@@ -102,7 +106,7 @@ body {
   }
   
   .loggo {
-    background-image: url("../ConnectED.jpg");
+    background-image: url("../../imgs/ConnectED.jpg");
     background-size: cover;
     height: 35px;
     width: 35px;
@@ -140,7 +144,7 @@ body {
     }
   }
   
-  .main {
+  .mainStudent {
     display: flex;
     flex-direction: column;
     margin-top: 2rem;

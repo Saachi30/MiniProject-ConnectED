@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Login from "./components/LoginPage/Login";
 import Choice from "./components/ChoicePage/Choice";
 import Student from "./components/StudentPage/Student";
+import { BrowserRouter, Route, Routes,Link } from 'react-router-dom';
 
 function App() {
   return (
@@ -14,13 +15,17 @@ function App() {
             <div class="loggo"></div>
             <h2 class="logoName">ConnectED</h2>
           </div>
-          <button class="Login">Login/ Sign up</button>
+          
         </div>
-
-        <LandingPage />
-        <Choice />
-        <Login />
-        <Student />
+        <BrowserRouter>
+          <Routes>
+            <Route path="/" element={<LandingPage />}></Route>
+            <Route path="/choice" element={<Choice />}></Route>
+            <Route path="/register" element={<Login />}></Route>
+            <Route path="/student" element={<Student />}></Route>
+          </Routes>
+        </BrowserRouter>
+        
       </div>
     </div>
   );

@@ -1,7 +1,7 @@
 import React from "react";
-import "./StudentPage.css";
+import "./Student.css";
 
-function StudentPage() {
+const Student=()=> {
   return (
     <div className="studentPage">
       <div className="navbar">
@@ -16,7 +16,7 @@ function StudentPage() {
         <div className="right">My Profile</div>
       </div>
 
-      <div className="main">
+      <div className="mainStudent">
         <div className="main-news">
           <div className="main-news-left">
             <h2>Events</h2>
@@ -54,4 +54,4 @@ function StudentPage() {
   );
 }
 
-export default StudentPage;
+export default Student;
