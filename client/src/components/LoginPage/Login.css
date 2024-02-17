@@ -2,16 +2,20 @@
     display: flex;
     justify-content: center;
     align-items: center;
-    height: 70%;
-    margin-top: 3rem;
+    height: 100%;
+    margin-top: 0.5rem;
+    /* max-height: 100vh; */
+    overflow-y: hidden;
 }
 .loginpg {
     width: 100%;
-    height: 100vh;
+    height: 80vh;
+    max-height: 100vh;
     display: flex;
     justify-content: center;
     flex-direction: column;
     color:white;
+    
     
 }
 
@@ -19,7 +23,7 @@
     display: flex;
     justify-content: center;
     flex-direction: column;
-   
+   margin-top: 50px;
 }
 
 .transparent-input {
@@ -46,6 +50,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+  
+}
+#registerbtn{
+    margin-left: 15%;
 }
 .btn1:hover{
     cursor: pointer;
@@ -65,7 +73,8 @@
 input{
     color: white;
 }
-h4{
-  margin-top: 0px;
+#alttext{
+  margin-top: 20px;
   font-weight: 300;
+  margin-left: 8%;
 }

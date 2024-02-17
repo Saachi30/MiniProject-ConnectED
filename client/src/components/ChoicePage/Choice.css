@@ -86,7 +86,7 @@
 .Stu-Sec:hover,
 .Alumni-Sec:hover,
 .Mentor-Sec:hover{
-    background-color: aliceblue;
+    background-color: rgb(121, 160, 194);
     cursor: pointer;
     transform: scale(1.05); 
 }
@@ -106,10 +106,9 @@
 
 .boxtext {
     position: absolute;
-    margin-top: 30%;
+    margin-top: 10%;
     width: 100%;
     font-weight: 400;
-    padding-left: 10px;
     font-size: 3rem;
     color: #11113a;
     text-shadow: 0 0 5px #98bad5, 0 0 10px #98bad5, 0 0 7px #98bad5; /* Add glowy effect */

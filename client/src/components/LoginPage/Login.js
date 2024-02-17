@@ -66,10 +66,10 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button className="btn1" onClick={handleLogin}>
+              <button className="btn1" id='registerbtn' onClick={handleLogin}>
                <Link to="/student" style={{textDecoration:"none",color:"#ffffff"}}>Login</Link> 
               </button>
-              <p>
+              <p id='alttext'>
                 Don't have an account?{' '}
                 <button className="btn2" onClick={toggleRegister}>
                   Register now
@@ -107,10 +107,10 @@ const Login = () => {
                   onChange={handleChange}
                 />
               </div>
-              <button className="btn1" onClick={handleRegister}>
+              <button className="btn1" id='registerbtn' onClick={handleRegister}>
               <Link to="/student" style={{textDecoration:"none",color:"#ffffff"}}>Register</Link>
               </button>
-              <p>
+              <p id='alttext'>
                 Already have an account?{' '}
                 <button className="btn2" onClick={toggleLogin}>
                   Log in now
