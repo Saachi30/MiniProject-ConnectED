@@ -3,7 +3,7 @@ import "./App.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Login from "./components/LoginPage/Login";
 import Choice from "./components/ChoicePage/Choice";
-import StudentPage from "./components/StudentPage/StudentPage";
+import Student from "./components/StudentPage/Student";
 
 function App() {
   return (
@@ -20,7 +20,7 @@ function App() {
         <LandingPage />
         <Choice />
         <Login />
-        <StudentPage />
+        <Student />
       </div>
     </div>
   );
