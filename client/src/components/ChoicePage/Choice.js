@@ -10,35 +10,30 @@ const Choice=()=> {
           <div className="loggo"></div>
           <h2 className="logoName">ConnectED</h2>
         </div> */}
-        <div className="middle">
-          <h2>Mentors</h2>
-          <h2>Alumni</h2>
-          <h2>About</h2>
-        </div>
-        <div className="right">Profile</div>
+        
       </div>
 
       <div className="mainChoice">
         <div className="Stu-Sec">
           <img
-            src={require("../../imgs/student.jpg")}
+            src="https://img.pikbest.com/png-images/20191103/cartoon-student-study-college-graduation-png-element_2525410.png!sw800"
             alt="student"
           />
-          <h4 className="Student">STUDENT</h4>
+          <h4 className="boxtext">STUDENT</h4>
         </div>
         <div className="Alumni-Sec">
           <img
-            src={require("../../imgs/alumni.jpg")}
+            src="https://upload.wikimedia.org/wikipedia/commons/e/e8/Education%2C_Studying%2C_University%2C_Alumni_-_icon.png"
             alt="alumni"
           />
-          <h4 className="Student">ALUMNI</h4>
+          <h4 className="boxtext">ALUMNI</h4>
         </div>
         <div className="Mentor-Sec">
           <img
-            src={require("../../imgs/mentor.jpg")}
+            src={require("../../imgs/mentor.png")}
             alt="mentor"
           />
-          <h4 className="Student">MENTOR</h4>
+          <h4 className="boxtext">MENTOR</h4>
         </div>
       </div>
     {/* </div> */}
