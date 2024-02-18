@@ -1,0 +1,154 @@
+/* Profile.module.css */
+
+.ProfilePage {
+  margin: 0px;
+}
+
+.HeadSec {
+  height: 200px;
+  width: 100%;
+  background: linear-gradient(to bottom right, #304674, #98bad5);
+  align-items: center;
+  position: relative;
+}
+
+.LogOut {
+  position: absolute;
+  top: 50%;
+  transform: translateY(-100%);
+  right: 40px;
+  height: 40px;
+  line-height: 40px;
+  padding: 0 10px;
+  background-color: #c60000;
+  color: #fff;
+  cursor: pointer;
+  border-radius: 1.5rem;
+}
+
+.ContentSec {
+  background-color: #304674;
+  display: flex;
+  flex-direction: column;
+}
+
+.ContentSec1 {
+  display: flex;
+  flex-direction: row;
+  margin-bottom: 20px;
+}
+
+.ProfileName {
+  display: flex;
+  flex-direction: row;
+  position: relative;
+  bottom: 6rem;
+  margin-left: 6rem;
+}
+
+.ProfileName img {
+  height: 130%;
+}
+
+.Name {
+  color: white;
+  font-size: 1.5rem;
+  position: relative;
+  top: 6rem;
+  margin-left: 1rem;
+  white-space: nowrap;
+}
+
+.ConnectionsCount {
+  display: flex;
+  position: absolute;
+  right: 60px;
+  margin-top: 20px;
+}
+
+.ConnectionsCount img {
+  height: 80px;
+}
+
+.MentorCount {
+  margin-left: 40px;
+  color: white;
+}
+
+.AlumniCount {
+  margin-right: 40px;
+  color: white;
+}
+
+.ContentSec2 {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+}
+
+.PersonalDetails {
+  height: 400px;
+  width: 35%;
+  background-color: white;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  margin-bottom: 5%;
+  border-radius: 1rem;
+}
+
+.Details {
+  display: flex;
+  align-items: center;
+  margin-bottom: 20px;
+  margin-left: 20px;
+  padding: 10px 0px;
+}
+
+.Details i {
+  margin: 0px 20px;
+  font-size: 3rem;
+}
+
+.Details h3 {
+  margin-left: 10px;
+  font-size: 1.5rem;
+}
+
+.CurrentSkills {
+  height: 400px;
+  width: 43%;
+  margin-bottom: 5%;
+}
+
+.Education {
+  height: 400px;
+  width: 45%;
+  background-color: white;
+  margin-bottom: 5%;
+  border-radius: 1rem;
+}
+
+.EduDetails {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Education h1 {
+  padding: 20px 0px 30px 40px;
+}
+
+.Hobbies {
+  height: 400px;
+  width: 40%;
+  margin-bottom: 5%;
+}
+
+.ObjectSizing img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  border-radius: 1rem;
+}
