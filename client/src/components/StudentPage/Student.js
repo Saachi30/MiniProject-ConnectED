@@ -1,5 +1,6 @@
 import React from "react";
 import "./Student.css";
+import { Link } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Student = () => {
   return (
@@ -13,12 +14,15 @@ const Student = () => {
           <h3>Mentors</h3>
           <h3>Alumni</h3>
         </div>
-        <div className="right">
-          <AccountCircleIcon
-            style={{ width: "30px", height: "30px", marginRight: "10px" }}
-          />
-          My Profile
-        </div>
+
+        <Link to="/profile">
+          <div className="right">
+            <AccountCircleIcon
+              style={{ width: "30px", height: "30px", marginRight: "10px" }}
+            />
+            My Profile
+          </div>
+        </Link>
       </div>
 
       <div className="mainStudent">

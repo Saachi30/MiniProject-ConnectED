@@ -1,11 +1,9 @@
-// Profile.js
 
-import React from "react";
-import "./Profile.css";
-import styles from "./Profile.module.css";
-import profileImage from "./img/profile.png";
-import skillsImage from "./img/Skills.png";
-import hobbiesImage from "./img/Hobbies.png";
+import React from "react"; 
+import styles from "./Profile.css";
+import profileImage from "../../imgs/profile.png";
+import skillsImage from "../../imgs/Skills.png";
+import hobbiesImage from "../../imgs/Hobbies.png";
 
 const Profile = () => {
   return (

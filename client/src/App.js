@@ -4,6 +4,7 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import Login from "./components/LoginPage/Login";
 import Choice from "./components/ChoicePage/Choice";
 import Student from "./components/StudentPage/Student";
+import Profile from "./components/ProfilePage/Profile";
 import { BrowserRouter, Route, Routes,Link } from 'react-router-dom';
 
 function App() {
@@ -23,6 +24,7 @@ function App() {
             <Route path="/choice" element={<Choice />}></Route>
             <Route path="/register" element={<Login />}></Route>
             <Route path="/student" element={<Student />}></Route>
+            <Route path="/profile" element={<Profile />}></Route>
           </Routes>
         </BrowserRouter>
         
