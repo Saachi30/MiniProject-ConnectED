@@ -1,0 +1,48 @@
+.elementouter{
+    display: flex;
+    width: 40vw;
+    height: auto;
+    /* justify-content: center; */
+    align-items: center;
+    border: 1px solid #304674;
+    margin: 5px 10px;
+    border-radius: 1.5rem;
+    transition: transform 0.3s ease-in-out;
+    background-color: white;
+}
+
+.details{
+    color: #304674;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /* align-items: center; */
+   
+}
+.details h3{
+    margin-left: 20px;
+}
+.profilepic{
+    margin: 20px 20px;
+}
+.profilepic img{
+    margin-right: 10px;
+     border-radius:5rem;
+      margin-left:5px;
+    background-size: cover;
+}
+.moredetails{
+    display: flex;
+
+    
+}
+.moredetails1, .moredetails2{
+    margin: 10px 20px;
+    
+}
+.elementouter:hover{
+    /* background-color: #304674;
+    color: white !important; */
+    cursor: pointer;
+    transform: scale(1.02); 
+}

@@ -11,8 +11,8 @@ const Student = () => {
           {/* <h2 className="logoName">ConnectED</h2> */}
         </div>
         <div className="middle">
-          <h3>Mentors</h3>
-          <h3>Alumni</h3>
+          <Link to='/list'><h3>Mentors</h3></Link>
+          <Link to='/list'><h3>Alumni</h3></Link>
         </div>
 
         <Link to="/profile">

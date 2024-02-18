@@ -1,0 +1,51 @@
+.outerListBox{
+    width: 43vw;
+    height: 85vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+
+    align-items: center;
+    
+}
+
+.list{
+    display: flex;
+    flex-direction: column;
+    width: 41vw;
+    height: inherit;
+    background-color: rgb(153, 197, 236);
+    border-radius: 1.6rem;
+}
+/* Search container */
+.search-container {
+    position: relative;
+  }
+  
+  /* Search input */
+  .search-input {
+    width: 400px;
+    padding: 5px 10px;
+    border: 1px solid #ccc;
+    border-radius: 2rem;
+    font-size: 16px;
+    outline: none;
+    margin-bottom: 20px;
+    color: black;
+  }
+  
+  /* Search icon */
+  .search-icon {
+    width: 30px;
+    height: 30px;
+    cursor: pointer;
+    margin-bottom: 1rem;
+    margin-left: 0.3rem;
+    color: white;
+  }
+.searchbar{
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+}
