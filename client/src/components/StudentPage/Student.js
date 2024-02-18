@@ -1,19 +1,19 @@
 import React from "react";
 import "./Student.css";
-
+import AccountCircleIcon from '@mui/icons-material/AccountCircle';
 const Student=()=> {
   return (
     <div className="studentPage">
       <div className="navbar">
         <div className="logo">
           <div className="loggo"></div>
-          <h2 className="logoName">ConnectED</h2>
+          {/* <h2 className="logoName">ConnectED</h2> */}
         </div>
         <div className="middle">
-          <h2>Mentors</h2>
-          <h2>Alumni</h2>
+          <h3>Mentors</h3>
+          <h3>Alumni</h3>
         </div>
-        <div className="right">My Profile</div>
+        <div className="right"><AccountCircleIcon style={{width:"30px",height:"30px",marginRight:"10px"}}/>My Profile</div>
       </div>
 
       <div className="mainStudent">
@@ -46,10 +46,11 @@ const Student=()=> {
             <h4>Read More&gt;</h4>
           </div>
         </div>
-      </div>
-      <div className="main-test">
+        <div className="main-test">
         <h2>Tests Attempted</h2>
       </div>
+      </div>
+      
     </div>
   );
 }
