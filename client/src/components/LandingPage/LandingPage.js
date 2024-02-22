@@ -9,14 +9,14 @@ const LandingPage = () => {
   useEffect(() => {
     const options = {
       stringsElement: "#typed-strings",
-      typeSpeed: 50, // typing speed in milliseconds
-      loop: true, // loop the animation
+      typeSpeed: 150,
+      loop: true,
     };
 
     const typed = new Typed(typedTextRef.current, options);
 
     return () => {
-      typed.destroy(); // cleanup
+      typed.destroy();
     };
   }, []);
 
@@ -31,7 +31,7 @@ const LandingPage = () => {
         <div className="leftLanding">
           <h1 ref={typedTextRef}></h1>
           <div id="typed-strings" style={{ display: "none" }}>
-            <span>Flexible Connections for your Educational journey</span>
+            <span>Flexible Connections</span>
             <span>Machine Learning</span>
           </div>
 
