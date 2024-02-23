@@ -1,79 +1,95 @@
-.outerlogin{
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100%;
-    margin-top: 0.5rem;
-    /* max-height: 100vh; */
-    overflow-y: hidden;
+.outerlogin {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+  margin-top: 0.5rem;
+  /* max-height: 100vh; */
+  overflow-y: hidden;
+}
+
+.loginn {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  align-items: center;
 }
 .loginpg {
-    width: 100%;
-    height: 80vh;
-    max-height: 100vh;
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-    color:white;
-    
-    
+  width: 100%;
+  height: 80vh;
+  max-height: 100vh;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  color: white;
+  align-items: center;
+}
+
+.loginPgImg {
+  width: 100%;
+  height: 100vh;
+  max-height: 100vh;
+}
+
+.loginPgImg img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
 }
 
 .formreg {
-    display: flex;
-    justify-content: center;
-    flex-direction: column;
-   margin-top: 50px;
+  display: flex;
+  justify-content: center;
+  flex-direction: column;
+  margin-top: 50px;
 }
 
 .transparent-input {
-    background-color: transparent;
-    border: none;
-    border: 1px solid #ccc; 
-    padding: 5px;
-    color: white;
-    margin-bottom: 10px; 
-    outline: none; 
-    border-radius: 10px;
+  background-color: transparent;
+  border: none;
+  border: 1px solid #ccc;
+  padding: 5px;
+  color: white;
+  margin-bottom: 10px;
+  outline: none;
+  border-radius: 10px;
 }
 
 .btn1 {
-    width: 14rem;
-    height: 3rem;
-    background-color: #304674;
-    color: #ffffff;
-    border-radius: 20px;
-    font-size: 1rem;
-    margin-top: 40px;
-    border: 0px;
-    padding: 2px 10px;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-  
+  width: 14rem;
+  height: 3rem;
+  background-color: #304674;
+  color: #ffffff;
+  border-radius: 20px;
+  font-size: 1rem;
+  margin-top: 40px;
+  border: 0px;
+  padding: 2px 10px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
 }
-#registerbtn{
-    margin-left: 15%;
+#registerbtn {
+  margin-left: 15%;
 }
-.btn1:hover{
-    cursor: pointer;
-    box-shadow: inset 400px 0 0 0#315a9c;
-      
+.btn1:hover {
+  cursor: pointer;
+  box-shadow: inset 400px 0 0 0#315a9c;
 }
 .btn2 {
-    text-decoration: underline;
-    background: none;
-    border: 0px;
-    font-size: 0.9rem;
+  text-decoration: underline;
+  background: none;
+  border: 0px;
+  font-size: 0.9rem;
 }
 
 .btn2:hover {
-    cursor: pointer;
+  cursor: pointer;
 }
-input{
-    color: white;
+input {
+  color: white;
 }
-#alttext{
+#alttext {
   margin-top: 20px;
   font-weight: 300;
   margin-left: 8%;
