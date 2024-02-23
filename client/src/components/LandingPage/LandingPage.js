@@ -23,7 +23,7 @@ const LandingPage = () => {
   return (
     <div className="mainLanding">
       <button className="Loginbtn">
-        <Link to="/choice" style={{ textDecoration: "none", color: "#11113a" }}>
+        <Link to="/login" style={{ textDecoration: "none", color: "#11113a" }}>
           Login/Sign up
         </Link>
       </button>

@@ -57,6 +57,8 @@
   margin-bottom: 10px;
   outline: none;
   border-radius: 10px;
+  padding: 5px 10px;
+  font-size: 1rem;
 }
 
 .btn1 {
@@ -73,9 +75,7 @@
   justify-content: center;
   align-items: center;
 }
-#registerbtn {
-  margin-left: 15%;
-}
+
 .btn1:hover {
   cursor: pointer;
   box-shadow: inset 400px 0 0 0#315a9c;
@@ -92,9 +92,10 @@
 }
 input {
   color: white;
+  width: 20rem;
 }
 #alttext {
   margin-top: 20px;
   font-weight: 300;
-  margin-left: 8%;
+
 }

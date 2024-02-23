@@ -7,6 +7,7 @@ import Student from "./components/StudentPage/Student";
 import Profile from "./components/ProfilePage/Profile";
 import { BrowserRouter, Route, Routes,Link } from 'react-router-dom';
 import ListPage from "./components/ListPage/ListPage";
+import Register from "./components/LoginPage/Register";
 
 function App() {
   return (
@@ -23,7 +24,8 @@ function App() {
           <Routes>
             <Route path="/" element={<LandingPage />}></Route>
             <Route path="/choice" element={<Choice />}></Route>
-            <Route path="/register" element={<Login />}></Route>
+            <Route path="/login" element={<Login />}></Route>
+            <Route path="/register" element={<Register />}></Route>
             <Route path="/student" element={<Student />}></Route>
             <Route path="/profile" element={<Profile />}></Route>
             <Route path="/list" element={<ListPage/>}></Route>
