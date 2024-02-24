@@ -1,15 +1,24 @@
-// Register.js
 import React, { useState } from "react";
-import { Link, useNavigate } from "react-router-dom";
+import { Link, useParams, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { authenticateSignup } from "../../services/api.js";
 
-const Register = ({ onToggleLogin, onRegister }) => {
-    const navigate=useNavigate();
+const Register = (props) => {
+  const type=props.type; // Access the type parameter
+  const navigate = useNavigate();
+  console.log(type);
+
   const [formData, setFormData] = useState({
     name: "",
     email: "",
+    phoneNumber: "", 
+    preferredDomain: "" ,
     password: "",
+    confirmPassword: "",
+    
+    // Additional fields for alumni and mentors
+    ...(type === "alumni" && { currentJobTitle: "" , company:""}),
+    ...(type === "mentor" && { yearOfStudy: ""})
   });
 
   const handleChange = (event) => {
@@ -18,20 +27,19 @@ const Register = ({ onToggleLogin, onRegister }) => {
 
   const handleRegister = async () => {
     try {
-      const response = await authenticateSignup(formData);
-      if (response.status === 200) {
-        // Registration successful, navigate to the student page or login page
+      const response = await authenticateSignup(type, formData); // Pass type parameter
+      navigate(`/student`);
+      if (response.status===200) {
         console.log("Registration successful");
-        // Navigate user to the student page or login page using React Router
-        navigate("/student");
+        
       } else {
-        // Handle other responses like existing email, server errors, etc.
         console.error("Registration failed:", response.data.message);
       }
     } catch (error) {
       console.error("Registration failed:", error.message);
     }
   };
+
   return (
     <div className="loginpg">
       <h1>Create an account</h1>
@@ -45,6 +53,14 @@ const Register = ({ onToggleLogin, onRegister }) => {
           name="name"
           onChange={handleChange}
         />
+        <label htmlFor="phoneNumber">Phone Number</label> {/* Add phone number field */}
+        <input
+          type="tel"
+          id="phoneNumber"
+          className="form-control transparent-input"
+          name="phoneNumber"
+          onChange={handleChange}
+        />
         <label htmlFor="email">Email</label>
         <input
           type="email"
@@ -53,6 +69,22 @@ const Register = ({ onToggleLogin, onRegister }) => {
           name="email"
           onChange={handleChange}
         />
+        <label htmlFor="preferredDomain">Preferred Domain</label>
+            <select
+              id="preferredDomain"
+              className="form-control transparent-input"
+              name="preferredDomain"
+              onChange={handleChange}
+            >
+              <option value="">Select Preferred Domain</option>
+              <option value="web dev">Web Development</option>
+              <option value="dsa">DSA</option>
+              <option value="ml">Machine Learning</option>
+              <option value="cloud computing">Cloud Computing</option>
+              <option value="blockchain">Blockchain</option>
+              <option value="finance">Finance</option>
+              <option value="ui/ux">UI/UX</option>
+            </select>
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -61,19 +93,61 @@ const Register = ({ onToggleLogin, onRegister }) => {
           name="password"
           onChange={handleChange}
         />
+        <label htmlFor="confirmPassword">Confirm Password</label>
+        <input
+          type="password"
+          id="confirmPassword"
+          className="form-control transparent-input"
+          name="confirmPassword"
+          onChange={handleChange}
+        />
+        
+        {/* Additional fields for alumni */}
+        {type === "alumni" && (
+          <>
+            <label htmlFor="currentJobTitle">Current Job Title</label>
+            <input
+              type="text"
+              id="currentJobTitle"
+              className="form-control transparent-input"
+              name="currentJobTitle"
+              onChange={handleChange}
+            />
+            <label htmlFor="company">Company</label> {/* Add company field */}
+            <input
+              type="text"
+              id="company"
+              className="form-control transparent-input"
+              name="company"
+              onChange={handleChange}
+            />
+          </>
+        )}
+        {/* Additional fields for mentors */}
+        {type === "mentor" && (
+          <>
+            <label htmlFor="yearOfStudy">Year of Study</label>
+            <select
+              id="yearOfStudy"
+              className="form-control transparent-input"
+              name="yearOfStudy"
+              onChange={handleChange}
+            >
+              <option value="">Select Year of Study</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
+            
+          </>
+        )}
       </div>
       <button className="btn1" id="registerbtn" onClick={handleRegister}>
-        <Link to="/student" style={{ textDecoration: "none", color: "#ffffff" }}>
-          Register
-        </Link>
+        Register
       </button>
       <p id="alttext">
         Already have an account?{" "}
-        <Link to='/login'>
-        <button className="btn2" onClick={onToggleLogin}>
-          Log in now
-          
-        </button>
+        <Link to="/login">
+          <button className="btn2">Log in now</button>
         </Link>
       </p>
     </div>

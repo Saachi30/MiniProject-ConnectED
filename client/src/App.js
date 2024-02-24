@@ -12,7 +12,7 @@ import Register from "./components/LoginPage/Register";
 function App() {
   return (
     <div className="App">
-      <div class="landingPage">
+      <div>
         <div class="nav">
           <div class="logo">
             <div class="loggo"></div>
@@ -21,16 +21,21 @@ function App() {
           
         </div>
         <BrowserRouter>
-          <Routes>
-            <Route path="/" element={<LandingPage />}></Route>
-            <Route path="/choice" element={<Choice />}></Route>
-            <Route path="/login" element={<Login />}></Route>
-            <Route path="/register" element={<Register />}></Route>
-            <Route path="/student" element={<Student />}></Route>
-            <Route path="/profile" element={<Profile />}></Route>
-            <Route path="/list" element={<ListPage/>}></Route>
-          </Routes>
-        </BrowserRouter>
+        <Routes>
+          <Route path="/" element={<LandingPage />} />
+          <Route path="/choice" element={<Choice />} />
+          <Route path="/login" element={<Login/>}/>
+          {/* Route for student registration */}
+          <Route path="/register/student" element={<Register type="student" />} />
+          {/* Routes for alumni and mentor registration */}
+          <Route path="/register/alumni" element={<Register type="alumni" />} />
+          <Route path="/register/mentor" element={<Register type="mentor" />} />
+          <Route path="/student" element={<Student/>}/>
+          <Route path="/profile" element={<Profile/>}/>
+          <Route path="/list" element={<ListPage/>}/>
+          <Route path="/list" element={<ListPage/>}/>
+        </Routes>
+      </BrowserRouter>
         
       </div>
     </div>

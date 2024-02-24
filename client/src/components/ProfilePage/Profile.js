@@ -12,12 +12,21 @@ import RoomIcon from '@mui/icons-material/Room';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ApartmentIcon from '@mui/icons-material/Apartment';
+import { logoutuser } from "../../services/api";
+import { useNavigate } from "react-router-dom";
 
 const Profile = () => {
+  const navigate=useNavigate();
+  const handleLogout=async()=>{
+    const res=await logoutuser();
+    if(res){
+      navigate('/')
+    }
+  }
   return (
     <div className="ProfilePage">
       <div className="HeadSec">
-        <p className="LogOut">LogOut</p>
+        <p className="LogOut" onClick={handleLogout}>LogOut</p>
       </div>
       <div className="ContentSec">
         <div className="ContentSec1">

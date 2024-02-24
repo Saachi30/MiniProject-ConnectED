@@ -1,22 +1,28 @@
 import axios from 'axios';
 
-const url="http://localhost:8000";
+const baseUrl = "http://localhost:8000";
 
-export const authenticateSignup=async (data)=>{
-    try{
-       return await axios.post(`${url}/register`, data);
+export const authenticateSignup = async (type, data) => {
+    try {
+        return await axios.post(`${baseUrl}/register/${type}`, data);
+    } catch (error) {
+        console.error(error);
     }
-    catch(error){
-        console.log(error);
-    }
-}
-export const authenticateLogin=async (data)=>{
-    try{
-       return await axios.post(`${url}/login`, data);
-    }
-    catch(error){
-        console.log(error);
+};
+
+export const authenticateLogin = async (data) => {
+    try {
+        return await axios.post(`${baseUrl}/login`, data);
+    } catch (error) {
+        console.error(error);
         return error.response;
     }
-}
+};
 
+export const logoutuser = async () => {
+    try {
+        await axios.get(`${baseUrl}/logout`);
+    } catch (error) {
+        console.error(error);
+    }
+};
