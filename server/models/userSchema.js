@@ -36,11 +36,7 @@ const studentSchema = new mongoose.Schema({
   },
   yearOfStudy: {
     type: Number,
-    required: true
-  },
-  preferredDomain: {
-    type: String,
-    enum: ['web dev', 'dsa', 'ml', 'cloud computing', 'blockchain', 'finance', 'ui/ux'],
+    enum:[1,2,3,4],
     required: true
   }
 });
@@ -123,15 +119,32 @@ const mentorSchema = new mongoose.Schema({
     required: true,
     enum: [3, 4]
   },
-  preferredDomain: {
-    type: String,
-    enum: ['web dev', 'dsa', 'ml', 'cloud computing', 'blockchain', 'finance', 'ui/ux'],
-    required: true
-  }
 });
+const usersSchema = new mongoose.Schema({
+    email: {
+      type: String,
+      required: true,
+      unique: true
+    },
+    password: {
+      type: String,
+      required: true
+    },
+    userType: {
+      type: String,
+      enum: ['student', 'alumni', 'mentor'],
+      required: true
+    },
+    activity:{
+      type:Boolean,
+      default:false,
 
+    }
+  });
+  
+const User = mongoose.model("User", usersSchema);
 const Student = mongoose.model("Student", studentSchema);
 const Alumni = mongoose.model("Alumni", alumniSchema);
 const Mentor = mongoose.model("Mentor", mentorSchema);
 
-export { Student, Alumni, Mentor };
+export { Student, Alumni, Mentor, User };

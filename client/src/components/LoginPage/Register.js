@@ -1,24 +1,24 @@
 import React, { useState } from "react";
-import { Link, useParams, useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { authenticateSignup } from "../../services/api.js";
 
 const Register = (props) => {
-  const type=props.type; // Access the type parameter
+  const type = props.type; // Access the type parameter
   const navigate = useNavigate();
   console.log(type);
 
   const [formData, setFormData] = useState({
     name: "",
     email: "",
-    phoneNumber: "", 
-    preferredDomain: "" ,
+    phoneNumber: "",
+    preferredDomain: "",
     password: "",
     confirmPassword: "",
-    
     // Additional fields for alumni and mentors
-    ...(type === "alumni" && { currentJobTitle: "" , company:""}),
-    ...(type === "mentor" && { yearOfStudy: ""})
+    ...(type === "alumni" && { currentJobTitle: "", company: "" }),
+    ...(type === "mentor" && { yearOfStudy: ""}),
+    ...(type === "student" && { yearOfStudy: ""}),
   });
 
   const handleChange = (event) => {
@@ -27,11 +27,16 @@ const Register = (props) => {
 
   const handleRegister = async () => {
     try {
+      console.log(type);
+      console.log(formData)
       const response = await authenticateSignup(type, formData); // Pass type parameter
-      navigate(`/student`);
-      if (response.status===200) {
+     // console.log(response.status);
+      if (response.status === 200) {
+        console.log(formData)
+        console.log(formData.email)
+        props.setEmail(formData.email); // Set email after successful registration
+        navigate(`/student`);
         console.log("Registration successful");
-        
       } else {
         console.error("Registration failed:", response.data.message);
       }
@@ -39,6 +44,7 @@ const Register = (props) => {
       console.error("Registration failed:", error.message);
     }
   };
+  
 
   return (
     <div className="loginpg">
@@ -53,7 +59,7 @@ const Register = (props) => {
           name="name"
           onChange={handleChange}
         />
-        <label htmlFor="phoneNumber">Phone Number</label> {/* Add phone number field */}
+        <label htmlFor="phoneNumber">Phone Number</label>
         <input
           type="tel"
           id="phoneNumber"
@@ -70,21 +76,21 @@ const Register = (props) => {
           onChange={handleChange}
         />
         <label htmlFor="preferredDomain">Preferred Domain</label>
-            <select
-              id="preferredDomain"
-              className="form-control transparent-input"
-              name="preferredDomain"
-              onChange={handleChange}
-            >
-              <option value="">Select Preferred Domain</option>
-              <option value="web dev">Web Development</option>
-              <option value="dsa">DSA</option>
-              <option value="ml">Machine Learning</option>
-              <option value="cloud computing">Cloud Computing</option>
-              <option value="blockchain">Blockchain</option>
-              <option value="finance">Finance</option>
-              <option value="ui/ux">UI/UX</option>
-            </select>
+        <select
+          id="preferredDomain"
+          className="form-control transparent-input"
+          name="preferredDomain"
+          onChange={handleChange}
+        >
+          <option value="">Select Preferred Domain</option>
+          <option value="web dev">Web Development</option>
+          <option value="dsa">DSA</option>
+          <option value="ml">Machine Learning</option>
+          <option value="cloud computing">Cloud Computing</option>
+          <option value="blockchain">Blockchain</option>
+          <option value="finance">Finance</option>
+          <option value="ui/ux">UI/UX</option>
+        </select>
         <label htmlFor="password">Password</label>
         <input
           type="password"
@@ -101,7 +107,7 @@ const Register = (props) => {
           name="confirmPassword"
           onChange={handleChange}
         />
-        
+
         {/* Additional fields for alumni */}
         {type === "alumni" && (
           <>
@@ -113,7 +119,7 @@ const Register = (props) => {
               name="currentJobTitle"
               onChange={handleChange}
             />
-            <label htmlFor="company">Company</label> {/* Add company field */}
+            <label htmlFor="company">Company</label>
             <input
               type="text"
               id="company"
@@ -123,6 +129,7 @@ const Register = (props) => {
             />
           </>
         )}
+
         {/* Additional fields for mentors */}
         {type === "mentor" && (
           <>
@@ -138,6 +145,25 @@ const Register = (props) => {
               <option value="4">4th Year</option>
             </select>
             
+          </>
+        )}
+
+        {/* Additional fields for students */}
+        {type === "student" && (
+          <>
+            <label htmlFor="yearOfStudy">Year of Study</label>
+            <select
+              id="yearOfStudy"
+              className="form-control transparent-input"
+              name="yearOfStudy"
+              onChange={handleChange}
+            >
+              <option value="">Select Year of Study</option>
+              <option value="1">1st Year</option>
+              <option value="2">2nd Year</option>
+              <option value="3">3rd Year</option>
+              <option value="4">4th Year</option>
+            </select>
           </>
         )}
       </div>

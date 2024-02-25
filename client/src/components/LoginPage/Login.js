@@ -4,7 +4,7 @@ import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
 import { authenticateLogin } from "../../services/api.js";
 
-const Login = ({ onToggleRegister, onLogin }) => {
+const Login = (props) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -17,15 +17,14 @@ const Login = ({ onToggleRegister, onLogin }) => {
 
   const handleLogin = async () => {
     try {
+      props.setEmail(formData.email)
       const response = await authenticateLogin(formData);
       if (response.status === 200) {
         // Login successful, navigate to the student page
         console.log("Login successful");
-        
         // Navigate user to the student page using React Router
         navigate("/student")
-
-      } else {
+      } else if (response.status === 400) {
         // Handle other responses like incorrect credentials, etc.
         console.error("Login failed:", response.data.message);
       }
@@ -33,6 +32,7 @@ const Login = ({ onToggleRegister, onLogin }) => {
       console.error("Login failed:", error.message);
     }
   };
+  
 
   return (
     <div className="loginpg">
@@ -62,14 +62,12 @@ const Login = ({ onToggleRegister, onLogin }) => {
         />
       </div>
       <button className="btn1" id="registerbtn" onClick={handleLogin}>
-        <Link to="/student" style={{ textDecoration: "none", color: "#ffffff" }}>
-          Login
-        </Link>
+          Login 
       </button>
       <p id="alttext">
         Don't have an account?{" "}
         <Link to='/choice'>
-        <button className="btn2" onClick={onToggleRegister}>
+        <button className="btn2" >
           Register now
         </button>
         </Link>

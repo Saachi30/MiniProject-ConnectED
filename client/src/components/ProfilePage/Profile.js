@@ -1,5 +1,5 @@
 
-import React from "react"; 
+import React, { useEffect } from "react"; 
 import "./Profile.css";
 import profileImage from "../../imgs/profile.png";
 import skillsImage from "../../imgs/Skills.png";
@@ -12,16 +12,19 @@ import RoomIcon from '@mui/icons-material/Room';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import { logoutuser } from "../../services/api";
+import {  logoutuser } from "../../services/api";
 import { useNavigate } from "react-router-dom";
 
-const Profile = () => {
+const Profile = (props) => {
   const navigate=useNavigate();
+  // const data=props.data;
+  // console.log(data);
   const handleLogout=async()=>{
-    const res=await logoutuser();
-    if(res){
+    console.log(props.email)
+    const res=await logoutuser(props.email);
+  
       navigate('/')
-    }
+    
   }
   return (
     <div className="ProfilePage">
@@ -34,7 +37,7 @@ const Profile = () => {
             <AccountCircleIcon style={{height:"70px",width:"70px"}}/>
             <div className="Name">
               <h2>Saachi Peswani</h2>
-              <h4>UI/UX Designer</h4>
+              <h4>Web Development</h4>
             </div>
           </div>
           <div className="ConnectionsCount">
@@ -52,11 +55,11 @@ const Profile = () => {
           <div className="PersonalDetails">
             <div className="phone Details">
               <LocalPhoneIcon/>
-              <h3>1234567890</h3>
+              <h3>9876523456</h3>
             </div>
             <div className="mail Details">
               <EmailIcon/>
-              <h3>abc123@gmail.com</h3>
+              <h3>peswanisaachi@gmail.com</h3>
             </div>
             <div className="birth Details">
               <CakeIcon/>

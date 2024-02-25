@@ -4,7 +4,8 @@ import bodyParser from 'body-parser';
 import dotenv from 'dotenv';
 import mongoose from 'mongoose';
 import router from './routes/route.js';
-import session from 'express-session';
+
+//import session from 'express-session';
 
 dotenv.config();
 
@@ -13,14 +14,14 @@ app.use(cors());
 app.use(bodyParser.json());
 app.use('/', router);
 
-app.use(session({
-    secret: 'your_secret_key', 
-    resave: false,
-    saveUninitialized: true,
-    cookie: {
-      maxAge: 24 * 60 * 60 * 1000 
-    }
-  }));
+// app.use(session({
+//     secret: process.env.SESSION_SECRET, 
+//     resave: false,
+//     saveUninitialized: true,
+//     cookie: {
+//       maxAge: 24 * 60 * 60 * 1000 
+//     }
+//   }));
 
 const port = 8000;
 

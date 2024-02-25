@@ -1,8 +1,19 @@
 import React from "react";
 import "./Student.css";
-import { Link } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-const Student = () => {
+import { getData } from "../../services/api";
+const Student = (props) => {
+  const email=props.email
+  console.log(email)
+  const navigate=useNavigate();
+  const handleProfile=async()=>{
+    
+    // const data=await getData(email);
+    // console.log(data)
+    // props.setData(data);
+    navigate('/profile')
+  }
   return (
     <div className="studentPage">
       <div className="navbar">
@@ -15,14 +26,14 @@ const Student = () => {
           <Link to='/list'><h3>Alumni</h3></Link>
         </div>
 
-        <Link to="/profile">
-          <div className="right">
+       
+          <div className="right" onClick={handleProfile}>
             <AccountCircleIcon
               style={{ width: "30px", height: "30px", marginRight: "10px" }}
             />
             My Profile
           </div>
-        </Link>
+     
       </div>
 
       <div className="mainStudent">
