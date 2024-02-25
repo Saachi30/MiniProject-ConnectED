@@ -68,7 +68,7 @@
   align-items: center;
   text-align: center;
   border: 1px solid #11113a;
-  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4); 
+  box-shadow: 0 0 10px rgba(0, 0, 0, 0.4);
   transition: transform 0.3s ease-in-out;
 }
 
@@ -81,14 +81,14 @@
   left: 0;
   width: 100%;
   height: 100%;
-  background-color: rgba(3, 42, 109, 0.2); 
+  background-color: rgba(3, 42, 109, 0.2);
 }
 .Stu-Sec:hover,
 .Alumni-Sec:hover,
-.Mentor-Sec:hover{
-    background-color: rgb(121, 160, 194);
-    cursor: pointer;
-    transform: scale(1.05); 
+.Mentor-Sec:hover {
+  background-color: rgb(121, 160, 194);
+  cursor: pointer;
+  transform: scale(1.05);
 }
 .Stu-Sec img,
 .Alumni-Sec img,
@@ -105,18 +105,51 @@
 }
 
 .boxtext {
-    position: absolute;
-    margin-top: 10%;
-    width: 100%;
-    font-weight: 400;
-    font-size: 3rem;
-    color: #11113a;
-    text-shadow: 0 0 5px #91afc8, 0 0 10px #98bad5, 0 0 7px #98bad5; /* Add glowy effect */
+  position: absolute;
+  margin-top: 10%;
+  width: 100%;
+  font-weight: 400;
+  font-size: 3rem;
+  color: #11113a;
+  text-shadow: 0 0 5px #91afc8, 0 0 10px #98bad5, 0 0 7px #98bad5; /* Add glowy effect */
+}
+
+@media (min-width: 320px) and (max-width: 850px) {
+  .mainChoice {
+    display: flex;
+    flex-direction: column;
   }
 
-  @media (min-width: 320px) and (max-width: 1100px) and (min-height: 800px){
-    .mainChoice {
-      display: flex;
-      flex-direction: column;
-    }
+  .Stu-Sec,
+  .Alumni-Sec,
+  .Mentor-Sec {
+    width: 200px;
+    height: 200px;
   }
+
+  .Stu-Sec h4,
+  .Alumni-Sec h4,
+  .Mentor-Sec h4 {
+    font-size: 40px;
+  }
+}
+
+@media (min-width: 850px) and (max-width: 1000px) {
+  .mainChoice {
+    display: flex;
+    flex-direction: row;
+  }
+
+  .Stu-Sec,
+  .Alumni-Sec,
+  .Mentor-Sec {
+    width: 220px;
+    height: 220px;
+  }
+
+  .Stu-Sec h4,
+  .Alumni-Sec h4,
+  .Mentor-Sec h4 {
+    font-size: 50px;
+  }
+}
