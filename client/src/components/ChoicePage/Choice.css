@@ -113,3 +113,10 @@
     color: #11113a;
     text-shadow: 0 0 5px #91afc8, 0 0 10px #98bad5, 0 0 7px #98bad5; /* Add glowy effect */
   }
+
+  @media (min-width: 320px) and (max-width: 1100px) and (min-height: 800px){
+    .mainChoice {
+      display: flex;
+      flex-direction: column;
+    }
+  }
