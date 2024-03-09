@@ -24,18 +24,22 @@ export const authenticateLogin = async (data) => {
     }
 };
 
-export const logoutuser = async (data) => {
+// export const logoutuser = async () => {
+//     try {
+//         await axios.post(`${baseUrl}/logout`);
+//     } catch (error) {
+//         console.error(error);
+//         throw error;
+//     }
+// };
+
+export const getDataLogin = async () => {
     try {
-        await axios.post(`${baseUrl}/profile`,data);
+        const response = await axios.get(`${baseUrl}/login`);
+        //console.log(response.data)
+        return response.data;
     } catch (error) {
         console.error(error);
-    }
-};
-export const getData = async (data) => {
-    try {
-        const response=await axios.post(`${baseUrl}/student`,{email: data});
-        return response;
-    } catch (error) {
-        console.error(error);
+        throw error;
     }
 };

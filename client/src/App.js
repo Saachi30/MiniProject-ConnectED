@@ -1,4 +1,6 @@
 import logo from "./logo.svg";
+import { Provider } from 'react-redux';
+import store from './store';
 import "./App.css";
 import LandingPage from "./components/LandingPage/LandingPage";
 import Login from "./components/LoginPage/Login";
@@ -11,15 +13,16 @@ import Register from "./components/LoginPage/Register";
 import { useState } from "react";
 
 function App() {
-  const [email, setEmail]=useState("");
-  const [data,setData]=useState({
-    name: "",
-    email: "",
-    phoneNumber: "", 
-    preferredDomain: "" ,
-    password: ""
-  })
+  // const [email, setEmail]=useState("");
+  // const [data,setData]=useState({
+  //   name: "",
+  //   email: "",
+  //   phoneNumber: "", 
+  //   preferredDomain: "" ,
+  //   password: ""
+  // })
   return (
+    <Provider store={store}>
     <div className="App">
       <div>
         <div class="nav">
@@ -33,14 +36,14 @@ function App() {
         <Routes>
           <Route path="/" element={<LandingPage />} />
           <Route path="/choice" element={<Choice />} />
-          <Route path="/login" element={<Login email={email} setEmail={setEmail}/>}/>
+          <Route path="/login" element={<Login />}/>
           {/* Route for student registration */}
-          <Route path="/register/student" element={<Register type="student" email={email} setEmail={setEmail}/>} />
+          <Route path="/register/student" element={<Register type="student" />} />
           {/* Routes for alumni and mentor registration */}
-          <Route path="/register/alumni" element={<Register type="alumni" email={email} setEmail={setEmail}/>} />
-          <Route path="/register/mentor" element={<Register type="mentor" email={email} setEmail={setEmail}/>} />
-          <Route path="/student" element={<Student email={email} setEmail={setEmail} data={data} setData={setData}/>}/>
-          <Route path="/profile" element={<Profile email={email} setEmail={setEmail} />}/>
+          <Route path="/register/alumni" element={<Register type="alumni" />} />
+          <Route path="/register/mentor" element={<Register type="mentor" />} />
+          <Route path="/student" element={<Student />}/>
+          <Route path="/profile" element={<Profile />}/>
           <Route path="/list" element={<ListPage/>}/>
           <Route path="/list" element={<ListPage/>}/>
         </Routes>
@@ -48,6 +51,7 @@ function App() {
         
       </div>
     </div>
+    </Provider>
   );
 }
 

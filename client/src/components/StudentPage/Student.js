@@ -2,18 +2,21 @@ import React from "react";
 import "./Student.css";
 import { Link, useNavigate } from "react-router-dom";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import { getData } from "../../services/api";
-const Student = (props) => {
-  const email=props.email
-  console.log(email)
+
+const Student = () => {
+
   const navigate=useNavigate();
-  const handleProfile=async()=>{
-    
-    // const data=await getData(email);
-    // console.log(data)
-    // props.setData(data);
-    navigate('/profile')
-  }
+  const handleProfile = async () => {
+    try {
+      // const data = await getData(email);
+      // console.log('Data from API:', data);
+      // props.setUserData(data);
+      navigate('/profile');
+    } catch (error) {
+      console.error('Error fetching user data:', error);
+    }
+  };
+  
   return (
     <div className="studentPage">
       <div className="navbar">

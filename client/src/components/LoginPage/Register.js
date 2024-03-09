@@ -1,12 +1,14 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { authenticateSignup } from "../../services/api.js";
-
+import { authenticateSignup} from "../../services/api.js";
+import { useDispatch } from "react-redux";
+import { addCurrentUser } from "../../store/slices/UserSlice.js";
 const Register = (props) => {
   const type = props.type; // Access the type parameter
   const navigate = useNavigate();
   console.log(type);
+  const dispatch=useDispatch();
 
   const [formData, setFormData] = useState({
     name: "",
@@ -26,21 +28,17 @@ const Register = (props) => {
   };
 
   const handleRegister = async () => {
+
     try {
-      console.log(type);
-      console.log(formData)
+      
       const response = await authenticateSignup(type, formData); // Pass type parameter
-     // console.log(response.status);
-      if (response.status === 200) {
-        console.log(formData)
-        console.log(formData.email)
-        props.setEmail(formData.email); // Set email after successful registration
+        //Add formdata to store
+        dispatch(addCurrentUser(formData))
+
         navigate(`/student`);
         console.log("Registration successful");
-      } else {
-        console.error("Registration failed:", response.data.message);
-      }
-    } catch (error) {
+      } 
+     catch (error) {
       console.error("Registration failed:", error.message);
     }
   };

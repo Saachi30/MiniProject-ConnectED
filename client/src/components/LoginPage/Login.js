@@ -2,32 +2,34 @@
 import React, { useState } from "react";
 import { Link, useNavigate } from "react-router-dom";
 import "./Login.css";
-import { authenticateLogin } from "../../services/api.js";
+import { authenticateLogin, getDataLogin } from "../../services/api.js";
+import { useDispatch } from "react-redux";
+import { addCurrentUser } from "../../store/slices/UserSlice.js";
 
-const Login = (props) => {
+const Login = () => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
     password: "",
   });
-
+  const dispatch=useDispatch();
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
 
   const handleLogin = async () => {
     try {
-      props.setEmail(formData.email)
+    
       const response = await authenticateLogin(formData);
-      if (response.status === 200) {
-        // Login successful, navigate to the student page
+      const responseData = await getDataLogin();
+      console.log(responseData);
+        //Add responseData to redux store
+        const data=responseData.data;
+        dispatch(addCurrentUser(data));
         console.log("Login successful");
         // Navigate user to the student page using React Router
         navigate("/student")
-      } else if (response.status === 400) {
-        // Handle other responses like incorrect credentials, etc.
-        console.error("Login failed:", response.data.message);
-      }
+       
     } catch (error) {
       console.error("Login failed:", error.message);
     }

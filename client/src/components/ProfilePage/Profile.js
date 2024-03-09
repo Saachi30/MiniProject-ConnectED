@@ -12,17 +12,20 @@ import RoomIcon from '@mui/icons-material/Room';
 import SchoolIcon from '@mui/icons-material/School';
 import MenuBookIcon from '@mui/icons-material/MenuBook';
 import ApartmentIcon from '@mui/icons-material/Apartment';
-import {  logoutuser } from "../../services/api";
+// import {  logoutuser } from "../../services/api";
 import { useNavigate } from "react-router-dom";
+import { useDispatch, useSelector } from "react-redux";
+import { removeCurrentUser } from "../../store/slices/UserSlice";
 
-const Profile = (props) => {
+const Profile = () => {
+  const dispatch=useDispatch();
   const navigate=useNavigate();
-  // const data=props.data;
-  // console.log(data);
+  const data=useSelector((state)=>{
+    return state.currentUser;
+  })
+ console.log(data)
   const handleLogout=async()=>{
-    console.log(props.email)
-    const res=await logoutuser(props.email);
-  
+      dispatch(removeCurrentUser());
       navigate('/')
     
   }
@@ -36,8 +39,8 @@ const Profile = (props) => {
           <div className="ProfileName">
             <AccountCircleIcon style={{height:"70px",width:"70px"}}/>
             <div className="Name">
-              <h2>Saachi Peswani</h2>
-              <h4>Web Development</h4>
+              <h2>{data.new.name}</h2>
+              <h4>{data.new.preferredDomain}</h4>
             </div>
           </div>
           <div className="ConnectionsCount">
@@ -55,11 +58,11 @@ const Profile = (props) => {
           <div className="PersonalDetails">
             <div className="phone Details">
               <LocalPhoneIcon/>
-              <h3>9876523456</h3>
+              <h3>{data.new.phoneNumber}</h3>
             </div>
             <div className="mail Details">
               <EmailIcon/>
-              <h3>peswanisaachi@gmail.com</h3>
+              <h3>{data.new.email}</h3>
             </div>
             <div className="birth Details">
               <CakeIcon/>
