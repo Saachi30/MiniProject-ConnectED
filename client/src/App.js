@@ -13,6 +13,7 @@ import Register from "./components/LoginPage/Register";
 import { useState } from "react";
 
 function App() {
+
   // const [email, setEmail]=useState("");
   // const [data,setData]=useState({
   //   name: "",
