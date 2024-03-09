@@ -8,10 +8,11 @@ import FilterChoice from '../FilterChoice/FilterChoice';
 
 
 const ListPage = () => {
-  const [search, setSearch] = useState('')
+  const [search, setSearch] = useState('');
+  const [filterValue, setFilterValue] = useState('');
 
-  function onFilterValueSelected(filterValue){
-    console.log(filterValue);
+  function onFilterValueSelected(value){
+    setFilterValue(value);
   }
 
   return (
@@ -20,15 +21,17 @@ const ListPage = () => {
         <input className='search-input' 
         onChange={(e) => setSearch(e.target.value)} 
         placeholder='Search'>
-           
         </input>
         <SearchIcon className='search-icon'/>
         <FilterChoice filterValueSelected={onFilterValueSelected}></FilterChoice>
         </div>
         <div className='list'>
         {mentors.filter((item) => {
-          const itemName = item.fullName ? item.fullName.toLowerCase() : '';
-          return search.toLowerCase() === '' ? item : itemName.includes(search.toLowerCase());
+         const itemName = item.fullName ? item.fullName.toLowerCase() : '';
+         const filterLowerCase = filterValue.toLowerCase();
+         const matchesSearch = search.toLowerCase() === '' || itemName.includes(search.toLowerCase());
+         const matchesFilter = filterValue === '' || item.domain.toLowerCase() === filterLowerCase;
+         return matchesSearch && matchesFilter;
         })
         .map(mentor=>(
             <ListElement
@@ -39,8 +42,6 @@ const ListPage = () => {
                 image={mentor.image}
 
             />
-
-
         ))}
             
         </div>
