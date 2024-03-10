@@ -1,3 +1,5 @@
+import "./FilterChoice.css";
+
 const FilterChoice = (props) => {
   function onfilterValueChanged(event) {
     props.filterValueSelected(event.target.value);

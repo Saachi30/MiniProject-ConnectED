@@ -23,7 +23,7 @@ const ListPage = () => {
         placeholder='Search'>
         </input>
         <SearchIcon className='search-icon'/>
-        <FilterChoice filterValueSelected={onFilterValueSelected}></FilterChoice>
+        <FilterChoice className='filter' filterValueSelected={onFilterValueSelected}></FilterChoice>
         </div>
         <div className='list'>
         {mentors.filter((item) => {
