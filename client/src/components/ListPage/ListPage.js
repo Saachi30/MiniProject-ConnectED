@@ -27,22 +27,26 @@ const ListPage = () => {
         </div>
         <div className='list'>
         {mentors.filter((item) => {
+         // console.log(item)
          const itemName = item.fullName ? item.fullName.toLowerCase() : '';
+        // console.log(filterValue) 
          const filterLowerCase = filterValue.toLowerCase();
          const matchesSearch = search.toLowerCase() === '' || itemName.includes(search.toLowerCase());
          const matchesFilter = filterValue === '' || item.domain.toLowerCase() === filterLowerCase;
-         return matchesSearch && matchesFilter;
+         return (matchesSearch && matchesFilter);
         })
-        .map(mentor=>(
-            <ListElement
+        .map((mentor)=>{
+         // console.log(mentor + "ismentor")
+           return (<ListElement
                 key={mentor.id}
                 name={mentor.fullName}
                 domain={mentor.domain}
                 company={mentor.company}
                 image={mentor.image}
+                
 
-            />
-        ))}
+            />)
+        })}
             
         </div>
     </div>
