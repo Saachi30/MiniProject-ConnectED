@@ -1,10 +1,12 @@
 import React, {useState} from 'react';
+import { Link} from 'react-router-dom';
 import alumnis from '../../alumni';
 import mentors from '../../mentors';
 import './ListPage.css';
 import ListElement from '../ListElement/ListElement';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterChoice from '../FilterChoice/FilterChoice';
+import MentorProfile from '../MentorProfile/MentorProfile';
 
 
 const ListPage = () => {
@@ -37,15 +39,19 @@ const ListPage = () => {
         })
         .map((mentor)=>{
          // console.log(mentor + "ismentor")
-           return (<ListElement
+           return (
+            <Link to={`/mentor/${mentor.id}`} key={mentor.id}>
+           <ListElement
                 key={mentor.id}
                 name={mentor.fullName}
                 domain={mentor.domain}
                 company={mentor.company}
                 image={mentor.image}
+                mentor={mentor}
                 
 
-            />)
+            />
+            </Link>)
         })}
             
         </div>
