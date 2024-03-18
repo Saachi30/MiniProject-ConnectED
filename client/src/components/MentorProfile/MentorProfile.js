@@ -6,9 +6,12 @@ import './MentorProfile.css';
 const MentorProfile = () => {
   const { id } = useParams();
   const mentor = mentors.find((m) => m.id === parseInt(id));
+  const handleConnect = () => {
+  };
 
   return (
     <div className="mentor-profile">
+      <button className="connect-button" onClick={handleConnect}>Connect</button>
         <div className="mentor-image">
       <img src={mentor.image} alt={mentor.fullName} className="mentor-image" />
       </div>
