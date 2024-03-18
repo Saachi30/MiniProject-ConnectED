@@ -141,10 +141,32 @@ const usersSchema = new mongoose.Schema({
 
     }
   });
-  
+  const requestSchema = new mongoose.Schema({
+    studentId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Student',
+        required: true
+    },
+    mentorId: {
+        type: mongoose.Schema.Types.ObjectId,
+        ref: 'Mentor',
+        required: true
+    },
+    status: {
+        type: String,
+        enum: ['pending', 'accepted', 'declined'],
+        default: 'pending'
+    },
+    createdAt: {
+        type: Date,
+        default: Date.now
+    }
+});
+
+const Request = mongoose.model('Request', requestSchema);
 const User = mongoose.model("User", usersSchema);
 const Student = mongoose.model("Student", studentSchema);
 const Alumni = mongoose.model("Alumni", alumniSchema);
 const Mentor = mongoose.model("Mentor", mentorSchema);
 
-export { Student, Alumni, Mentor, User };
+export { Student, Alumni, Mentor, User, Request };

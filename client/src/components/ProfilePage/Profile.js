@@ -23,11 +23,10 @@ const Profile = () => {
   const data=useSelector((state)=>{
     return state.currentUser;
   })
- console.log(data)
+ console.log(data);
   const handleLogout=async()=>{
       dispatch(removeCurrentUser());
-      navigate('/')
-    
+      navigate('/');  
   }
   return (
     <div className="ProfilePage">

@@ -43,3 +43,50 @@ export const getDataLogin = async () => {
         throw error;
     }
 };
+// Send request to mentor
+export const sendConnectionRequestToMentor = async (studentEmail, mentorEmail) => {
+    try {
+        const data = { studentEmail, mentorEmail ,requestType:'mentor'};
+        const response = await axios.post(`${baseUrl}/send-request-to-mentor`, data);
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+// Send request to alumni
+export const sendConnectionRequestToAlumni = async (studentEmail, alumniEmail) => {
+    try {
+        const data = { studentEmail, alumniEmail,requestType:'alumni' };
+        const response = await axios.post(`${baseUrl}/send-request-to-alumni`, data);
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+// Remove request to mentor
+export const removeConnectionRequestToMentor = async (studentEmail, mentorEmail) => {
+    try {
+        const data = { studentEmail, mentorEmail ,requestType:'mentor'};
+        const response = await axios.post(`${baseUrl}/remove-request-to-mentor`, data);
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};
+
+// Remove request to alumni
+export const removeConnectionRequestToAlumni = async (studentEmail, alumniEmail) => {
+    try {
+        const data = { studentEmail, alumniEmail, requestType:'alumni' };
+        const response = await axios.post(`${baseUrl}/remove-request-to-alumni`, data);
+        return response;
+    } catch (error) {
+        console.error(error);
+        throw error;
+    }
+};

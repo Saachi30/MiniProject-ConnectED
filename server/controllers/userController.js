@@ -1,7 +1,7 @@
 // userController.js
 import express from "express";
 //import session from "express-session";
-import { Student, Alumni, Mentor, User } from '../models/userSchema.js';
+import { Student, Alumni, Mentor, User, Request } from '../models/userSchema.js';
 import bcrypt from 'bcrypt';
 
 const app = express();
@@ -220,3 +220,42 @@ export const userLogin = async (req, res) => {
       res.status(500).json({ message: 'Internal server error' });
     }
 }
+
+// Function to send a connection request
+export const sendRequest = async (req, res) => {
+  try {
+    const { studentEmail, recipientEmail, requestType } = req.body;
+
+    // Check if the request already exists
+    const existingRequest = await Request.findOne({ studentEmail, recipientEmail });
+    if (existingRequest) {
+      return res.status(400).json({ message: 'Request already exists' });
+    }
+
+    // Create a new request instance
+    const newRequest = new Request({ studentEmail, recipientEmail, requestType });
+
+    // Save the request to the database
+    await newRequest.save();
+
+    res.status(200).json({ message: 'Request sent successfully' });
+  } catch (error) {
+    console.error('Error sending request:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+// Function to remove a connection request
+export const removeRequest = async (req, res) => {
+  try {
+    const { studentEmail, recipientEmail, requestType } = req.body;
+
+    // Find and delete the request based on studentId, recipientId, and requestType
+    await Request.findOneAndDelete({ studentEmail, recipientEmail, requestType });
+
+    res.status(200).json({ message: 'Request removed successfully' });
+  } catch (error) {
+    console.error('Error removing request:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
