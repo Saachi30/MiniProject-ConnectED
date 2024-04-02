@@ -142,14 +142,12 @@ const usersSchema = new mongoose.Schema({
     }
   });
   const requestSchema = new mongoose.Schema({
-    studentId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Student',
+    studentEmail: {
+        type: String,
         required: true
     },
-    mentorId: {
-        type: mongoose.Schema.Types.ObjectId,
-        ref: 'Mentor',
+    recipientEmail: {
+        type: String,
         required: true
     },
     status: {
@@ -157,11 +155,16 @@ const usersSchema = new mongoose.Schema({
         enum: ['pending', 'accepted', 'declined'],
         default: 'pending'
     },
+    requestType: {
+        type: String,
+        enum: ['mentor', 'alumni']
+    },
     createdAt: {
         type: Date,
         default: Date.now
     }
 });
+
 
 const Request = mongoose.model('Request', requestSchema);
 const User = mongoose.model("User", usersSchema);

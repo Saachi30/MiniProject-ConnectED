@@ -46,8 +46,9 @@ export const getDataLogin = async () => {
 // Send request to mentor
 export const sendConnectionRequestToMentor = async (studentEmail, mentorEmail) => {
     try {
-        const data = { studentEmail, mentorEmail ,requestType:'mentor'};
+        const data = { studentEmail, recipientEmail: mentorEmail, requestType: 'mentor' };
         const response = await axios.post(`${baseUrl}/send-request-to-mentor`, data);
+        
         return response;
     } catch (error) {
         console.error(error);
@@ -58,7 +59,7 @@ export const sendConnectionRequestToMentor = async (studentEmail, mentorEmail) =
 // Send request to alumni
 export const sendConnectionRequestToAlumni = async (studentEmail, alumniEmail) => {
     try {
-        const data = { studentEmail, alumniEmail,requestType:'alumni' };
+        const data = { studentEmail, recipientEmail: alumniEmail, requestType: 'alumni' };
         const response = await axios.post(`${baseUrl}/send-request-to-alumni`, data);
         return response;
     } catch (error) {

@@ -1,19 +1,32 @@
 import React from 'react';
-import { useParams } from 'react-router-dom';
+import { useNavigate, useParams } from 'react-router-dom';
 import mentors from '../../mentors'; // Assuming you're importing mentor data
 import { sendConnectionRequestToMentor } from '../../services/api'; // Import the API function
 import './MentorProfile.css';
+import { useDispatch,  useSelector } from 'react-redux';
 
 const MentorProfile = () => {
   const { id } = useParams();
   const mentor = mentors.find((m) => m.id === parseInt(id));
-
+  const navigate=useNavigate();
+  const data=useSelector((state)=>{
+    return state.currentUser.new.email;
+  })
   const handleConnect = async () => {
+ 
     try {
+
       // Assuming mentor.email contains the email address of the mentor
-      await sendConnectionRequestToMentor('123@g');
-      // Handle successful connection request (e.g., show a success message)
-      console.log('Connection request sent successfully');
+      // console.log(data)
+      const res=await sendConnectionRequestToMentor(data,'123@g');
+      if(res.status==201){
+        alert("Request already exists");
+    }
+    else{
+      alert("Connect request sent successfully");
+      navigate('/list')
+    }
+      
     } catch (error) {
       // Handle error (e.g., show an error message)
       console.error('Error sending connection request:', error);

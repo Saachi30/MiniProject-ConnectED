@@ -229,11 +229,11 @@ export const sendRequest = async (req, res) => {
     // Check if the request already exists
     const existingRequest = await Request.findOne({ studentEmail, recipientEmail });
     if (existingRequest) {
-      return res.status(400).json({ message: 'Request already exists' });
+      return res.status(201).json({ message: 'Request already exists' });
     }
 
     // Create a new request instance
-    const newRequest = new Request({ studentEmail, recipientEmail, requestType });
+    const newRequest = new Request({ studentEmail, recipientEmail, status: 'pending', requestType });
 
     // Save the request to the database
     await newRequest.save();
@@ -250,7 +250,7 @@ export const removeRequest = async (req, res) => {
   try {
     const { studentEmail, recipientEmail, requestType } = req.body;
 
-    // Find and delete the request based on studentId, recipientId, and requestType
+    // Find and delete the request based on studentEmail, recipientEmail, and requestType
     await Request.findOneAndDelete({ studentEmail, recipientEmail, requestType });
 
     res.status(200).json({ message: 'Request removed successfully' });
