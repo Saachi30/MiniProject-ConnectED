@@ -6,6 +6,10 @@ import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const Student = () => {
 
   const navigate=useNavigate();
+  const handleViewRequests = () => {
+    navigate('/pending-requests');
+  };
+
   const handleProfile = async () => {
     try {
       // const data = await getData(email);
@@ -30,12 +34,17 @@ const Student = () => {
         </div>
 
        
-          <div className="right" onClick={handleProfile}>
+        <div className="right">
+          <button className="view-requests" onClick={handleViewRequests}>
+            View Requests
+          </button>
+          <div className="profile" onClick={handleProfile}>
             <AccountCircleIcon
               style={{ width: "30px", height: "30px", marginRight: "10px" }}
             />
             My Profile
           </div>
+        </div>
      
       </div>
 

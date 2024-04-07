@@ -1,0 +1,90 @@
+.pending-reqs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .pending-reqs {
+    width: 40vw;
+  }
+  
+  .single-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light gray background */
+  }
+  
+  .profile-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  h2 {
+    color: #333; /* Dark text color for full name */
+  }
+  
+  p {
+    color: #666; /* Medium gray text color for year of study */
+  }
+  
+  .buttons {
+    display: flex;
+  }
+  
+  .buttons button {
+    margin-right: 5px;
+    background-color: #007bff; /* Blue button background */
+    color: #fff; /* White button text color */
+    border: none;
+    padding: 5px 10px;
+    cursor: pointer;
+  }
+  
+  .buttons button:hover {
+    background-color: #0056b3; /* Darker blue on hover */
+  }
+  .pending-reqs-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .pending-reqs {
+    width: 40vw;
+  }
+  
+  .single-item {
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    border: 1px solid #ccc;
+    margin-bottom: 10px;
+    background-color: #f9f9f9; /* Light gray background */
+  }
+  
+  .profile-pic img {
+    width: 50px;
+    height: 50px;
+    border-radius: 50%;
+    margin-right: 10px;
+  }
+  
+  .details {
+    flex: 1;
+  }
+  
+  h2 {
+    color: #333; /* Dark text */
+  }
+    

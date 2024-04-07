@@ -12,6 +12,7 @@ import ListPage from "./components/ListPage/ListPage";
 import Register from "./components/LoginPage/Register";
 import MentorProfile from "./components/MentorProfile/MentorProfile";
 import { useState } from "react";
+import PendingReqs from "./components/PendingReqs/PendingReqs";
 
 function App() {
   // const [email, setEmail]=useState("");
@@ -31,6 +32,10 @@ function App() {
               <div class="loggo"></div>
               <h2 class="logoName">ConnectED</h2>
             </div>
+            {/* <div>
+              <PendingReqs/>
+            </div> */}
+          
           </div>
           <BrowserRouter>
             <Routes>
