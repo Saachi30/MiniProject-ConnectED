@@ -1,62 +1,85 @@
-import React, {useState} from 'react';
-import { Link} from 'react-router-dom';
-import alumnis from '../../alumni';
-import mentors from '../../mentors';
+import React, { useState, useEffect } from 'react';
+import { Link } from 'react-router-dom';
 import './ListPage.css';
 import ListElement from '../ListElement/ListElement';
 import SearchIcon from '@mui/icons-material/Search';
 import FilterChoice from '../FilterChoice/FilterChoice';
-import MentorProfile from '../MentorProfile/MentorProfile';
-
+import { fetchMentors } from '../../services/api'; // Import fetchMentors function
 
 const ListPage = () => {
+  const [mentors, setMentors] = useState([]);
   const [search, setSearch] = useState('');
   const [filterValue, setFilterValue] = useState('');
 
-  function onFilterValueSelected(value){
+  useEffect(() => {
+    // Fetch mentor data from backend when component mounts
+    fetchMentors()
+      .then(data => {
+        if (data.success) {
+          const mentorsWithImages = data.mentors.map((mentor) => ({
+            ...mentor,
+            image: getDummyProfileImage(),
+          }));
+          setMentors(mentorsWithImages);
+        }
+      })
+      .catch(error => {
+        console.error('Error fetching mentors:', error);
+      });
+  }, []);
+
+  // Function to generate dummy profile image URLs
+  const getDummyProfileImage = () => {
+    // Dummy image URLs
+    const images = [
+      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fHww",
+      "https://img.freepik.com/free-photo/happy-joyful-guy-enjoying-leisure-time_1262-20555.jpg",
+      // Add more dummy image URLs as needed
+    ];
+    // Randomly select an image URL
+    return images[Math.floor(Math.random() * images.length)];
+  };
+
+  function onFilterValueSelected(value) {
     setFilterValue(value);
   }
 
   return (
     <div className='outerListBox'>
-        <div className='searchbar'>
-        <input className='search-input' 
-        onChange={(e) => setSearch(e.target.value)} 
-        placeholder='Search'>
-        </input>
-        <SearchIcon className='search-icon'/>
-        <FilterChoice className='filter' filterValueSelected={onFilterValueSelected}></FilterChoice>
-        </div>
-        <div className='list'>
-        {mentors.filter((item) => {
-         // console.log(item)
-         const itemName = item.fullName ? item.fullName.toLowerCase() : '';
-        // console.log(filterValue) 
-         const filterLowerCase = filterValue.toLowerCase();
-         const matchesSearch = search.toLowerCase() === '' || itemName.includes(search.toLowerCase());
-         const matchesFilter = filterValue === '' || item.domain.toLowerCase() === filterLowerCase;
-         return (matchesSearch && matchesFilter);
-        })
-        .map((mentor)=>{
-         // console.log(mentor + "ismentor")
-           return (
-            <Link to={`/mentor/${mentor.id}`} key={mentor.id}>
-           <ListElement
-                key={mentor.id}
-                name={mentor.fullName}
-                domain={mentor.domain}
-                company={mentor.company}
-                image={mentor.image}
-                mentor={mentor}
-                
-
-            />
-            </Link>)
-        })}
-            
-        </div>
+      <div className='searchbar'>
+        <input
+          className='search-input'
+          onChange={(e) => setSearch(e.target.value)}
+          placeholder='Search'
+        />
+        <SearchIcon className='search-icon' />
+        <FilterChoice className='filter' filterValueSelected={onFilterValueSelected} />
+      </div>
+      <div className='list'>
+        {mentors
+          .filter((item) => {
+            const itemName = item.fullName ? item.fullName.toLowerCase() : '';
+            const filterLowerCase = filterValue.toLowerCase();
+            const matchesSearch = search.toLowerCase() === '' || itemName.includes(search.toLowerCase());
+            const matchesFilter = filterValue === '' || item.preferredDomain.toLowerCase() === filterLowerCase;
+            return matchesSearch && matchesFilter;
+          })
+          .map((mentor) => {
+            return (
+              <Link to={`/mentor/${mentor._id}`} key={mentor._id}>
+                <ListElement
+                  key={mentor._id}
+                  name={mentor.name}
+                  domain={mentor.preferredDomain}
+                  yearOfStudy={mentor.yearOfStudy}
+                  image={getDummyProfileImage()} // Use dummy profile image URL
+                />
+              </Link>
+            );
+          })}
+      </div>
     </div>
-  )
-}
+  );
+};
 
-export default ListPage
+export default ListPage;

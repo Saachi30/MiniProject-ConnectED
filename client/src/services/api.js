@@ -91,3 +91,13 @@ export const removeConnectionRequestToAlumni = async (studentEmail, alumniEmail)
         throw error;
     }
 };
+// Fetch mentors from backend
+export const fetchMentors = async () => {
+    try {
+      const response = await axios.get(`${baseUrl}/mentors`);
+      return response.data;
+    } catch (error) {
+      console.error('Error fetching mentors:', error);
+      throw error;
+    }
+  };

@@ -259,3 +259,16 @@ export const removeRequest = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+// Function to get mentors from the database
+export const getMentors = async (req, res) => {
+  try {
+    // Retrieve mentor data from the database
+    const mentors = await Mentor.find(); 
+
+    // Send mentor data in the response
+    res.status(200).json({ success: true, mentors });
+  } catch (error) {
+    console.error('Error fetching mentors:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};

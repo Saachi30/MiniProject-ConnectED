@@ -1,6 +1,7 @@
 import express from "express"
 import { studentSignup, alumniSignup, mentorSignup, userLogin, getUserData, sendRequest, removeRequest } from '../controllers/userController.js';
 import cors from 'cors'
+import { getMentors } from '../controllers/userController.js';
 
 const router=express.Router();
 router.use(cors())
@@ -18,5 +19,7 @@ router.post('/send-request-to-alumni', (req, res) => sendRequest(req, res, 'alum
 // Routes for removing requests to mentors and alumni
 router.post('/remove-request-to-mentor', (req, res) => removeRequest(req, res, 'mentor'));
 router.post('/remove-request-to-alumni', (req, res) => removeRequest(req, res, 'alumni'));
+// Route for getting mentor data
+router.get('/mentors', getMentors);
 
 export default router;

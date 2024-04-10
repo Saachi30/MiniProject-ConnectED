@@ -1,5 +1,5 @@
 import React from 'react';
-import './SingleItem.css';
+//import './SingleItem.css';
 
 const SingleItem = ({ data }) => {
   const { fullName, yearOfStudy, profilePic } = data;

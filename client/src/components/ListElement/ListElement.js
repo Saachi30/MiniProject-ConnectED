@@ -3,20 +3,26 @@ import './ListElement.css'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 const ListElement = (props) => {
     const printDomain = () => {
-        if (props.domain === "Web Development") {
-            return <span style={{color:"green"}}>{props.domain}</span>;
+        if (props.domain === "web dev") {
+            return <span style={{color:"green"}}>Web Development</span>;
         }
-        else if (props.domain === "Data Structures and Algorithms") {
-            return <span style={{color:"blue"}}>{props.domain}</span>;
+        else if (props.domain === "dsa") {
+            return <span style={{color:"blue"}}>Data Structures and Algorithms</span>;
         }
-        else if (props.domain === "Machine Learning") {
-            return <span style={{color:"orange"}}>{props.domain}</span>;
+        else if (props.domain === "ml") {
+            return <span style={{color:"orange"}}>Machine Learning</span>;
         }
-        else if (props.domain === "Blockchain") {
-            return <span style={{color:"red"}}>{props.domain}</span>;
+        else if (props.domain === "blockchain") {
+            return <span style={{color:"red"}}>Blockchain</span>;
         }
-        else if (props.domain === "Data Analysis") {
-            return <span style={{color:"purple"}}>{props.domain}</span>;
+        else if (props.domain === "cloud computing") {
+            return <span style={{color:"purple", textDecoration:"none"}}>Cloud Computing</span>;
+        }
+        else if (props.domain === "ui/ux") {
+            return <span style={{color:"pink", textDecoration:"none"}}>UI/UX</span>;
+        }
+        else if (props.domain === "finance") {
+            return <span style={{color:"brown", textDecoration:"none"}}>Finance</span>;
         }
         else {
             return <span>{props.domain}</span>; 
@@ -35,7 +41,7 @@ const ListElement = (props) => {
                 <div className='moredetails'>
                     <div className='moredetails1'>
                         <p>Domain: {printDomain()}</p>
-                        <p>Company: {props.company}</p>
+                        <p>Year of Study: {props.yearOfStudy}</p>
                     </div>
                 </div>
             </div>
