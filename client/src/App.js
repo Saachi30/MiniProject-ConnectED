@@ -7,12 +7,13 @@ import Login from "./components/LoginPage/Login";
 import Choice from "./components/ChoicePage/Choice";
 import Student from "./components/StudentPage/Student";
 import Profile from "./components/ProfilePage/Profile";
-import { BrowserRouter, Route, Routes, Link } from "react-router-dom";
+import { BrowserRouter, Route, Routes, Link} from "react-router-dom";
 import ListPage from "./components/ListPage/ListPage";
 import Register from "./components/LoginPage/Register";
 import MentorProfile from "./components/MentorProfile/MentorProfile";
 import { useState } from "react";
 import PendingReqs from "./components/PendingReqs/PendingReqs";
+import MentorsProfile from "./components/ProfilePage/MentorsProfile";
 
 function App() {
   // const [email, setEmail]=useState("");
@@ -39,6 +40,7 @@ function App() {
           </div>
           <BrowserRouter>
             <Routes>
+            
               <Route path="/" element={<LandingPage />} />
               <Route path="/choice" element={<Choice />} />
               <Route path="/login" element={<Login />} />
@@ -59,8 +61,9 @@ function App() {
               <Route path="/student" element={<Student />} />
               <Route path="/profile" element={<Profile />} />
               <Route path="/list" element={<ListPage />} />
-              <Route path="/list" element={<ListPage />} />
               <Route path="/mentor/:id" element={<MentorProfile />} />
+              <Route path="mentors" element={< MentorsProfile/>}/>
+              
             </Routes>
           </BrowserRouter>
         </div>

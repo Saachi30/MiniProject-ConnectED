@@ -46,6 +46,7 @@ const ListPage = () => {
 
   return (
     <div className='outerListBox'>
+      <div className='mentorList'>
       <div className='searchbar'>
         <input
           className='search-input'
@@ -66,7 +67,7 @@ const ListPage = () => {
           })
           .map((mentor) => {
             return (
-              <Link to={`/mentor/${mentor._id}`} key={mentor._id}>
+              <Link to='/mentors'>
                 <ListElement
                   key={mentor._id}
                   name={mentor.name}
@@ -78,8 +79,24 @@ const ListPage = () => {
             );
           })}
       </div>
-    </div>
-  );
-};
+      </div>
+      <div className='chatOption'>
+        <div className='searchChat'>
+        <input
+          className='search-input'
+          placeholder='Search'
+        />
+        <SearchIcon className='search-icon' />
+        </div>
+        <div className='chatSection'></div>
+      </div>
+      </div>
+      
+      
+      );
+    };
+      
+    
+  
 
 export default ListPage;
