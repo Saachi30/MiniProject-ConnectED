@@ -6,6 +6,7 @@ function MentorsProfile() {
   return (
     <section>
       <div className="card1">
+      <button className="connect-button">Connect</button>
         <div className="card">
           <div className="left-container">
             <img src="https://cdn.pixabay.com/photo/2020/10/19/09/44/woman-5667299__480.jpg" alt="Profile Image" />
