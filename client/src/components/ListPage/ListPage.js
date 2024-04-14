@@ -6,7 +6,7 @@ import SearchIcon from '@mui/icons-material/Search';
 import FilterChoice from '../FilterChoice/FilterChoice';
 import { fetchMentors } from '../../services/api'; // Import fetchMentors function
 
-const ListPage = () => {
+const ListPage = (props) => {
   const [mentors, setMentors] = useState([]);
   const [search, setSearch] = useState('');
   const [filterValue, setFilterValue] = useState('');
@@ -67,15 +67,18 @@ const ListPage = () => {
           })
           .map((mentor) => {
             return (
-              <Link to='/mentors'>
+          
                 <ListElement
+                  searchedMentorData={props.searchedMentorData} setSearchedMentorData={props.setSearchedMentorData}
                   key={mentor._id}
                   name={mentor.name}
                   domain={mentor.preferredDomain}
                   yearOfStudy={mentor.yearOfStudy}
+                  phoneNumber={mentor.phoneNumber}
+                  email={mentor.email}
                   image={getDummyProfileImage()} // Use dummy profile image URL
                 />
-              </Link>
+          
             );
           })}
       </div>

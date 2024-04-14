@@ -13,7 +13,7 @@ import Register from "./components/LoginPage/Register";
 import MentorProfile from "./components/MentorProfile/MentorProfile";
 import { useState } from "react";
 import PendingReqs from "./components/PendingReqs/PendingReqs";
-import MentorsProfile from "./components/ProfilePage/MentorsProfile";
+import SearchedMentorProfile from "./components/ProfilePage/SearchedMentorProfile";
 
 function App() {
   // const [email, setEmail]=useState("");
@@ -24,6 +24,8 @@ function App() {
   //   preferredDomain: "" ,
   //   password: ""
   // })
+  const [searchedMentorData, setSearchedMentorData]=useState({});
+
   return (
     <Provider store={store}>
       <div className="App">
@@ -60,9 +62,9 @@ function App() {
               />
               <Route path="/student" element={<Student />} />
               <Route path="/profile" element={<Profile />} />
-              <Route path="/list" element={<ListPage />} />
-              <Route path="/mentor/:id" element={<MentorProfile />} />
-              <Route path="mentors" element={< MentorsProfile/>}/>
+              <Route path="/list" element={<ListPage searchedMentorData={searchedMentorData} setSearchedMentorData={setSearchedMentorData}/>} />
+              <Route path="/mentorprofile" element={<SearchedMentorProfile searchedMentorData={searchedMentorData}/>} />
+             
               
             </Routes>
           </BrowserRouter>

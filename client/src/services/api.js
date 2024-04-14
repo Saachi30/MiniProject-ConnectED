@@ -95,9 +95,30 @@ export const removeConnectionRequestToAlumni = async (studentEmail, alumniEmail)
 export const fetchMentors = async () => {
     try {
       const response = await axios.get(`${baseUrl}/mentors`);
+      console.log(response)
       return response.data;
     } catch (error) {
       console.error('Error fetching mentors:', error);
       throw error;
     }
   };
+
+export const fetchMentorRequestsWithStudentData = async (mentorEmail) => {
+    try {
+      const response = await axios.get(`${baseUrl}/mentor-requests-with-student-data`, { data: { mentorEmail } });
+      return response;
+    } catch (error) {
+      console.error('Error fetching mentor requests with student data:', error);
+    }
+  };
+
+// export const viewMentorProfile=async(mentorEmail)=>{
+//     try{
+
+//         const response=await axios.get(`${baseUrl}/mentorprofile/`, { data: { mentorEmail } })
+//         return response;
+//     }
+//     catch (error) {
+//         console.error('Error fetching mentor details:', error);
+//       }
+// }
