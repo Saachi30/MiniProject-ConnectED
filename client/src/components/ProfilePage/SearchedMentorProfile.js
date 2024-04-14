@@ -22,6 +22,7 @@ const SearchedMentorProfile=(props)=>{
   return (
     <section>
       <div className="card1">
+      <button className="connect-button">Connect</button>
         <div className="card">
           <div className="left-container">
             <img src={mentorData.image} />
