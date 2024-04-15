@@ -37,43 +37,58 @@ const Login = () => {
   
 
   return (
-    <div className="loginpg">
-     {/* <div className="loginPgImg">
-          <img
-            src="https://media.licdn.com/dms/image/C4D12AQFNaYRBLgASQw/article-cover_image-shrink_600_2000/0/1641446336880?e=2147483647&v=beta&t=DdQXmCWIRogrN7cigGvjc_TcQlNqcLxFhCZPevYu0nc"
-            alt="loginPgImg"
-          />
-        </div> */}
-      <h1>Login to your account</h1>
-      <div className="formreg">
-        <label htmlFor="email">Email</label>
-        <input
-          type="email"
+    <div className="box-form">
+      <div className="left">
+        <div className="overlay">
+          <h1>Hello Peeps</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Curabitur et est sed felis aliquet sollicitudin</p>
+          <span>
+            <p>login with social media</p>
+            <a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i className="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+          </span>
+        </div>
+      </div>
+
+      <div className="right-section">
+        <h5>Login</h5>
+        <p>Don't have an account? <a href="#"><Link to='/choice'>Register now</Link></a> it takes less than a minute</p>
+        <div className="inputs">
+		<input
+          type="text"
           id="email"
           className="form-control transparent-input"
           name="email"
+          placeholder="email"
           onChange={handleChange}
         />
-        <label htmlFor="password">Password</label>
-        <input
+          <br />
+          <input
           type="password"
           id="password"
           className="form-control transparent-input"
           name="password"
+          placeholder="password"
           onChange={handleChange}
         />
-      </div>
-      <button className="btn1" id="registerbtn" onClick={handleLogin}>
+        </div>
+
+        <br /><br />
+
+        <div className="remember-me--forget-password">
+          <label>
+            <input type="checkbox" name="item" defaultChecked />
+            <span className="text-checkbox">Remember me</span>
+          </label>
+          <p>forget password?</p>
+        </div>
+
+        <br />
+       <button onClick={handleLogin}>
           Login 
       </button>
-      <p id="alttext">
-        Don't have an account?{" "}
-        <Link to='/choice'>
-        <button className="btn2" >
-          Register now
-        </button>
-        </Link>
-      </p>
+      </div>
     </div>
   );
 };

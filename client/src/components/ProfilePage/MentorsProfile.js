@@ -1,5 +1,5 @@
 import React from 'react';
-import './MentorsProfile.css'; // assuming you have your CSS styles in a file named test.css
+import './MentorsProfile.css';
 
 
 function MentorsProfile() {

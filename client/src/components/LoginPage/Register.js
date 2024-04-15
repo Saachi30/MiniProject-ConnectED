@@ -45,42 +45,80 @@ const Register = (props) => {
   
 
   return (
-    <div className="loginpg">
-      <h1>Create an account</h1>
-      <h4>Let's get started!</h4>
-      <div className="formreg">
-        <label htmlFor="name">Name</label>
-        <input
+    <div className="box-form">
+      <div className="left register-left-section">
+        <div className="overlay">
+        <h1>Hello Peeps</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit.
+          Curabitur et est sed felis aliquet sollicitudin</p>
+          <span>
+            <p>Register with social media</p>
+            <a href="#"><i className="fa fa-facebook" aria-hidden="true"></i></a>
+            <a href="#"><i className="fa fa-twitter" aria-hidden="true"></i> Login with Twitter</a>
+          </span>
+        </div>
+      </div>
+
+      <div className="right-section register-right-section">
+        <h5>Register</h5>
+        <p>Already have an account?<a href="#"><Link to='/login'>Login now</Link></a></p>
+        <div className="inputs">
+		<input
           type="text"
           id="name"
           className="form-control transparent-input"
           name="name"
+          placeholder="Name"
           onChange={handleChange}
         />
-        <label htmlFor="phoneNumber">Phone Number</label>
-        <input
+          
+          <input
           type="tel"
           id="phoneNumber"
           className="form-control transparent-input"
           name="phoneNumber"
+          placeholder="Contact"
           onChange={handleChange}
         />
-        <label htmlFor="email">Email</label>
-        <input
+
+<input
           type="email"
           id="email"
           className="form-control transparent-input"
           name="email"
+          placeholder="Email"
           onChange={handleChange}
         />
-        <label htmlFor="preferredDomain">Preferred Domain</label>
-        <select
+
+{/* Additional fields for alumni */}
+{type === "alumni" && (
+          <>
+            <input
+              type="text"
+              id="currentJobTitle"
+              className="form-control transparent-input"
+              name="currentJobTitle"
+              placeholder="Current Job Title"
+              onChange={handleChange}
+            />
+            
+            <input
+              type="text"
+              id="company"
+              className="form-control transparent-input"
+              name="company"
+              placeholder="Your Company"
+              onChange={handleChange}
+            />
+          </>
+        )}
+<select
           id="preferredDomain"
           className="form-control transparent-input"
           name="preferredDomain"
           onChange={handleChange}
         >
-          <option value="">Select Preferred Domain</option>
+            <option value="">Select Preferred Domain</option>
           <option value="web dev">Web Development</option>
           <option value="dsa">DSA</option>
           <option value="ml">Machine Learning</option>
@@ -89,49 +127,11 @@ const Register = (props) => {
           <option value="finance">Finance</option>
           <option value="ui/ux">UI/UX</option>
         </select>
-        <label htmlFor="password">Password</label>
-        <input
-          type="password"
-          id="password"
-          className="form-control transparent-input"
-          name="password"
-          onChange={handleChange}
-        />
-        <label htmlFor="confirmPassword">Confirm Password</label>
-        <input
-          type="password"
-          id="confirmPassword"
-          className="form-control transparent-input"
-          name="confirmPassword"
-          onChange={handleChange}
-        />
-
-        {/* Additional fields for alumni */}
-        {type === "alumni" && (
-          <>
-            <label htmlFor="currentJobTitle">Current Job Title</label>
-            <input
-              type="text"
-              id="currentJobTitle"
-              className="form-control transparent-input"
-              name="currentJobTitle"
-              onChange={handleChange}
-            />
-            <label htmlFor="company">Company</label>
-            <input
-              type="text"
-              id="company"
-              className="form-control transparent-input"
-              name="company"
-              onChange={handleChange}
-            />
-          </>
-        )}
 
         {/* Additional fields for mentors */}
         {type === "mentor" && (
           <>
-            <label htmlFor="yearOfStudy">Year of Study</label>
+          <br/>
             <select
               id="yearOfStudy"
               className="form-control transparent-input"
@@ -145,11 +145,10 @@ const Register = (props) => {
             
           </>
         )}
-
-        {/* Additional fields for students */}
+<br/>
         {type === "student" && (
           <>
-            <label htmlFor="yearOfStudy">Year of Study</label>
+           
             <select
               id="yearOfStudy"
               className="form-control transparent-input"
@@ -164,18 +163,39 @@ const Register = (props) => {
             </select>
           </>
         )}
-      </div>
-      <button className="btn1" id="registerbtn" onClick={handleRegister}>
-        Register
+        <input
+          type="password"
+          id="password"
+          className="form-control transparent-input"
+          name="password"
+          placeholder="Password"
+          onChange={handleChange}
+        />
+
+        <input
+          type="password"
+          id="confirmPassword"
+          className="form-control transparent-input"
+          name="confirmPassword"
+          placeholder="Confirm Password"
+          onChange={handleChange}
+        />  
+        </div>
+        <div className="remember-me--forget-password">
+          <label>
+            <input type="checkbox" name="item" defaultChecked />
+            <span className="text-checkbox">Remember me</span>
+          </label>
+          <p>forget password?</p>
+        </div>
+
+       <button onClick={handleRegister}>
+          Register
       </button>
-      <p id="alttext">
-        Already have an account?{" "}
-        <Link to="/login">
-          <button className="btn2">Log in now</button>
-        </Link>
-      </p>
+      </div>
     </div>
   );
 };
+
 
 export default Register;
