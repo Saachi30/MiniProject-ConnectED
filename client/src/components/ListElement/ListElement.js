@@ -1,7 +1,9 @@
 import React from 'react'
 import './ListElement.css'
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
+import { Navigate, useNavigate } from 'react-router-dom';
 const ListElement = (props) => {
+    const navigate=useNavigate();
     const printDomain = () => {
         if (props.domain === "web dev") {
             return <span style={{color:"green"}}>Web Development</span>;
@@ -28,9 +30,13 @@ const ListElement = (props) => {
             return <span>{props.domain}</span>; 
         }
     };
-
+    const viewProfile=async(mentorData)=>{
+        console.log(mentorData)
+        props.setSearchedMentorData(mentorData);
+        navigate(`/mentorprofile`);
+    }
     return (
-        <div className='elementouter'>
+        <div className='elementouter'   onClick={() => viewProfile(props)}>
             <div className='profilepic'>
                 <img src={props.image}
                     style={{ width: "100px", height: "100px"}}

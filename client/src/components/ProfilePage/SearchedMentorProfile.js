@@ -1,16 +1,36 @@
 import React from 'react';
+<<<<<<< HEAD:client/src/components/ProfilePage/MentorsProfile.js
 import './MentorsProfile.css';
+=======
+import './SearchedMentorProfile.css'; // assuming you have your CSS styles in a file named test.css
+import { useSelector,useDispatch } from 'react-redux';
+import { useContext } from 'react';
+import { MentorsContext } from '../ListPage/ListPage';
+import { useLocation } from 'react-router-dom';
+import { useEffect } from 'react';
+>>>>>>> 43e54e970242222509813a11f9b52e1ba033f72a:client/src/components/ProfilePage/SearchedMentorProfile.js
 
 
-function MentorsProfile() {
+const SearchedMentorProfile=(props)=>{
+ const mentorData=props.searchedMentorData
+  // console.log(mentorData+' from mentorprofile')
+  // useEffect(()=>{
+  //   console.log(props.searchedMentorData.name+' from mentorprofile')
+  // },[])
+  // const sendConnectRequest=async()=>{
+  //   const studentEmail= useSelector((state)=>{
+  //     return state.currentUser.email;
+  //   })
+
+  // }
   return (
     <section>
       <div className="card1">
       <button className="connect-button">Connect</button>
         <div className="card">
           <div className="left-container">
-            <img src="https://cdn.pixabay.com/photo/2020/10/19/09/44/woman-5667299__480.jpg" alt="Profile Image" />
-            <h2 className="gradienttext">Saachi Peswani</h2>
+            <img src={mentorData.image} />
+            <h2 className="gradienttext">{mentorData.name}</h2>
             <p>Web Developer</p>
           </div>
           <div className="right-container">
@@ -19,7 +39,7 @@ function MentorsProfile() {
               <tbody>
                 <tr>
                   <td>Name :</td>
-                  <td>Saachi Peswani</td>
+                  <td>{mentorData.name}</td>
                 </tr>
                 <tr>
                   <td>Age :</td>
@@ -27,11 +47,11 @@ function MentorsProfile() {
                 </tr>
                 <tr>
                   <td>Mobile :</td>
-                  <td>+91 XXXXXXXXXX</td>
+                  <td>{mentorData.phoneNumber}</td>
                 </tr>
                 <tr>
                   <td>Email :</td>
-                  <td>saachi12@gmail.com</td>
+                  <td>{mentorData.email}</td>
                 </tr>
                 <tr>
                   <td>Company :</td>
@@ -47,9 +67,10 @@ function MentorsProfile() {
             </div>
           </div>
         </div>
+        
       </div>
     </section>
   );
 }
 
-export default MentorsProfile;
+export default SearchedMentorProfile;

@@ -272,3 +272,39 @@ export const getMentors = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+
+// Function to get mentor requests and corresponding student data
+export const getMentorRequestsWithStudentData = async (req, res) => {
+  try {
+    const mentorEmail = req.body.mentorEmail;
+
+    // Get mentor requests
+    const mentorRequests = await Request.find({ recipientEmail: mentorEmail });
+
+    // Get student data for each request
+    const requestsWithStudentData = await Promise.all(
+      mentorRequests.map(async (request) => {
+        const student = await Student.findOne({ email: request.studentEmail });
+        return { request, student };
+      })
+    );
+
+    res.status(200).json(requestsWithStudentData);
+  } catch (error) {
+    console.error('Error fetching mentor requests with student data:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+};
+
+// export const showMentorDetails = async(req,res)=>{
+//   try{
+//   const mentorEmail=req.body.mentorEmail;
+//   const mentorDetails=Mentor.find({email: mentorEmail});
+//   res.status(200).json(mentorDetails);
+//   }
+//   catch(error){
+//     console.error("Error fetching mentor data from database");
+//     res.status(500).json({ message: 'Internal server error' });
+//   }
+
+// }
