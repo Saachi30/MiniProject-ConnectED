@@ -1,14 +1,12 @@
 import React from 'react';
-<<<<<<< HEAD:client/src/components/ProfilePage/MentorsProfile.js
-import './MentorsProfile.css';
-=======
+
 import './SearchedMentorProfile.css'; // assuming you have your CSS styles in a file named test.css
 import { useSelector,useDispatch } from 'react-redux';
 import { useContext } from 'react';
 import { MentorsContext } from '../ListPage/ListPage';
 import { useLocation } from 'react-router-dom';
 import { useEffect } from 'react';
->>>>>>> 43e54e970242222509813a11f9b52e1ba033f72a:client/src/components/ProfilePage/SearchedMentorProfile.js
+
 
 
 const SearchedMentorProfile=(props)=>{
