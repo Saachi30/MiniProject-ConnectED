@@ -48,7 +48,7 @@ export const sendConnectionRequestToMentor = async (studentEmail, mentorEmail) =
     try {
         const data = { studentEmail, recipientEmail: mentorEmail, requestType: 'mentor' };
         const response = await axios.post(`${baseUrl}/send-request-to-mentor`, data);
-        
+      
         return response;
     } catch (error) {
         console.error(error);

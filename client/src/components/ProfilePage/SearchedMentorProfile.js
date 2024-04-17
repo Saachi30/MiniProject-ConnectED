@@ -1,33 +1,33 @@
-import React from 'react';
+import React, { useEffect } from 'react';
+import './SearchedMentorProfile.css';
+import { useSelector } from 'react-redux';
+import { sendConnectionRequestToMentor } from '../../services/api';
 
-import './SearchedMentorProfile.css'; // assuming you have your CSS styles in a file named test.css
-import { useSelector,useDispatch } from 'react-redux';
-import { useContext } from 'react';
-import { MentorsContext } from '../ListPage/ListPage';
-import { useLocation } from 'react-router-dom';
-import { useEffect } from 'react';
+const SearchedMentorProfile = (props) => {
+  const mentorData = props.searchedMentorData;
+  const studentEmail = useSelector((state) => state.currentUser.new.email);
+  
+  const sendConnectionRequest = async () => {
+    const mentorEmail = mentorData.email;
+    
+    console.log(mentorEmail+studentEmail)
+    const response = await sendConnectionRequestToMentor(studentEmail, mentorEmail);
+    if (response) {
+      console.log("Request sent successfully");
+      alert("Request sent successfully!")
+      // You can perform further actions based on the response here
+    }
+  };
 
-
-
-const SearchedMentorProfile=(props)=>{
- const mentorData=props.searchedMentorData
-  // console.log(mentorData+' from mentorprofile')
-  // useEffect(()=>{
-  //   console.log(props.searchedMentorData.name+' from mentorprofile')
-  // },[])
-  // const sendConnectRequest=async()=>{
-  //   const studentEmail= useSelector((state)=>{
-  //     return state.currentUser.email;
-  //   })
-
-  // }
   return (
     <section>
       <div className="card1">
-      <button className="connect-button">Connect</button>
+        <button className="connect-button" onClick={sendConnectionRequest}>
+          Connect
+        </button>
         <div className="card">
           <div className="left-container">
-            <img src={mentorData.image} />
+            <img src={mentorData.image} alt={mentorData.name} />
             <h2 className="gradienttext">{mentorData.name}</h2>
             <p>Web Developer</p>
           </div>
@@ -65,10 +65,9 @@ const SearchedMentorProfile=(props)=>{
             </div>
           </div>
         </div>
-        
       </div>
     </section>
   );
-}
+};
 
 export default SearchedMentorProfile;

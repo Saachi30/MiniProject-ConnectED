@@ -224,6 +224,7 @@ export const userLogin = async (req, res) => {
 // Function to send a connection request
 export const sendRequest = async (req, res) => {
   try {
+  
     const { studentEmail, recipientEmail, requestType } = req.body;
 
     // Check if the request already exists
@@ -237,7 +238,7 @@ export const sendRequest = async (req, res) => {
 
     // Save the request to the database
     await newRequest.save();
-
+    console.log("req saved")
     res.status(200).json({ message: 'Request sent successfully' });
   } catch (error) {
     console.error('Error sending request:', error);
