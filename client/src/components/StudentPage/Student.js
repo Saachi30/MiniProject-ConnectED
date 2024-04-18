@@ -1,7 +1,6 @@
 import React from "react";
 import "./Student.css";
 import { Link, useNavigate } from "react-router-dom";
-import AccountCircleIcon from "@mui/icons-material/AccountCircle";
 
 const Student = () => {
 
@@ -23,31 +22,6 @@ const Student = () => {
   
   return (
     <div className="studentPage">
-      <div className="navbar">
-        <div className="logo">
-          <div className="loggo"></div>
-          {/* <h2 className="logoName">ConnectED</h2> */}
-        </div>
-        <div className="middle">
-          <Link to='/list'><h3>Mentors</h3></Link>
-          <Link to='/list'><h3>Alumni</h3></Link>
-        </div>
-
-       
-        <div className="right">
-          <button className="view-requests" onClick={handleViewRequests}>
-            View Requests
-          </button>
-          <div className="profile" onClick={handleProfile}>
-            <AccountCircleIcon
-              style={{ width: "30px", height: "30px", marginRight: "10px" }}
-            />
-            My Profile
-          </div>
-        </div>
-     
-      </div>
-
       <div className="mainStudent">
         <div className="main-news">
           <div className="main-news-left">
