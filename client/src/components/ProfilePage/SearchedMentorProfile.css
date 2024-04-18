@@ -131,7 +131,7 @@ section::before{
 
 
   }
-  img {
+  .left-container img {
     border: double 5px transparent;
     border-radius: 50%;
     background-image: linear-gradient(white, white), 
@@ -184,7 +184,7 @@ section::before{
   .social-icons i:hover {
     color: rgba(255, 255, 255, 1);
   }
-  p {
+  .left-container p {
     font-size: 18px;
     margin-bottom: 20px;
     color:aliceblue

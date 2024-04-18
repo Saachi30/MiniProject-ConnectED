@@ -2,10 +2,14 @@
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #212e8f;
   padding: 10px 20px;
-  box-shadow: 0px 2px 4px rgba(0, 0, 0, 0.1);
+  box-shadow: rgba(2, 2, 3, 0.5) 0px 50px 100px -20px,
+                rgba(0, 0, 0, 0.3) 0px 30px 60px -30px;
   overflow-x: auto;
+  margin: 1%;
+  border-radius: 20px;
+  font-size: 1.2rem;
+  font-weight: 500;
 }
 
 .nav-logo {
@@ -28,11 +32,12 @@
 }
 
 .nav-menu li {
-  margin-right: 20px;
+  font-size: 1.2rem;
+  margin-right: 150px;
   position: relative;
 }
 .nav-menu li a{
-  color: white;
+  color: black;
   text-decoration: none;
 }
 

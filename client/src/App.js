@@ -16,14 +16,14 @@ import SearchedMentorProfile from "./components/ProfilePage/SearchedMentorProfil
 import "./App.css";
 
 function App() {
-  
   const [searchedMentorData, setSearchedMentorData] = useState({});
+  const [listType, setListType] = useState(null);
 
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
-          <Navbar />
+          <Navbar setListType={setListType} />
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/choice" element={<Choice />} />
@@ -42,10 +42,12 @@ function App() {
             />
             <Route path="/student" element={<Student />} />
             <Route path="/profile" element={<Profile />} />
-            <Route
-              path="/list"
-              element={<ListPage searchedMentorData={searchedMentorData} setSearchedMentorData={setSearchedMentorData} />}
-            />
+            {listType && (
+              <Route
+                path="/lists"
+                element={<ListPage listType={listType} />}
+              />
+            )}
             <Route path="/mentorprofile" element={<SearchedMentorProfile searchedMentorData={searchedMentorData} />} />
           </Routes>
         </div>
