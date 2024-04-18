@@ -3,7 +3,6 @@
 }
 .elementouter{
     display: flex;
-    width: inherit;
     height: auto;
     /* justify-content: center; */
     align-items: center;
