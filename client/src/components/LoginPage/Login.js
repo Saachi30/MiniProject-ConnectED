@@ -60,7 +60,7 @@ const Login = () => {
           id="email"
           className="form-control transparent-input"
           name="email"
-          placeholder="email"
+          placeholder="Email"
           onChange={handleChange}
         />
           <br />
@@ -69,7 +69,7 @@ const Login = () => {
           id="password"
           className="form-control transparent-input"
           name="password"
-          placeholder="password"
+          placeholder="Password"
           onChange={handleChange}
         />
         </div>

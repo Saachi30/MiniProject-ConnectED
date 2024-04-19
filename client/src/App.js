@@ -48,7 +48,8 @@ function App() {
                 element={<ListPage listType={listType} />}
               />
             )}
-            <Route path="/mentorprofile" element={<SearchedMentorProfile searchedMentorData={searchedMentorData} />} />
+           <Route path="/mentorprofile" element={<SearchedMentorProfile setSearchedMentorData={setSearchedMentorData} />} />
+
           </Routes>
         </div>
       </Router>
