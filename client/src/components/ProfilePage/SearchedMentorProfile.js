@@ -1,20 +1,23 @@
-import React, { useEffect } from 'react';
-import './SearchedMentorProfile.css';
-import { useSelector } from 'react-redux';
-import { sendConnectionRequestToMentor } from '../../services/api';
+import React, { useEffect } from "react";
+import "./SearchedMentorProfile.css";
+import { useSelector } from "react-redux";
+import { sendConnectionRequestToMentor } from "../../services/api";
 
 const SearchedMentorProfile = (props) => {
   const mentorData = props.searchedMentorData;
   const studentEmail = useSelector((state) => state.currentUser.new.email);
-  
+
   const sendConnectionRequest = async () => {
     const mentorEmail = mentorData.email;
-    
-    console.log(mentorEmail+studentEmail)
-    const response = await sendConnectionRequestToMentor(studentEmail, mentorEmail);
+
+    console.log(mentorEmail + studentEmail);
+    const response = await sendConnectionRequestToMentor(
+      studentEmail,
+      mentorEmail
+    );
     if (response) {
       console.log("Request sent successfully");
-      alert("Request sent successfully!")
+      alert("Request sent successfully!");
       // You can perform further actions based on the response here
     }
   };
@@ -58,10 +61,18 @@ const SearchedMentorProfile = (props) => {
               </tbody>
             </table>
             <div className="social-icons">
-              <a href="#"><i className="fa fa-facebook-f"></i></a>
-              <a href="#"><i className="fa fa-twitter"></i></a>
-              <a href="#"><i className="fa fa-linkedin"></i></a>
-              <a href="#"><i className="fa fa-github"></i></a>
+              <a href="#">
+                <i className="fa fa-facebook-f"></i>
+              </a>
+              <a href="#">
+                <i className="fa fa-twitter"></i>
+              </a>
+              <a href="#">
+                <i className="fa fa-linkedin"></i>
+              </a>
+              <a href="#">
+                <i className="fa fa-github"></i>
+              </a>
             </div>
           </div>
         </div>

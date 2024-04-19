@@ -43,13 +43,16 @@ function App() {
             <Route path="/student" element={<Student />} />
             <Route path="/profile" element={<Profile />} />
             {listType && (
-              <Route
-                path="/lists"
-                element={<ListPage listType={listType} />}
-              />
+              <Route path="/lists" element={<ListPage listType={listType} setSearchedMentorData={setSearchedMentorData} searchedMentorData={searchedMentorData}/>} />
             )}
-           <Route path="/mentorprofile" element={<SearchedMentorProfile setSearchedMentorData={setSearchedMentorData} />} />
-
+            <Route
+              path="/mentorprofile"
+              element={
+                <SearchedMentorProfile
+                  searchedMentorData={searchedMentorData}
+                />
+              }
+            />
           </Routes>
         </div>
       </Router>
