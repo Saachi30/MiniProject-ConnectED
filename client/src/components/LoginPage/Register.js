@@ -33,7 +33,7 @@ const Register = (props) => {
       
       const response = await authenticateSignup(type, formData); // Pass type parameter
         //Add formdata to store
-        dispatch(addCurrentUser(formData))
+        dispatch(addCurrentUser({user: formData, type}))
 
         navigate(`/student`);
         console.log("Registration successful");
