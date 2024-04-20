@@ -22,8 +22,9 @@ const SingleItem = ({ data }) => {
         <img src={profilePic} alt={fullName} />
       </div>
       <div className="details">
-        <h2>{fullName}</h2>
-        <p>{yearOfStudy}</p>
+        <h2>{data.student.name}</h2>
+        <p>Year of study: {data.student.yearOfStudy}</p>
+        <p>Preferred Domain: {data.student.preferredDomain}</p>
         <div className="buttons">
           <button onClick={handleAccept}>Accept</button>
           <button onClick={handleReject}>Reject</button>

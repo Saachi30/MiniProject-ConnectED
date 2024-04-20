@@ -1,5 +1,3 @@
-// PendingReqs.js
-
 import React, { useState, useEffect } from 'react';
 import SingleItem from './singleitem';
 import { fetchMentorRequestsWithStudentData } from '../../services/api';
@@ -7,17 +5,26 @@ import { useDispatch, useSelector } from "react-redux";
 
 const PendingReqs = () => {
   const [mentorRequestsWithStudentData, setMentorRequestsWithStudentData] = useState([]);
-
-  const mentorEmail=useSelector((state)=>{
-    return state.currentUser.email;
-  })
+  const mentorEmail = useSelector((state) => state.currentUser.user.email);
 
   useEffect(() => {
-    const response=fetchMentorRequestsWithStudentData(mentorEmail);
-    setMentorRequestsWithStudentData(response);
-  }, []);
-
+    const fetchData = async () => {
+      try {
+        const response = await fetchMentorRequestsWithStudentData(mentorEmail);
+        console.log('Fetched data:', response); // Log fetched data
+        // Convert the object of objects to an array of objects
+        const dataArray = Object.values(response);
+        setMentorRequestsWithStudentData(dataArray[0]);
+      } catch (error) {
+        console.error('Error fetching mentor requests with student data:', error);
+      }
+    };
   
+    fetchData();
+  }, [mentorEmail]);
+
+
+  console.log('mentorRequestsWithStudentData:', mentorRequestsWithStudentData); // Log state
 
   return (
     <div className="pending-reqs-container">

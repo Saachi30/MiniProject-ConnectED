@@ -275,7 +275,7 @@ export const getMentors = async (req, res) => {
 // Function to get mentor requests and corresponding student data
 export const getMentorRequestsWithStudentData = async (req, res) => {
   try {
-    const mentorEmail = req.body.mentorEmail;
+    const {mentorEmail} = req.query;
 
     // Get mentor requests
     const mentorRequests = await Request.find({ recipientEmail: mentorEmail });
@@ -284,6 +284,7 @@ export const getMentorRequestsWithStudentData = async (req, res) => {
     const requestsWithStudentData = await Promise.all(
       mentorRequests.map(async (request) => {
         const student = await Student.findOne({ email: request.studentEmail });
+        console.log(request + "  " + student);
         return { request, student };
       })
     );

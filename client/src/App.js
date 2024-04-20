@@ -53,7 +53,9 @@ function App() {
                   searchedMentorData={searchedMentorData}
                 />
               }
+              
             />
+            <Route path="/pending-requests" element={<PendingReqs/>}></Route>
           </Routes>
         </div>
       </Router>

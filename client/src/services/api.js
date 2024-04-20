@@ -105,7 +105,7 @@ export const fetchMentors = async () => {
 
 export const fetchMentorRequestsWithStudentData = async (mentorEmail) => {
     try {
-      const response = await axios.get(`${baseUrl}/mentor-requests-with-student-data`, { data: { mentorEmail } });
+      const response = await axios.get(`${baseUrl}/mentor-requests-with-student-data`, {params: {mentorEmail} });
       return response;
     } catch (error) {
       console.error('Error fetching mentor requests with student data:', error);
