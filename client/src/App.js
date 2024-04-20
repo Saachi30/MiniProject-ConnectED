@@ -18,16 +18,17 @@ import "./App.css";
 function App() {
   const [searchedMentorData, setSearchedMentorData] = useState({});
   const [listType, setListType] = useState(null);
+  const [userType, setUserType] = useState("");
 
   return (
     <Provider store={store}>
       <Router>
         <div className="App">
-          <Navbar setListType={setListType} />
+          <Navbar setListType={setListType} userType={userType}/>
           <Routes>
             <Route path="/" element={<LandingPage />} />
             <Route path="/choice" element={<Choice />} />
-            <Route path="/login" element={<Login />} />
+            <Route path="/login" element={<Login  userType={userType} setUserType={setUserType}/>} />
             <Route
               path="/register/student"
               element={<Register type="student" />}

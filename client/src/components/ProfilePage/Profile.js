@@ -21,7 +21,7 @@ const Profile = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const data=useSelector((state)=>{
-    return state.currentUser;
+    return state.currentUser.user;
   })
  console.log(data);
   const handleLogout=async()=>{
@@ -38,8 +38,8 @@ const Profile = () => {
           <div className="ProfileName">
             <AccountCircleIcon style={{height:"70px",width:"70px"}}/>
             <div className="Name">
-              <h2>{data.new.name}</h2>
-              <h4>{data.new.preferredDomain}</h4>
+              <h2>{data.name}</h2>
+              <h4>{data.preferredDomain}</h4>
             </div>
           </div>
           <div className="ConnectionsCount">
@@ -57,11 +57,11 @@ const Profile = () => {
           <div className="PersonalDetails">
             <div className="phone Details">
               <LocalPhoneIcon/>
-              <h3>{data.new.phoneNumber}</h3>
+              <h3>{data.phoneNumber}</h3>
             </div>
             <div className="mail Details">
               <EmailIcon/>
-              <h3>{data.new.email}</h3>
+              <h3>{data.email}</h3>
             </div>
             <div className="birth Details">
               <CakeIcon/>

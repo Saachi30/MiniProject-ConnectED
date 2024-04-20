@@ -33,16 +33,16 @@ export const authenticateLogin = async (data) => {
 //     }
 // };
 
-export const getDataLogin = async () => {
+export const getDataLogin = async ({ email }) => { // Accept email as a parameter
     try {
-        const response = await axios.get(`${baseUrl}/login`);
-        //console.log(response.data)
-        return response.data;
+      const response = await axios.get(`${baseUrl}/login`, { params: { email } }); // Pass email as a query parameter
+      return response.data;
     } catch (error) {
-        console.error(error);
-        throw error;
+      console.error(error);
+      throw error;
     }
-};
+  };
+  
 // Send request to mentor
 export const sendConnectionRequestToMentor = async (studentEmail, mentorEmail) => {
     try {

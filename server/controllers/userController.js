@@ -163,63 +163,61 @@ export const userLogin = async (req, res) => {
     try {
       // Check if user exists
       if (!user) {
-        return res.status(400).json({ message: 'Invalid credentials' });
+        return res.status(200).json({ message: 'Invalid credentials' });
       }
   
       // Check password
       const isPasswordValid = await bcrypt.compare(password, user.password);
       if (!isPasswordValid) {
-        return res.status(400).json({ message: 'Invalid credentials' });
+        return res.status(200).json({ message: 'Invalid credentials' });
       }
   
       // Store user data in session
       //req.session.user = user;
       //user.activity=true;
       console.log("Logged in")
-      res.json({ success: true, user });
+      res.status(200).json({ success: true, user });
     } catch (error) {
       console.error(error);
-      res.status(500).json({ message: 'Internal server error' });
+      res.status(200).json({ message: 'Internal server error' });
     }
   };
   
   // Controller function for user logout
   
 
-  export const getUserData = async(req,res)=>{
-   // const {email}=req.body;
+  export const getUserData = async (req, res) => {
+    const { email } = req.query; // Retrieve email from query parameters
     console.log(email);
-    try{
-      const user=await User.findOne({email});
-      //console.log(user);
-      var userData={}
-      if(user.userType==='student'){
-        userData=await Student.findOne({email});
-        if(userData){
-          res.status(200).json({success: true, data: userData})
-        }
+    try {
+      const user = await User.findOne({ email });
+  
+      if (!user) {
+        return res.status(400).json({ success: false, message: 'User not found' });
       }
-      else if(user.userType==='alumni'){
-        //console.log("In alumni")
-        userData=await Alumni.findOne({email});
-        if(userData){
-          //console.log(userData)
-          res.status(200).json({success: true, data: userData})
-        }
+  
+      let userData;
+      let userType;
+      if (user.userType === 'student') {
+        userData = await Student.findOne({ email });
+      } else if (user.userType === 'alumni') {
+        userData = await Alumni.findOne({ email });
+      } else if (user.userType === 'mentor') {
+        userData = await Mentor.findOne({ email });
+      } else {
+        return res.status(400).json({ success: false, message: 'Invalid user type' });
       }
-      else if(user.userType==='mentor'){
-        userData=await Mentor.findOne({email});
-        if(userData){
-          res.status(200).json({success: true, data: userData})
-        }
-      }
-
-    }
-    catch(err){
+      console.log("user found")
+      console.log(userData)
+      console.log(userType)
+      return res.status(200).json({ success: true, data: userData, type: user.userType });
+    } catch (err) {
       console.error('Error fetching user data: ', err);
-      res.status(500).json({ message: 'Internal server error' });
+      res.status(400).json({ success: false, message: 'Internal server error' });
     }
-}
+  };
+  
+  
 
 // Function to send a connection request
 export const sendRequest = async (req, res) => {

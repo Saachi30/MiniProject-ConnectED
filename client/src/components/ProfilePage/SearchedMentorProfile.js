@@ -5,7 +5,7 @@ import { sendConnectionRequestToMentor } from "../../services/api";
 
 const SearchedMentorProfile = (props) => {
   const mentorData = props.searchedMentorData;
-  const studentEmail = useSelector((state) => state.currentUser.new.email);
+  const studentEmail = useSelector((state) => state.currentUser.user.email);
 
   const sendConnectionRequest = async () => {
     const mentorEmail = mentorData.email;

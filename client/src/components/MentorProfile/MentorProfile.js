@@ -10,7 +10,7 @@ const MentorProfile = () => {
   const mentor = mentors.find((m) => m.id === parseInt(id));
   const navigate=useNavigate();
   const data=useSelector((state)=>{
-    return state.currentUser.new.email;
+    return state.currentUser.user.email;
   })
   const handleConnect = async () => {
  

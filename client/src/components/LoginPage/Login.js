@@ -6,7 +6,7 @@ import { authenticateLogin, getDataLogin } from "../../services/api.js";
 import { useDispatch } from "react-redux";
 import { addCurrentUser } from "../../store/slices/UserSlice.js";
 
-const Login = () => {
+const Login = (props) => {
   const navigate = useNavigate();
   const [formData, setFormData] = useState({
     email: "",
@@ -16,25 +16,23 @@ const Login = () => {
   const handleChange = (event) => {
     setFormData({ ...formData, [event.target.name]: event.target.value });
   };
-
   const handleLogin = async () => {
     try {
-    
       const response = await authenticateLogin(formData);
-      const responseData = await getDataLogin();
-      console.log(responseData);
-        //Add responseData to redux store
-        const data=responseData.data;
-        dispatch(addCurrentUser(data));
-        console.log("Login successful");
-        // Navigate user to the student page using React Router
-        navigate("/student")
-       
+      const responseData = await getDataLogin({ email: formData.email });
+      console.log(responseData)
+      const user = responseData.data;
+      const type = responseData.type;
+      // Dispatch action to update Redux store with user data and type
+      if (responseData) {
+        console.log(user + "type: "+type)
+        dispatch(addCurrentUser({ user, type }));
+        navigate("/student");
+      }
     } catch (error) {
       console.error("Login failed:", error.message);
     }
   };
-  
 
   return (
     <div className="box-form">
