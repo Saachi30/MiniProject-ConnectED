@@ -36,7 +36,7 @@ const SearchedMentorProfile = (props) => {
           </div>
           <div className="right-container">
             <h3 className="gradienttext">Profile Details</h3>
-            <table>
+            <table className="table">
               <tbody>
                 <tr>
                   <td>Name :</td>

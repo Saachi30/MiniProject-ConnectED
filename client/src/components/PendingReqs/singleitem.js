@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-//import './SingleItem.css';
+import './singleitem.css';
 import {useDispatch, useSelector} from 'react-redux';
 import { changeReqStatus, fetchMentorRequestsWithStudentData, removeConnectionRequestToMentor } from '../../services/api';
 const SingleItem = (props) => {
@@ -42,19 +42,41 @@ const SingleItem = (props) => {
   };
 
   return (
-    <div className="single-item">
-      <div className="profile-pic">
-        <img src={profilePic} alt={fullName} />
+    <div className="container">
+      <h1>View Request List</h1>
+      <div className="search-container">
+        <input type="text" placeholder="Search..." />
+        <select>
+          <option value="name">Name</option>
+          <option value="year">Year of Study</option>
+          <option value="domain">Domain</option>
+        </select>
       </div>
-      <div className="details">
-        <h2>{props.data.student.name}</h2>
-        <p>Year of study: {props.data.student.yearOfStudy}</p>
-        <p>Preferred Domain: {props.data.student.preferredDomain}</p>
-        <div className="buttons">
-          <button onClick={handleAccept}>Accept</button>
-          <button onClick={handleReject}>Reject</button>
-          <button onClick={handleViewProfile}>View Profile</button>
-        </div>
+      <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Year of Study</th>
+              <th>Domain</th>
+              <th>Accept</th>
+              <th>Reject</th>
+              <th>Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+
+            <tr>
+              <td>{props.data.student.name}</td>
+              <td>{props.data.student.yearOfStudy}</td>
+              <td>{props.data.student.preferredDomain}</td>
+              <td className="action-buttons"><button  className="accept" onClick={handleAccept}>Accept</button></td>
+              <td className="action-buttons"><button className="reject" onClick={handleReject}>Reject</button></td>
+              <td className="action-buttons"><button onClick={handleViewProfile}>View Profile</button></td>
+            </tr>
+           
+          </tbody>
+        </table>
       </div>
     </div>
   );

@@ -190,7 +190,7 @@ section::before{
     color:aliceblue
   }
   
-  table {
+  .card1 .card .table {
     display: flex;
     flex-direction: column;
     justify-content: center;
