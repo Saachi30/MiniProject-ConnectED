@@ -281,24 +281,32 @@ export const getMentors = async (req, res) => {
 // Function to get mentor requests and corresponding student data
 export const getMentorRequestsWithStudentData = async (req, res) => {
   try {
-    const {mentorEmail} = req.query;
+    const { mentorEmail } = req.query;
    
-    console.log(mentorEmail)
+    console.log(mentorEmail);
+    
     // Get mentor requests
     const mentorRequests = await Request.find({ recipientEmail: mentorEmail });
-    console.log(mentorRequests+"from reqs")
-    // Get student data for each request
+    console.log(mentorRequests + " from requests");
+
+    // Filter and map requests with pending status and populate student data
     const requestsWithStudentData = await Promise.all(
       mentorRequests.map(async (request) => {
-        const student = await Student.findOne({ email: request.studentEmail });
-        console.log(request + "  " + student);
-        if(request.reqstatus==='pending'){
-        return { request, student };
+        if (request.reqstatus === 'pending') {
+          // Find corresponding student data
+          const student = await Student.findOne({ email: request.studentEmail });
+          console.log(request + "  " + student);
+          
+          // Return an object containing both request and student data
+          return { request, student };
         }
       })
     );
 
-    res.status(200).json(requestsWithStudentData);
+    // Filter out undefined values (requests with status other than pending)
+    const pendingRequests = requestsWithStudentData.filter(Boolean);
+
+    res.status(200).json(pendingRequests);
   } catch (error) {
     console.error('Error fetching mentor requests with student data:', error);
     res.status(500).json({ message: 'Internal server error' });

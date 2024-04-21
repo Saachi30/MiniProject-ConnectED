@@ -3,7 +3,8 @@ import './singleitem.css';
 import {useDispatch, useSelector} from 'react-redux';
 import { changeReqStatus, fetchMentorRequestsWithStudentData, removeConnectionRequestToMentor } from '../../services/api';
 const SingleItem = (props) => {
-  const { fullName, yearOfStudy, profilePic } = props.data.student;
+  console.log(props)
+  const { name, yearOfStudy, preferredDomain } = props.data.student;
   const mentorEmail= useSelector((state)=>state.currentUser.user.email)
 
   const handleAccept = async () => {
@@ -43,6 +44,7 @@ const SingleItem = (props) => {
 
   return (
     <div className="container">
+    
       <h1>View Request List</h1>
       <div className="search-container">
         <input type="text" placeholder="Search..." />
@@ -67,9 +69,9 @@ const SingleItem = (props) => {
           <tbody>
 
             <tr>
-              <td>{props.data.student.name}</td>
-              <td>{props.data.student.yearOfStudy}</td>
-              <td>{props.data.student.preferredDomain}</td>
+              <td>{name}</td>
+              <td>{yearOfStudy}</td>
+              <td>{preferredDomain}</td>
               <td className="action-buttons"><button  className="accept" onClick={handleAccept}>Accept</button></td>
               <td className="action-buttons"><button className="reject" onClick={handleReject}>Reject</button></td>
               <td className="action-buttons"><button onClick={handleViewProfile}>View Profile</button></td>
