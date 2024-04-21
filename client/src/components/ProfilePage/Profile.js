@@ -29,14 +29,21 @@ const Profile = () => {
       navigate('/');  
   }
   return (
+    <div className="Student-Profile">
     <div className="ProfilePage">
       <div className="HeadSec">
         <p className="LogOut" onClick={handleLogout}>LogOut</p>
       </div>
       <div className="ContentSec">
+        <div className="UpperContent">
         <div className="ContentSec1">
+          <div className="index">
+
+          </div>
           <div className="ProfileName">
-            <AccountCircleIcon style={{height:"70px",width:"70px"}}/>
+            <div className="ProfileImage">
+              <AccountCircleIcon style={{height:"200px",width:"200px"}}/>
+            </div>
             <div className="Name">
               <h2>{data.name}</h2>
               <h4>{data.preferredDomain}</h4>
@@ -53,8 +60,17 @@ const Profile = () => {
             </div>
           </div>
         </div>
-        <div className="ContentSec2">
+
+        <div className="ContentSec3">
+            <img src={skillsImage} alt="" />
+        </div>
+        </div>
+
+        
+        <div className="LowerContent">
           <div className="PersonalDetails">
+            <div className="ProfileDetails">
+            <h1>Contact</h1>
             <div className="phone Details">
               <LocalPhoneIcon/>
               <h3>{data.phoneNumber}</h3>
@@ -71,11 +87,9 @@ const Profile = () => {
               <RoomIcon/>
               <h3>Mumbai</h3>
             </div>
-          </div>
-          <div className="CurrentSkills">
-            <img src={skillsImage} alt="" />
-          </div>
-          <div className="Education">
+            </div>
+
+            <div className="Education">
             <h1>Education</h1>
             <div className="EduDetails">
               <div className="Graduation Details">
@@ -93,12 +107,18 @@ const Profile = () => {
                 <h3>Jankidevi Public School</h3>
               </div>
             </div>
+            </div>
+
           </div>
           <div className="Hobbies">
             <img src={hobbiesImage} alt="" />
           </div>
         </div>
+
+
+
       </div>
+    </div>
     </div>
   );
 };
