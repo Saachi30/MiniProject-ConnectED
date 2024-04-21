@@ -72,6 +72,7 @@ export const sendConnectionRequestToAlumni = async (studentEmail, alumniEmail) =
 export const removeConnectionRequestToMentor = async (studentEmail, mentorEmail) => {
     try {
         const data = { studentEmail, mentorEmail ,requestType:'mentor'};
+        console.log(data)
         const response = await axios.post(`${baseUrl}/remove-request-to-mentor`, data);
         return response;
     } catch (error) {
@@ -112,6 +113,18 @@ export const fetchMentorRequestsWithStudentData = async (mentorEmail) => {
     }
   };
 
+
+export const changeReqStatus=async({studentEmail, mentorEmail, reqstatus})=>{
+    try{
+        const data={studentEmail, mentorEmail, reqstatus}
+        const response=await axios.post(`${baseUrl}/update-req`,data)
+        return response;
+    }
+    catch(error){
+        console.error('Error updating req status', error);
+    }
+
+}
 // export const viewMentorProfile=async(mentorEmail)=>{
 //     try{
 

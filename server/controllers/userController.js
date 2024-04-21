@@ -247,10 +247,16 @@ export const sendRequest = async (req, res) => {
 // Function to remove a connection request
 export const removeRequest = async (req, res) => {
   try {
-    const { studentEmail, recipientEmail, requestType } = req.body;
-
+    const { studentEmail, mentorEmail, requestType } = req.body;
+    // console.log(studentEmail+ recipientEmail+ requestType);
     // Find and delete the request based on studentEmail, recipientEmail, and requestType
-    await Request.findOneAndDelete({ studentEmail, recipientEmail, requestType });
+    const request=await Request.findOne({recipientEmail: mentorEmail, studentEmail: studentEmail })
+    if(request){
+      request.reqstatus = "declined";
+      await request.save(); // Save the updated status
+      
+    }
+    await Request.findOneAndDelete({ studentEmail:studentEmail, recipientEmail:mentorEmail, requestType: requestType });
 
     res.status(200).json({ message: 'Request removed successfully' });
   } catch (error) {
@@ -276,16 +282,19 @@ export const getMentors = async (req, res) => {
 export const getMentorRequestsWithStudentData = async (req, res) => {
   try {
     const {mentorEmail} = req.query;
-
+   
+    console.log(mentorEmail)
     // Get mentor requests
     const mentorRequests = await Request.find({ recipientEmail: mentorEmail });
-
+    console.log(mentorRequests+"from reqs")
     // Get student data for each request
     const requestsWithStudentData = await Promise.all(
       mentorRequests.map(async (request) => {
         const student = await Student.findOne({ email: request.studentEmail });
         console.log(request + "  " + student);
+        if(request.reqstatus==='pending'){
         return { request, student };
+        }
       })
     );
 
@@ -295,7 +304,28 @@ export const getMentorRequestsWithStudentData = async (req, res) => {
     res.status(500).json({ message: 'Internal server error' });
   }
 };
+export const updateReqStatus=async(req, res)=>{
+  const { studentEmail, mentorEmail, reqstatus } = req.body;
 
+console.log(studentEmail + mentorEmail + reqstatus)
+  try {
+    // Find the request document
+    const request = await Request.findOne({ recipientEmail: mentorEmail, studentEmail: studentEmail });
+
+    // If request is found, update its status
+    if (request) {
+      request.reqstatus = reqstatus;
+      await request.save(); // Save the updated status
+      res.status(200).json({ message: "Request accepted" });
+    } else {
+      res.status(404).json({ message: "Request not found" });
+    }
+  } catch (error) {
+    console.error('Error accepting request:', error);
+    res.status(500).json({ message: 'Internal server error' });
+  }
+
+}
 // export const showMentorDetails = async(req,res)=>{
 //   try{
 //   const mentorEmail=req.body.mentorEmail;

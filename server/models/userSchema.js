@@ -150,7 +150,7 @@ const usersSchema = new mongoose.Schema({
         type: String,
         required: true
     },
-    status: {
+    reqstatus: {
         type: String,
         enum: ['pending', 'accepted', 'declined'],
         default: 'pending'
