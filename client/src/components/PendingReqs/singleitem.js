@@ -2,11 +2,13 @@ import React, { useState } from 'react';
 import './singleitem.css';
 import {useDispatch, useSelector} from 'react-redux';
 import { changeReqStatus, fetchMentorRequestsWithStudentData, removeConnectionRequestToMentor } from '../../services/api';
+import { useNavigate } from 'react-router-dom';
 const SingleItem = (props) => {
   console.log(props)
   const { name, yearOfStudy, preferredDomain } = props.data.student;
   const mentorEmail= useSelector((state)=>state.currentUser.user.email)
-
+  const mentorName= useSelector((state)=>state.currentUser.user.name)
+  const navigate=useNavigate();
   const handleAccept = async () => {
     const studentEmail = props.data.student.email;
     const response = await changeReqStatus({ studentEmail, mentorEmail, reqstatus: "accepted" });
@@ -33,15 +35,20 @@ const SingleItem = (props) => {
     }
     alert("Request deleted successfully!")
 
-
-
-
   };
 
   const handleViewProfile = () => {
     // Handle view profile action
   };
-
+  const initiateChat=async()=>{
+    const studentEmail=props.data.student.email;
+    const roomkey=studentEmail+mentorEmail;
+    props.setRoomKey(roomkey);
+    props.setName(mentorName)
+    console.log(roomkey+"from si")
+    navigate('/chatsect')
+    
+  }
   return (
     <div className="container">
     
@@ -79,6 +86,7 @@ const SingleItem = (props) => {
            
           </tbody>
         </table>
+        <button onClick={initiateChat}>Chat</button>
       </div>
     </div>
   );

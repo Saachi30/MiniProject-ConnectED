@@ -14,11 +14,14 @@ import MentorProfile from "./components/MentorProfile/MentorProfile";
 import PendingReqs from "./components/PendingReqs/PendingReqs";
 import SearchedMentorProfile from "./components/ProfilePage/SearchedMentorProfile";
 import "./App.css";
+import ChatSect from "./components/ChatSection/ChatSect";
 
 function App() {
   const [searchedMentorData, setSearchedMentorData] = useState({});
   const [listType, setListType] = useState(null);
   const [userType, setUserType] = useState("");
+  const [roomKey, setRoomKey] = useState("");
+  const [name, setName] = useState("");
 
   return (
     <Provider store={store}>
@@ -50,12 +53,14 @@ function App() {
               path="/mentorprofile"
               element={
                 <SearchedMentorProfile
-                  searchedMentorData={searchedMentorData}
+                  searchedMentorData={searchedMentorData} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}
                 />
               }
               
             />
-            <Route path="/pending-requests" element={<PendingReqs/>}></Route>
+            <Route path="/pending-requests" element={<PendingReqs roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>}></Route>
+            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name}/>}></Route>
+            
           </Routes>
         </div>
       </Router>

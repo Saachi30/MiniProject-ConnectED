@@ -3,11 +3,11 @@ import SingleItem from './singleitem';
 import { fetchMentorRequestsWithStudentData } from '../../services/api';
 import { useDispatch, useSelector } from "react-redux";
 
-const PendingReqs = () => {
+const PendingReqs = (props) => {
   const [mentorRequestsWithStudentData, setMentorRequestsWithStudentData] = useState([]);
   
   const mentorEmail = useSelector((state) => state.currentUser.user.email);
-
+   
   useEffect(() => {
     const fetchData = async () => {
       try {
@@ -28,7 +28,7 @@ const PendingReqs = () => {
     <div className="pending-reqs-container">
       <div className="pending-reqs">
         {mentorRequestsWithStudentData.map((request) => (
-          <SingleItem key={request.request._id} data={request} mentorRequestsWithStudentData={mentorRequestsWithStudentData} setMentorRequestsWithStudentData={setMentorRequestsWithStudentData} />
+          <SingleItem key={request.request._id} data={request} mentorRequestsWithStudentData={mentorRequestsWithStudentData} setMentorRequestsWithStudentData={setMentorRequestsWithStudentData} roomKey={props.roomKey} setRoomKey={props.setRoomKey} setName={props.setName}/>
         ))}
       </div>
     </div>
