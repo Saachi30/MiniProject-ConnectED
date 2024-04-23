@@ -20,6 +20,7 @@ import { removeCurrentUser } from "../../store/slices/UserSlice";
 const Profile = () => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
+  const type = useSelector((state) => state.currentUser.type);
   const data=useSelector((state)=>{
     return state.currentUser.user;
   })
@@ -54,7 +55,10 @@ const Profile = () => {
               <h4>{data.preferredDomain}</h4>
             </div>
           </div>
-          <div className="ConnectionsCount">
+          
+          {type === "student" &&(
+            <>
+            <div className="ConnectionsCount">
             <div className="AlumniCount"  onClick={handleCountClick}>
               <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
               <h2>Alumni</h2>
@@ -64,6 +68,9 @@ const Profile = () => {
               <h2>Mentors</h2>
             </div>
           </div>
+            </>
+          )}
+          
         </div>
 
         <div className="ContentSec3">
