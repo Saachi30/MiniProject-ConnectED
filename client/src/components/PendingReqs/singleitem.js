@@ -49,32 +49,10 @@ const SingleItem = (props) => {
     navigate('/chatsect')
     
   }
-  return (
+   return (
     <div className="container">
-    
-      <h1>View Request List</h1>
-      <div className="search-container">
-        <input type="text" placeholder="Search..." />
-        <select>
-          <option value="name">Name</option>
-          <option value="year">Year of Study</option>
-          <option value="domain">Domain</option>
-        </select>
-      </div>
-      <div className="table-container">
         <table>
-          <thead>
-            <tr>
-              <th>Name</th>
-              <th>Year of Study</th>
-              <th>Domain</th>
-              <th>Accept</th>
-              <th>Reject</th>
-              <th>Profile</th>
-            </tr>
-          </thead>
           <tbody>
-
             <tr>
               <td>{name}</td>
               <td>{yearOfStudy}</td>
@@ -83,11 +61,10 @@ const SingleItem = (props) => {
               <td className="action-buttons"><button className="reject" onClick={handleReject}>Reject</button></td>
               <td className="action-buttons"><button onClick={handleViewProfile}>View Profile</button></td>
             </tr>
-           
           </tbody>
         </table>
         <button onClick={initiateChat}>Chat</button>
-      </div>
+   
     </div>
   );
 };

@@ -1,13 +1,10 @@
-.pending-reqs-container {
-    display: flex;
+/*.pending-reqs-container {
+  display: flex;
     justify-content: center;
     align-items: center;
     height: 100vh;
   }
   
-  .pending-reqs {
-    width: 40vw;
-  }
   
   .single-item {
     display: flex;
@@ -15,7 +12,7 @@
     padding: 10px;
     border: 1px solid #ccc;
     margin-bottom: 10px;
-    background-color: #f9f9f9; /* Light gray background */
+    background-color: #f9f9f9; 
   }
   
   .profile-pic img {
@@ -30,11 +27,11 @@
   }
   
   h2 {
-    color: #333; /* Dark text color for full name */
+    color: #333; 
   }
   
   p {
-    color: #666; /* Medium gray text color for year of study */
+    color: #666;
   }
   
   .buttons {
@@ -43,48 +40,89 @@
   
   .buttons button {
     margin-right: 5px;
-    background-color: #007bff; /* Blue button background */
-    color: #fff; /* White button text color */
+    background-color: #007bff; 
+    color: #fff; 
     border: none;
     padding: 5px 10px;
     cursor: pointer;
   }
   
   .buttons button:hover {
-    background-color: #0056b3; /* Darker blue on hover */
+    background-color: #0056b3; 
   }
-  .pending-reqs-container {
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-  }
-  
-  .pending-reqs {
-    width: 40vw;
-  }
-  
-  .single-item {
-    display: flex;
-    align-items: center;
-    padding: 10px;
-    border: 1px solid #ccc;
-    margin-bottom: 10px;
-    background-color: #f9f9f9; /* Light gray background */
-  }
-  
-  .profile-pic img {
-    width: 50px;
-    height: 50px;
-    border-radius: 50%;
-    margin-right: 10px;
-  }
-  
-  .details {
-    flex: 1;
-  }
-  
-  h2 {
-    color: #333; /* Dark text */
-  }
-    
+*/
+
+/* Pendingreqs.css */
+
+.pending-reqs-container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  margin-top: 20px;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"],
+.search-container select {
+  width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.table-container {
+  overflow-x: auto;
+  max-width: 1500px;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.profile-pic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.details {
+  flex: 1;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  margin-right: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #0056b3;
+}

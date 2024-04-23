@@ -1,4 +1,4 @@
-body {
+/*body {
     font-family: Arial, sans-serif;
     margin: 0;
     padding: 0;
@@ -10,15 +10,16 @@ body {
     border: 1px solid #ddd;
     border-radius: 5px;
     box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
-    display: flex; /* Use flexbox */
-    flex-direction: column; /* Arrange items vertically */
+    display: flex; 
+    flex-direction: column; 
     align-items: center;
   }
 
   table {
-    width: 100%; /* Set table width to 100% */
-    border-collapse: separate; /* Add separation between borders */
-    border-spacing: 10px; /* Set spacing between table cells */
+    max-width: 1500px;
+    width: 100%; 
+    border-collapse: separate; 
+    border-spacing: 10px; 
   }
   h1 {
     text-align: center;
@@ -35,8 +36,8 @@ body {
   }
   .table-container {
     overflow-x: auto;
-    width: 100%; /* Set table width to 100% */
-    border-collapse: separate; /* Add separation between borders */
+    width: 100%;
+    border-collapse: separate; 
     border-spacing: 10px;
   }
   
@@ -54,6 +55,8 @@ body {
     display: flex;
     justify-content: center;
   }*/
+
+  /*
   .action-buttons button {
     width: 150px;
     height: 50px;
@@ -78,3 +81,113 @@ body {
     width: 100px;
     height: 30px;
   }
+  */
+.container {
+  max-width: 1500px;
+  margin: 20px auto;
+  padding: 20px;
+  border: 1px solid #ddd;
+  border-radius: 5px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+}
+
+table {
+  border-collapse: collapse;
+}
+
+th, td {
+  padding: 12px 15px;
+  text-align: center;
+  border-bottom: 1px solid #ddd;
+}
+
+th {
+  background-color: #f2f2f2;
+  font-weight: bold;
+}
+
+.action-buttons button {
+  width: 100px;
+  height: 40px;
+  margin: 5px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.accept {
+  background-color: #4CAF50;
+  color: white;
+}
+
+.reject {
+  background-color: #f44336;
+  color: white;
+}
+
+/* Pendingreqs.css */
+.pending-reqs-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+.search-container {
+  margin-bottom: 20px;
+  display: flex;
+  align-items: center;
+}
+
+.search-container input[type="text"],
+.search-container select {
+  width: 200px;
+  padding: 10px;
+  margin-right: 10px;
+  border: 1px solid #ccc;
+  border-radius: 5px;
+}
+
+.single-item {
+  display: flex;
+  align-items: center;
+  padding: 10px;
+  border: 1px solid #ccc;
+  margin-bottom: 10px;
+  background-color: #f9f9f9;
+}
+
+.profile-pic img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 10px;
+}
+
+.details {
+  flex: 1;
+}
+
+h2 {
+  color: #333;
+}
+
+p {
+  color: #666;
+}
+
+.buttons {
+  display: flex;
+}
+
+.buttons button {
+  margin-right: 5px;
+  background-color: #007bff;
+  color: #fff;
+  border: none;
+  padding: 5px 10px;
+  cursor: pointer;
+}
+
+.buttons button:hover {
+  background-color: #0056b3;
+}

@@ -26,10 +26,36 @@ const PendingReqs = (props) => {
 
   return (
     <div className="pending-reqs-container">
-      <div className="pending-reqs">
+      <h1>View Request List</h1>
+      <div className="search-container">
+        <input type="text" placeholder="Search..." />
+        <select>
+          <option value="name">Name</option>
+          <option value="year">Year of Study</option>
+          <option value="domain">Domain</option>
+        </select>
+      </div>
+
+    <div className="table-container">
+        <table>
+          <thead>
+            <tr>
+              <th>Name</th>
+              <th>Year of Study</th>
+              <th>Domain</th>
+              <th>Accept</th>
+              <th>Reject</th>
+              <th>Profile</th>
+            </tr>
+          </thead>
+          <tbody>
+          <div className="">
         {mentorRequestsWithStudentData.map((request) => (
           <SingleItem key={request.request._id} data={request} mentorRequestsWithStudentData={mentorRequestsWithStudentData} setMentorRequestsWithStudentData={setMentorRequestsWithStudentData} roomKey={props.roomKey} setRoomKey={props.setRoomKey} setName={props.setName}/>
         ))}
+      </div>
+          </tbody>
+        </table>
       </div>
     </div>
   );
