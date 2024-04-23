@@ -28,6 +28,11 @@ const Profile = () => {
       dispatch(removeCurrentUser());
       navigate('/');  
   }
+
+  const handleCountClick = () => {
+    // Navigate to the mentors page
+    navigate("/count");
+  };
   return (
     <div className="Student-Profile">
     <div className="ProfilePage">
@@ -50,11 +55,11 @@ const Profile = () => {
             </div>
           </div>
           <div className="ConnectionsCount">
-            <div className="AlumniCount">
+            <div className="AlumniCount"  onClick={handleCountClick}>
               <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
               <h2>Alumni</h2>
             </div>
-            <div className="MentorCount">
+            <div className="MentorCount" onClick={handleCountClick}>
               <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
               <h2>Mentors</h2>
             </div>

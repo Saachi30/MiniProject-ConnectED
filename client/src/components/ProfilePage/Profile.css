@@ -104,6 +104,10 @@
   align-items: center;
 }
 
+.MentorCount:hover, .AlumniCount:hover{
+  cursor: pointer;
+}
+
 .Details h3 {
   margin-left: 40px;
   font-size: 1.5rem;

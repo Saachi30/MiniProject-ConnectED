@@ -49,11 +49,9 @@ const PendingReqs = (props) => {
             </tr>
           </thead>
           <tbody>
-          <div className="">
         {mentorRequestsWithStudentData.map((request) => (
           <SingleItem key={request.request._id} data={request} mentorRequestsWithStudentData={mentorRequestsWithStudentData} setMentorRequestsWithStudentData={setMentorRequestsWithStudentData} roomKey={props.roomKey} setRoomKey={props.setRoomKey} setName={props.setName}/>
         ))}
-      </div>
           </tbody>
         </table>
       </div>

@@ -200,7 +200,7 @@ section::before{
     border-collapse: collapse;
   }
   
-  td {
+  .table td {
     
     padding: 10px;
     border: none;
