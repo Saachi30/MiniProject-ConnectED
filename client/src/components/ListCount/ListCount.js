@@ -1,14 +1,30 @@
-import React from "react";
+import React, { useEffect } from "react";
 import "./ListCount.css";
-const ListCount = () => {
+import { useSelector } from "react-redux";
+import { useNavigate } from "react-router-dom";
+const ListCount = (props) => {
   // Dummy data
-  const data = [
-    { name: "John Doe", domain: "Technology", company: "ABC Corp" },
-    { name: "Jane Smith", domain: "Finance", company: "XYZ Inc" },
-    { name: "Michael Johnson", domain: "Marketing", company: "123 Industries" },
-    { name: "Emily Davis", domain: "Engineering", company: "Tech Solutions" }
-  ];
+  // const data = [
+  //   { name: "John Doe", domain: "Technology", company: "ABC Corp" },
+  //   { name: "Jane Smith", domain: "Finance", company: "XYZ Inc" },
+  //   { name: "Michael Johnson", domain: "Marketing", company: "123 Industries" },
+  //   { name: "Emily Davis", domain: "Engineering", company: "Tech Solutions" }
+  // ];
+  const navigate=useNavigate();
+  const data= props.connectedMentors;
+  const dataArray = Object.values(data);
+  const studentName = useSelector((state) => state.currentUser.user.name);
+  const studentEmail = useSelector((state) => state.currentUser.user.email);
 
+  const initiateChat=async(email)=>{
+    const mentorEmail=email;
+    const roomkey=studentEmail+mentorEmail;
+    props.setRoomKey(roomkey);
+    props.setName(studentName)
+    console.log(roomkey+"from smp");
+    navigate('/chatsect')
+  }
+ 
   return (
     <div className="listCount">
       <table>
@@ -16,18 +32,21 @@ const ListCount = () => {
           <tr>
             <th>Name</th>
             <th>Domain</th>
-            <th>Company</th>
+            <th>Year of Study</th>
             <th>Message</th>
+        
+       
           </tr>
         </thead>
         <tbody>
-          {data.map((item, index) => (
+          {dataArray.map((item, index) => (
+            
             <tr key={index}>
               <td>{item.name}</td>
-              <td>{item.domain}</td>
-              <td>{item.company}</td>
+              <td>{item.preferredDomain}</td>
+              <td>{item.yearOfStudy}</td>
               <td>
-                <button className="chat-button">Chat</button>
+                <button className="chat-button" onClick={()=>{initiateChat(item.email)}}>Chat</button>
               </td>
             </tr>
           ))}

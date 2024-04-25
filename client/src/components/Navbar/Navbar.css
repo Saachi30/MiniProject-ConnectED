@@ -21,9 +21,11 @@
   align-items: center;
   font-size: larger;
   
+  
 }
 .nav-logo p{
   font-weight:1000;
+  color: white !important;
 }
 
 .nav-logo img {

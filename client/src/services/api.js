@@ -136,3 +136,15 @@ export const changeReqStatus=async({studentEmail, mentorEmail, reqstatus})=>{
 //         console.error('Error fetching mentor details:', error);
 //       }
 // }
+
+export const getConnectedMentors=async(email)=>{
+    try{
+        const studentEmail=email;
+        console.log(studentEmail)
+        const response=await axios.get(`${baseUrl}/get-connected-mentors`,{params: {studentEmail}});
+        return response.data;
+    }
+    catch(error){
+        console.error('Error finding mentors', error);
+    }
+}

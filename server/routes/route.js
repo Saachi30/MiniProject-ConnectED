@@ -1,7 +1,8 @@
 import express from "express"
 import { studentSignup, alumniSignup, mentorSignup, userLogin, getUserData, sendRequest, removeRequest, updateReqStatus} from '../controllers/userController.js';
 import cors from 'cors'
-import { getMentors, getMentorRequestsWithStudentData } from '../controllers/userController.js';
+import { getMentors, getMentorRequestsWithStudentData, getConnectedMentorsData } from '../controllers/userController.js';
+
 
 const router=express.Router();
 router.use(cors())
@@ -24,5 +25,5 @@ router.get('/mentors', getMentors);
 router.get('/mentor-requests-with-student-data', getMentorRequestsWithStudentData);
 router.post('/update-req',updateReqStatus)
 // router.get('/mentorprofile', showMentorDetails)
-
+router.get('/get-connected-mentors', getConnectedMentorsData)
 export default router;

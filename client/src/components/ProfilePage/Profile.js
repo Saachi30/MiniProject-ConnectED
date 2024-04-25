@@ -16,8 +16,9 @@ import ApartmentIcon from '@mui/icons-material/Apartment';
 import { useNavigate } from "react-router-dom";
 import { useDispatch, useSelector } from "react-redux";
 import { removeCurrentUser } from "../../store/slices/UserSlice";
+import { getConnectedMentors } from "../../services/api";
 
-const Profile = () => {
+const Profile = (props) => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const type = useSelector((state) => state.currentUser.type);
@@ -30,8 +31,13 @@ const Profile = () => {
       navigate('/');  
   }
 
-  const handleCountClick = () => {
+  const handleCountClick = async() => {
     // Navigate to the mentors page
+    const studentEmail=data.email;
+    
+    const connectedMentors= await getConnectedMentors(studentEmail);
+    console.log(connectedMentors)
+    props.setConnectedMentors(connectedMentors)
     navigate("/count");
   };
   return (

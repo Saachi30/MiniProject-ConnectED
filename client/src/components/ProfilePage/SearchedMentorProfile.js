@@ -7,7 +7,6 @@ import { useNavigate } from "react-router-dom";
 const SearchedMentorProfile = (props) => {
   const mentorData = props.searchedMentorData;
   const studentEmail = useSelector((state) => state.currentUser.user.email);
-  const studentName = useSelector((state) => state.currentUser.user.name);
 
   const navigate=useNavigate();
   const sendConnectionRequest = async () => {
@@ -24,23 +23,14 @@ const SearchedMentorProfile = (props) => {
       // You can perform further actions based on the response here
     }
   };
-const initiateChat=async()=>{
-  const mentorEmail=props.searchedMentorData.email;
-  const roomkey=studentEmail+mentorEmail;
-  props.setRoomKey(roomkey);
-  props.setName(studentName)
-  console.log(roomkey+"from smp");
-  navigate('/chatsect')
-}
+
   return (
     <section>
       <div className="card1">
         <button className="connect-button" onClick={sendConnectionRequest}>
           Connect
         </button>
-        <button className="chat-button" onClick={initiateChat}>
-          Chat
-        </button>
+       
         <div className="card">
           <div className="left-container">
             <img src={mentorData.image} alt={mentorData.name} />
