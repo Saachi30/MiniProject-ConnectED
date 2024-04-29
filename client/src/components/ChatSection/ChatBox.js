@@ -1,5 +1,14 @@
 import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
+import SearchIcon from "@mui/icons-material/Search";
+import mentors from "../../mentors";
+
+// Dummy profile data
+const dummyProfiles = [
+  { name: "John Doe", image: "john.jpg" },
+  { name: "Jane Smith", image: "jane.jpg" },
+  // Add more dummy profiles here
+];
 
 function ChatBox({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
@@ -35,46 +44,69 @@ function ChatBox({ socket, username, room }) {
   
 
   return (
-    <div className="chat-window">
-      <div className="chat-header">
-        <p>Live Chat</p>
-      </div>
-      <div className="chat-body">
-        <ScrollToBottom className="message-container">
-          {messageList.map((messageContent, index) => {
-            return (
-              <div
-              key={index}
-                className="message"
-                id={username === messageContent.author ? "you" : "other"}
-              >
-                <div>
-                  <div className="message-content">
-                    <p>{messageContent.message}</p>
-                  </div>
-                  <div className="message-meta">
-                    <p id="time">{messageContent.time}</p>
-                    <p id="author">{messageContent.author}</p>
-                  </div>
-                </div>
+    <div className="ConnectMsg">
+      <div className="message">
+        <div className="inbox">
+          <div className="search">
+            <input className="search-connection" placeholder="Search" />
+            <SearchIcon className="search-icon" />
+          </div>
+          <div className="connections">
+            {mentors.map((mentor) => (
+              <div key={mentor.id} className="profile">
+                <img
+                  src={mentor.image}
+                  alt={mentor.fullName}
+                  className="profile-image"
+                />
+                <p className="profile-name">{mentor.fullName}</p>
               </div>
-            );
-          })}
-        </ScrollToBottom>
-      </div>
-      <div className="chat-footer">
-        <input
-          type="text"
-          value={currentMessage}
-          placeholder="Hey..."
-          onChange={(event) => {
-            setCurrentMessage(event.target.value);
-          }}
-          onKeyPress={(event) => {
-            event.key === "Enter" && sendMessage();
-          }}
-        />
-        <button onClick={sendMessage}>&#9658;</button>
+            ))}
+          </div>
+        </div>
+
+        <div className="messenger">
+          <div className="chat-header">
+            <p>Live Chat</p>
+          </div>
+          <div className="chat-body">
+            <ScrollToBottom className="message-container">
+              {messageList.map((messageContent, index) => {
+                return (
+                  <div
+                    key={index}
+                    className="message"
+                    id={username === messageContent.author ? "you" : "other"}
+                  >
+                    <div>
+                      <div className="message-content">
+                        <p>{messageContent.message}</p>
+                      </div>
+                      <div className="message-meta">
+                        <p id="time">{messageContent.time}</p>
+                        <p id="author">{messageContent.author}</p>
+                      </div>
+                    </div>
+                  </div>
+                );
+              })}
+            </ScrollToBottom>
+          </div>
+          <div className="chat-footer">
+            <input
+              type="text"
+              value={currentMessage}
+              placeholder="Hey..."
+              onChange={(event) => {
+                setCurrentMessage(event.target.value);
+              }}
+              onKeyPress={(event) => {
+                event.key === "Enter" && sendMessage();
+              }}
+            />
+            <button onClick={sendMessage}>&#9658;</button>
+          </div>
+        </div>
       </div>
     </div>
   );
