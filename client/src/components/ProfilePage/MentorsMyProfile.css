@@ -1,0 +1,170 @@
+.mentorsmyprofile{
+    background: #ced4d5;
+    display: flex;
+    justify-content: center;
+    padding: 60px 0;
+    margin: 40px;
+    border-radius: 20px;
+}
+.mentorcards{
+    display: flex;
+    justify-content: center;
+    gap: 2%;
+    padding: 1%;
+    width: 100%;
+    position: relative;
+    z-index: 0;
+}
+.mentorCardSec1{
+    display: flex;
+    flex-direction: column;
+    width: 30%;
+    position: relative;
+    z-index: 1;
+}
+.mentorprofilecard{
+    background: #edf0f0;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 8%;
+    border-radius: 20px;
+    margin-bottom: 10px;
+}
+.username{
+    color: rgb(28, 28, 198);
+    font-weight: 600px;
+}
+.mentorprofilecard h2{
+    opacity: 0.7;
+    text-align: center;
+    font-size: 1.2rem;
+}
+
+.studentCount{
+    margin-top: 20px;
+}
+.studentCount h3{
+    font-size: 1.2rem;
+    opacity: 0.9;
+    color: rgb(28, 28, 198);
+}
+.studentCount:hover{
+    cursor: pointer;
+}
+
+hr{
+    background: rgb(218, 211, 211);
+    height: 1px;
+    width: 100%;
+}
+
+.mentorCardSec2{
+    display: flex;
+    flex-direction: column;
+    width: 60%;
+    position: relative;
+    z-index: 1;
+}
+.mentordetailscard, .mentorsocialcard{
+    display: flex;
+    flex-direction: column;
+    background: #edf0f0;
+    border-radius: 20px;
+    padding: 10px 0;
+    width: 100%;
+}
+.mentordetailscard{
+    margin-bottom: 10px;
+}
+.mentorsocialcard{
+    margin-top: 10px;
+}
+
+.Social{
+    display: flex;
+    margin: 5px 10px;
+    font-size: 1.2rem;
+}
+.mentorDetails{
+    justify-content: space-between;
+}
+
+.SocialId{
+    margin-right: 10px;
+    font-size: 1.2rem;
+    opacity: 0.7;
+}
+.mentordetailscard h3, .Social h3{
+    font-size: 1.2rem;
+    font-weight: 400;
+}
+.mentorTalentCard{
+    height: 50vh;
+    width: 100%;
+    display: flex;
+    gap: 1%;
+    margin-top: 10px;
+    justify-content: center;
+}
+.mentorskillcard,
+.mentorstatscard{
+    width: 48%;
+    height: 100%;
+    background: #edf0f0;
+    border-radius: 20px;
+    padding: 10px;
+}
+
+.mentorskillcard h3,
+.mentorstatscard h3{
+    color: rgb(28, 28, 198);
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse; 
+}
+  
+td {
+    text-align-last: left;
+    padding: 10px; 
+    border-bottom: 1px solid #ddd; 
+}
+  
+td:first-child {
+    text-align: left;
+}
+td:last-child {
+    text-align: right;
+}
+
+.mentorsmyprofile {
+    background-color: #ced4d5;
+    position: relative;
+    padding: 20px;
+  }
+  
+  .top-left-box {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    border-top-left-radius: 20px;
+    z-index: 0;
+  }
+  
+  .bottom-right-box {
+    position: absolute;
+    bottom: -20px;
+    right: -20px;
+    width: 200px;
+    height: 200px;
+    background-color: blue;
+    border-bottom-right-radius: 20px;
+    z-index: 0;
+  }
+  
+

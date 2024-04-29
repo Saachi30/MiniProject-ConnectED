@@ -16,6 +16,7 @@ import SearchedMentorProfile from "./components/ProfilePage/SearchedMentorProfil
 import "./App.css";
 import ChatSect from "./components/ChatSection/ChatSect";
 import ListCount from "./components/ListCount/ListCount";
+import MentorsMyProfile from "./components/ProfilePage/MentorsMyProfile";
 
 function App() {
   const [searchedMentorData, setSearchedMentorData] = useState({});
@@ -48,6 +49,7 @@ function App() {
             />
             <Route path="/student" element={<Student />} />
             <Route path="/profile" element={<Profile connectedMentors={connectedMentors} setConnectedMentors={setConnectedMentors}/>} />
+            <Route path="mentors-my-profile" element={<MentorsMyProfile/>}/>
             {listType && (
               <Route path="/lists" element={<ListPage listType={listType} setSearchedMentorData={setSearchedMentorData} searchedMentorData={searchedMentorData}/>} />
             )}

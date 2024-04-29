@@ -17,7 +17,11 @@ const Navbar = ({ setListType }) => {
 
     const handleProfile = async () => {
         try {
-            navigate('/profile');
+            if (currentUser.type === "mentor" || currentUser.type === "alumni") {
+                navigate('/mentors-my-profile');
+            } else {
+                navigate('/profile');
+            }
         } catch (error) {
             console.error('Error fetching user data:', error);
         }
