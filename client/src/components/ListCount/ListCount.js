@@ -18,16 +18,28 @@ const ListCount = (props) => {
   dataArray = Object.values(data);
   }
   
-  const studentName = useSelector((state) => state.currentUser.user.name);
-  const studentEmail = useSelector((state) => state.currentUser.user.email);
-
+  const currentUserName = useSelector((state) => state.currentUser.user.name);
+  const currentUserEmail = useSelector((state) => state.currentUser.user.email);
+  const currentUserType = useSelector((state) => state.currentUser.type);
+  let mentorEmail, studentEmail, roomkey;
   const initiateChat=async(email)=>{
-    const mentorEmail=email;
-    const roomkey=studentEmail+mentorEmail;
+    if(currentUserType==='student'){
+    mentorEmail=email;
+    roomkey=currentUserEmail+mentorEmail;
     props.setRoomKey(roomkey);
-    props.setName(studentName)
+    props.setName(currentUserName)
     console.log(roomkey+"from smp");
     navigate('/chatsect')
+    }
+    else{
+      studentEmail=email
+      roomkey= studentEmail+currentUserEmail;
+      props.setRoomKey(roomkey);
+    props.setName(currentUserName)
+    console.log(roomkey+"from smp");
+    navigate('/chatsect')
+
+    }
   }
  
   return (

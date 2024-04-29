@@ -17,6 +17,7 @@
     display: flex;
     flex-direction: column;
     text-align: center;
+    
   }
   
   .joinChatContainer h3 {
@@ -120,6 +121,7 @@
   
   #you .message-content {
     justify-content: flex-end;
+    color: white;
   }
   
   #you .message-meta {
@@ -134,6 +136,7 @@
   #other .message-content {
     justify-content: flex-start;
     background-color: cornflowerblue;
+    color: white;
   }
   
   #other .message-meta {
@@ -189,4 +192,6 @@
   .hide {
     opacity: 0 !important;
   }
-  
+  p{
+    color: white;
+  }
