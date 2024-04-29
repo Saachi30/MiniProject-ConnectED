@@ -76,6 +76,18 @@ const Profile = (props) => {
           </div>
             </>
           )}
+
+
+        {type === "mentor" &&(
+            <>
+            <div className="ConnectionsCount">
+            <div className="AlumniCount"  onClick={handleCountClick}>
+              <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
+              <h2>Student</h2>
+            </div>
+          </div>
+            </>
+          )}
           
         </div>
 
