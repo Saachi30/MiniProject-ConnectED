@@ -3,16 +3,14 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import SearchIcon from "@mui/icons-material/Search";
 import mentors from "../../mentors";
 
-// Dummy profile data
-const dummyProfiles = [
-  { name: "John Doe", image: "john.jpg" },
-  { name: "Jane Smith", image: "jane.jpg" },
-  // Add more dummy profiles here
-];
-
 function ChatBox({ socket, username, room }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
+  const [searchTerm, setSearchTerm] = useState("");
+
+  const filteredMentors = mentors.filter((mentor) =>
+    mentor.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+  );
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -41,27 +39,30 @@ function ChatBox({ socket, username, room }) {
       socket.off("receive_message", receiveMessage);
     };
   }, [socket]);
-  
 
   return (
     <div className="ConnectMsg">
       <div className="message">
         <div className="inbox">
           <div className="search">
-            <input className="search-connection" placeholder="Search" />
+            <input
+              className="search-connection"
+              placeholder="Search"
+              onChange={(e) => setSearchTerm(e.target.value)}
+            />
             <SearchIcon className="search-icon" />
           </div>
           <div className="connections">
-            {mentors.map((mentor) => (
-              <div key={mentor.id} className="profile">
-                <img
-                  src={mentor.image}
-                  alt={mentor.fullName}
-                  className="profile-image"
-                />
-                <p className="profile-name">{mentor.fullName}</p>
-              </div>
-            ))}
+            {filteredMentors.length > 0 ? (
+              filteredMentors.map((mentor) => (
+                <div key={mentor.id} className="profile">
+                  <img src={mentor.image} className="profile-image" />
+                  <p className="profile-name">{mentor.fullName}</p>
+                </div>
+              ))
+            ) : (
+              <p>No such connections</p>
+            )}
           </div>
         </div>
 
