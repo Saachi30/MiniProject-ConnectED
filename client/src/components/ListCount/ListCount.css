@@ -8,21 +8,23 @@
 .list-count-container {
     margin: 20px;
   }
-  
+.listCount  td{
+    text-align-last: center !important;
+  }
  
-  table {
+  .listCount table {
     width: 1500px;
     border-collapse: collapse;
     border: 1px solid #ccc;
   }
   
-  th, td {
+ .listCount th, .listCount td {
     padding: 12px;
     text-align: center;
     border-bottom: 1px solid #ccc;
   }
   
-  th {
+ .listCount th {
     background-color: #f2f2f2;
     font-weight: bold;
   }
@@ -36,13 +38,15 @@
     border-radius: 4px;
     cursor: pointer;
     transition: background-color 0.3s ease;
+
   }
   
   .chat-button:hover {
     background-color: #0056b3;
   }
    
-  tr:nth-child() {
+  .listCount tr:nth-child() {
     background-color: #c9d1d3b7;
+   
   }
  

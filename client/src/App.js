@@ -24,7 +24,7 @@ function App() {
   const [userType, setUserType] = useState("");
   const [roomKey, setRoomKey] = useState("");
   const [name, setName] = useState("");
-  const [connectedMentors, setConnectedMentors]=useState("")
+  const [connectedUsers, setConnectedUsers]=useState("")
 
   return (
     <Provider store={store}>
@@ -48,8 +48,8 @@ function App() {
               element={<Register type="mentor" />}
             />
             <Route path="/student" element={<Student />} />
-            <Route path="/profile" element={<Profile connectedMentors={connectedMentors} setConnectedMentors={setConnectedMentors}/>} />
-            <Route path="mentors-my-profile" element={<MentorsMyProfile/>}/>
+            <Route path="/profile" element={<Profile connectedUsers={connectedUsers} setConnectedUsers={setConnectedUsers}/>} />
+            <Route path="mentors-my-profile" element={<MentorsMyProfile connectedUsers={connectedUsers} setConnectedUsers={setConnectedUsers}/>}/>
             {listType && (
               <Route path="/lists" element={<ListPage listType={listType} setSearchedMentorData={setSearchedMentorData} searchedMentorData={searchedMentorData}/>} />
             )}
@@ -64,7 +64,7 @@ function App() {
             />
             <Route path="/pending-requests" element={<PendingReqs roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>}></Route>
             <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name}/>}></Route>
-            <Route path="/count" element={< ListCount setConnectedMentors={setConnectedMentors} connectedMentors={connectedMentors} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>} />
+            <Route path="/count" element={< ListCount setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>} />
             
           </Routes>
         </div>

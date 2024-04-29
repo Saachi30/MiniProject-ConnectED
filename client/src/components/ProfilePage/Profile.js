@@ -1,24 +1,17 @@
-
-import React, { useEffect } from "react"; 
-import "./Profile.css";
-import profileImage from "../../imgs/profile.png";
-import skillsImage from "../../imgs/Skills.png";
-import hobbiesImage from "../../imgs/Hobbies.png";
+import React from "react";
+import "./MentorsMyProfile.css";
 import AccountCircleIcon from "@mui/icons-material/AccountCircle";
-import LocalPhoneIcon from '@mui/icons-material/LocalPhone';
-import EmailIcon from '@mui/icons-material/Email';
-import CakeIcon from '@mui/icons-material/Cake';
-import RoomIcon from '@mui/icons-material/Room';
-import SchoolIcon from '@mui/icons-material/School';
-import MenuBookIcon from '@mui/icons-material/MenuBook';
-import ApartmentIcon from '@mui/icons-material/Apartment';
-// import {  logoutuser } from "../../services/api";
-import { useNavigate } from "react-router-dom";
-import { useDispatch, useSelector } from "react-redux";
+import LanguageIcon from "@mui/icons-material/Language";
+import TwitterIcon from "@mui/icons-material/Twitter";
+import FacebookIcon from "@mui/icons-material/Facebook";
+import InstagramIcon from "@mui/icons-material/Instagram";
 import { removeCurrentUser } from "../../store/slices/UserSlice";
 import { getConnectedMentors } from "../../services/api";
+import { useDispatch } from "react-redux";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-const Profile = (props) => {
+export const MentorsMyProfile = (props) => {
   const dispatch=useDispatch();
   const navigate=useNavigate();
   const type = useSelector((state) => state.currentUser.type);
@@ -30,127 +23,159 @@ const Profile = (props) => {
       dispatch(removeCurrentUser());
       navigate('/');  
   }
-
   const handleCountClick = async() => {
     // Navigate to the mentors page
     const studentEmail=data.email;
-    
     const connectedMentors= await getConnectedMentors(studentEmail);
     console.log(connectedMentors)
-    props.setConnectedMentors(connectedMentors)
+    props.setConnectedUsers(connectedMentors)
     navigate("/count");
   };
   return (
-    <div className="Student-Profile">
-    <div className="ProfilePage">
-      <div className="HeadSec">
+    <>
+    <div className="HeadSec" style={{marginRight:"3rem"}}>
         <p className="LogOut" onClick={handleLogout}>LogOut</p>
       </div>
-      <div className="ContentSec">
-        <div className="UpperContent">
-        <div className="ContentSec1">
-          <div className="index">
-
-          </div>
-          <div className="ProfileName">
-            <div className="ProfileImage">
-              <AccountCircleIcon style={{height:"200px",width:"200px"}}/>
-            </div>
-            <div className="Name">
-              <h2>{data.name}</h2>
-              <h4>{data.preferredDomain}</h4>
-            </div>
-          </div>
-          
-          {type === "student" &&(
-            <>
-            <div className="ConnectionsCount">
-            <div className="AlumniCount"  onClick={handleCountClick}>
-              <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
-              <h2>Alumni</h2>
-            </div>
-            <div className="MentorCount" onClick={handleCountClick}>
-              <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
-              <h2>Mentors</h2>
-            </div>
-          </div>
-            </>
-          )}
-
-
-        {type === "mentor" &&(
-            <>
-            <div className="ConnectionsCount">
-            <div className="AlumniCount"  onClick={handleCountClick}>
-              <AccountCircleIcon style={{height:"50px",width:"50px"}}/>
-              <h2>Student</h2>
-            </div>
-          </div>
-            </>
-          )}
-          
-        </div>
-
-        <div className="ContentSec3">
-            <img src={skillsImage} alt="" />
-        </div>
-        </div>
-
+    <div className="mentorsmyprofile">
+    
+        <div className="top-left-box"></div>
         
-        <div className="LowerContent">
-          <div className="PersonalDetails">
-            <div className="ProfileDetails">
-            <h1>Contact</h1>
-            <div className="phone Details">
-              <LocalPhoneIcon/>
-              <h3>{data.phoneNumber}</h3>
+      <div className="mentorcards">
+        <div className="mentorCardSec1">
+          <div className="mentorprofilecard">
+            <AccountCircleIcon style={{ height: "200px", width: "200px" }} />
+            <h3 className="username">{data.name}</h3>
+            <h2 className="About">{data.preferredDomain}</h2>
+            <h2 className="About"></h2>
+            <div className="count-outer">
+            <div className="studentCount" onClick={handleCountClick}>
+              <AccountCircleIcon style={{ height: "40px", width: "50px" }} />
+              <h3>My mentors</h3>
             </div>
-            <div className="mail Details">
-              <EmailIcon/>
-              <h3>{data.email}</h3>
-            </div>
-            <div className="birth Details">
-              <CakeIcon/>
-              <h3>02 Feb 2002</h3>
-            </div>
-            <div className="location Details">
-              <RoomIcon/>
-              <h3>Mumbai</h3>
+            <div className="studentCount" onClick={handleCountClick}>
+              <AccountCircleIcon style={{ height: "40px", width: "50px" }} />
+              <h3>My alumni</h3>
             </div>
             </div>
-
-            <div className="Education">
-            <h1>Education</h1>
-            <div className="EduDetails">
-              <div className="Graduation Details">
-                <SchoolIcon/>
-                <h3>
-                  Bharatiya Vidya Bhavans Sardar Patel Institute of Technology
-                </h3>
-              </div>
-              <div className="Diploma Details">
-              <MenuBookIcon/>
-                <h3>Shri Bhagubhai Maftlal Polytechnic</h3>
-              </div>
-              <div className="SSC Details">
-                <ApartmentIcon/>
-                <h3>Jankidevi Public School</h3>
-              </div>
-            </div>
-            </div>
-
           </div>
-          <div className="Hobbies">
-            <img src={hobbiesImage} alt="" />
+
+          <div className="mentorsocialcard">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <div className="Social">
+                      <LanguageIcon style={{ height: "35px", width: "50px" }} />
+                      <h3> Website</h3>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="SocialId">Website</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="Social">
+                      <TwitterIcon style={{ height: "35px", width: "50px" }} />
+                      <h3> Twitter</h3>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="SocialId">Website</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="Social">
+                      <FacebookIcon style={{ height: "35px", width: "50px" }} />
+                      <h3> facebook</h3>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="SocialId">Website</div>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <div className="Social">
+                      <InstagramIcon
+                        style={{ height: "35px", width: "50px" }}
+                      />
+                      <h3> Instagram</h3>
+                    </div>
+                  </td>
+                  <td>
+                    <div className="SocialId">Website</div>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
           </div>
         </div>
 
+        <div className="bottom-right-box"></div>
+        <div className="mentorCardSec2">
+          <div className="mentordetailscard">
+            <table>
+              <tbody>
+                <tr>
+                  <td>
+                    <h3>Full Name</h3>
+                  </td>
+                  <td>
+                    <h3>{data.name}</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Email</h3>
+                  </td>
+                  <td>
+                    <h3>{data.email}</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Phone</h3>
+                  </td>
+                  <td>
+                    <h3>{data.phoneNumber}</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Year of study</h3>
+                  </td>
+                  <td>
+                    <h3>{data.yearOfStudy}</h3>
+                  </td>
+                </tr>
+                <tr>
+                  <td>
+                    <h3>Date of Birth</h3>
+                  </td>
+                  <td>
+                    <h3>02 Feb, 2004</h3>
+                  </td>
+                </tr>
+              </tbody>
+            </table>
+          </div>
 
-
+          <div className="mentorTalentCard">
+            <div className="mentorskillcard">
+                <h3>Skills</h3>
+            </div>
+            <div className="mentorstatscard">
+                <h3>Company</h3>
+            </div>
+          </div>
+        </div>
       </div>
+      
     </div>
-    </div>
+    </>
   );
 };
 
-export default Profile;
+export default MentorsMyProfile;

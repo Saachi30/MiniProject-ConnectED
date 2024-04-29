@@ -15,6 +15,22 @@
     position: relative;
     z-index: 0;
 }
+.LogOut {
+    width: 50px !important;
+    position: absolute;
+    text-align: center;
+    transform: translateY(-100%);
+    top: 9rem;
+    right: 2rem !important;
+    height: 40px;
+    line-height: 40px;
+    padding: 0px 20px;
+    background-color: #c60000;
+    color: #fff;
+    cursor: pointer;
+    border-radius: 1.5rem;
+    z-index: 5;
+  }
 .mentorCardSec1{
     display: flex;
     flex-direction: column;
@@ -32,7 +48,7 @@
     margin-bottom: 10px;
 }
 .username{
-    color: rgb(28, 28, 198);
+   color: rgb(5 126 130);;
     font-weight: 600px;
 }
 .mentorprofilecard h2{
@@ -47,7 +63,7 @@
 .studentCount h3{
     font-size: 1.2rem;
     opacity: 0.9;
-    color: rgb(28, 28, 198);
+    /* color: black; */
 }
 .studentCount:hover{
     cursor: pointer;
@@ -58,7 +74,13 @@ hr{
     height: 1px;
     width: 100%;
 }
-
+.count-outer{
+    display: flex;
+    width: 20rem;
+    justify-content: space-evenly;
+    align-items: center;
+    flex-direction: row;
+  }
 .mentorCardSec2{
     display: flex;
     flex-direction: column;
@@ -110,15 +132,10 @@ hr{
 .mentorskillcard,
 .mentorstatscard{
     width: 48%;
-    height: 100%;
+    height: 114%;
     background: #edf0f0;
     border-radius: 20px;
     padding: 10px;
-}
-
-.mentorskillcard h3,
-.mentorstatscard h3{
-    color: rgb(28, 28, 198);
 }
 
 table {
@@ -140,9 +157,10 @@ td:last-child {
 }
 
 .mentorsmyprofile {
-    background-color: #ced4d5;
+    background-color: rgb(104, 169, 171);;
     position: relative;
     padding: 20px;
+    width: 90vw;
   }
   
   .top-left-box {
@@ -151,7 +169,7 @@ td:last-child {
     left: 0;
     width: 200px;
     height: 200px;
-    background-color: blue;
+    background: rgb(104, 169, 171);
     border-top-left-radius: 20px;
     z-index: 0;
   }
@@ -162,7 +180,7 @@ td:last-child {
     right: -20px;
     width: 200px;
     height: 200px;
-    background-color: blue;
+    background: rgb(104, 169, 171);
     border-bottom-right-radius: 20px;
     z-index: 0;
   }

@@ -11,8 +11,13 @@ const ListCount = (props) => {
   //   { name: "Emily Davis", domain: "Engineering", company: "Tech Solutions" }
   // ];
   const navigate=useNavigate();
-  const data= props.connectedMentors;
-  const dataArray = Object.values(data);
+  const data= props.connectedUsers;
+  let dataArray=['']
+  console.log(data)
+  if(data){
+  dataArray = Object.values(data);
+  }
+  
   const studentName = useSelector((state) => state.currentUser.user.name);
   const studentEmail = useSelector((state) => state.currentUser.user.email);
 

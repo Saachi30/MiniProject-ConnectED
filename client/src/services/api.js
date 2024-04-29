@@ -147,3 +147,14 @@ export const getConnectedMentors=async(email)=>{
         console.error('Error finding mentors', error);
     }
 }
+export const getConnectedStudents=async(email)=>{
+    try{
+        const mentorEmail=email;
+        console.log(mentorEmail)
+        const response=await axios.get(`${baseUrl}/get-connected-students`,{params: {mentorEmail}});
+        return response.data;
+    }
+    catch(error){
+        console.error('Error retrieving connected students', error);
+    }
+}

@@ -371,3 +371,28 @@ export const getConnectedMentorsData = async (req, res) => {
     res.status(500).json({ error: 'Internal server error' });
   }
 };
+export const getConnectedStudentsData = async (req, res) => {
+  const { mentorEmail } = req.query;
+
+  // console.log("inside get connected mentors" + studentEmail)
+  try {
+    // Find all accepted requests for the given student
+    const acceptedRequests = await Request.find({
+      recipientEmail: mentorEmail,
+      reqstatus: 'accepted',
+      requestType:'mentor'
+    });
+
+    // Extract mentor emails from accepted requests
+    console.log(acceptedRequests)
+    const studentEmails = acceptedRequests.map(request => request.studentEmail);
+    
+    // Find mentors based on their email addresses
+    const connectedStudents = await Student.find({ email: { $in: studentEmails } });
+    console.log(connectedStudents)
+    res.status(200).json(connectedStudents);
+  } catch (error) {
+    console.error('Error retrieving connected students:', error);
+    res.status(500).json({ error: 'Internal server error' });
+  }
+};
