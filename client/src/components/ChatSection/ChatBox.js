@@ -3,14 +3,15 @@ import ScrollToBottom from "react-scroll-to-bottom";
 import SearchIcon from "@mui/icons-material/Search";
 import mentors from "../../mentors";
 
-function ChatBox({ socket, username, room }) {
+function ChatBox({ socket, username, room, connectedUsers }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
-
-  const filteredMentors = mentors.filter((mentor) =>
-    mentor.fullName.toLowerCase().includes(searchTerm.toLowerCase())
-  );
+  const users=connectedUsers;
+  console.log(users)
+  // const filteredMentors = mentors.filter((mentor) =>
+  //   mentor.fullName.toLowerCase().includes(searchTerm.toLowerCase())
+  // );
 
   const sendMessage = async () => {
     if (currentMessage !== "") {
@@ -53,11 +54,11 @@ function ChatBox({ socket, username, room }) {
             <SearchIcon className="search-icon" />
           </div>
           <div className="connections">
-            {filteredMentors.length > 0 ? (
-              filteredMentors.map((mentor) => (
-                <div key={mentor.id} className="profile">
-                  <img src={mentor.image} className="profile-image" />
-                  <p className="profile-name">{mentor.fullName}</p>
+            {users.length > 0 ? (
+              users.map((user) => (
+                <div key={user._id} className="profile" >
+                  <img src={mentors[0].image} className="profile-image" />
+                  <p className="profile-name">{user.name}</p>
                 </div>
               ))
             ) : (

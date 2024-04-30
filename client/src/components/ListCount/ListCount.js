@@ -2,6 +2,7 @@ import React, { useEffect } from "react";
 import "./ListCount.css";
 import { useSelector } from "react-redux";
 import { useNavigate } from "react-router-dom";
+import { getConnectedMentors , getConnectedStudents} from "../../services/api";
 const ListCount = (props) => {
   // Dummy data
   // const data = [
@@ -31,6 +32,7 @@ const ListCount = (props) => {
     console.log(roomkey+"from smp");
     navigate('/chatsect')
     }
+    
     else{
       studentEmail=email
       roomkey= studentEmail+currentUserEmail;
@@ -41,6 +43,24 @@ const ListCount = (props) => {
 
     }
   }
+  const handleCountClick = async() => {
+    // Navigate to the mentors page
+    if(currentUserType==="student"){
+    const studentEmail=currentUserEmail;
+    const connectedMentors= await getConnectedMentors(studentEmail);
+    console.log(connectedMentors)
+    props.setConnectedUsers(connectedMentors)
+    // navigate("/count");
+    }
+    else{
+      // Navigate to the mentors page
+    const mentorEmail=currentUserEmail;
+    const connectedStudents= await getConnectedStudents(mentorEmail);
+    console.log(connectedStudents)
+    props.setConnectedUsers(connectedStudents)
+    // navigate("/count");
+    }
+  };
  
   return (
     <div className="listCount">
@@ -63,7 +83,10 @@ const ListCount = (props) => {
               <td>{item.preferredDomain}</td>
               <td>{item.yearOfStudy}</td>
               <td>
-                <button className="chat-button" onClick={()=>{initiateChat(item.email)}}>Chat</button>
+                <button className="chat-button" onClick={()=>{
+                  handleCountClick();
+                  initiateChat(item.email)
+                  }}>Chat</button>
               </td>
             </tr>
           ))}

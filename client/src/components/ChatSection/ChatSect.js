@@ -8,6 +8,7 @@ const socket = io.connect("http://localhost:8001");
 function ChatSect(props) {
   //const [username, setUsername] = useState("");
   //const [room, setRoom] = useState("");
+  
   const [showChat, setShowChat] = useState(false);
   const room=props.roomKey;
   const username=props.name;
@@ -47,7 +48,7 @@ function ChatSect(props) {
     //   )}
     // </div>
     <div className="App">
-        <ChatBox socket={socket} username={username} room={room} />
+        <ChatBox socket={socket} username={username} room={room} setConnectedUsers={props.setConnectedUsers} connectedUsers={props.connectedUsers}/>
     </div>
   );
 }

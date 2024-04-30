@@ -63,7 +63,7 @@ function App() {
               
             />
             <Route path="/pending-requests" element={<PendingReqs roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>}></Route>
-            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name}/>}></Route>
+            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name} setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers}/>}></Route>
             <Route path="/count" element={< ListCount setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>} />
             
           </Routes>
