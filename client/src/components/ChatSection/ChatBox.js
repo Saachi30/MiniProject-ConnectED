@@ -101,7 +101,8 @@ function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, 
 
         <div className="messenger">
           <div className="chat-header">
-            <p>{recipientName}</p>
+            <p>{recipientName}</p> 
+           <i class="fa-solid fa-video" style={{color: "#ffffff" }}></i>
           </div>
           <div className="chat-body">
             <ScrollToBottom className="message-container">
