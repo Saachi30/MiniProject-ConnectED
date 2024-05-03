@@ -12,7 +12,9 @@
     padding: 0%;
   } */
 @import url("https://fonts.googleapis.com/css?family=Open+Sans:300,400,700");
-
+/* *{
+  box-sizing: border-box;
+} */
 .ConnectMsg {
   padding: 0 20px;
 }
@@ -28,7 +30,7 @@
   height: 100%;
   width: 35%;
   color: rgb(255, 255, 255);
-  background: rgb(186, 199, 199);
+  background: hsl(30, 55%, 95%);
   overflow: hidden;
 }
 .connections {
@@ -40,8 +42,10 @@
   display: flex;
   justify-content: center;
   align-items: center;
-  padding: 1.2%;
+  padding: 8px;
   background: #263238;
+  border-bottom: 0.1px solid #263238;
+  height: 44px;
 }
 .search input {
   width: 80%;
@@ -71,8 +75,8 @@
 .profile-name {
   margin: 0;
 }
-.profile:hover{
-  background: #bcf8f4;
+.profile:hover {
+  background: #d0c0b0;
 }
 
 .joinChatContainer {
@@ -113,14 +117,14 @@
 }
 
 .chat-header {
-  height: 45px;
+  height: 44px;
+  padding: 8px;
   background: #263238;
   position: relative;
   cursor: pointer;
   display: flex;
   justify-content: center;
   align-items: center;
-  
 }
 .messenger .chat-header p {
   display: block;
@@ -132,7 +136,10 @@
 
 .chat-body {
   flex-grow: 1; /* Allow the chat body to grow and occupy remaining space */
-  border: 1px solid #263238;
+  border-left: 0.1px solid #999;
+  border-right: 0.1px solid #999;
+  border-bottom: 0.1px solid #999;
+  border-top: 1px solid #263238;
   background: #e8f5e9;
   overflow-y: auto;
   position: relative;
@@ -164,6 +171,8 @@
   overflow-wrap: break-word;
   font-size: 1.25rem;
   word-break: break-word;
+  border-radius: 1rem;
+  border: 1px solid grey;
 }
 
 #you {
@@ -185,8 +194,8 @@
 
 #other .message-content {
   justify-content: flex-start;
-  background-color: #90caf9
-  ;
+  background-color: #90caf9;
+  border-radius: 1rem;
 }
 
 #other .message-meta {
@@ -204,15 +213,15 @@
   font-size: 12px;
 }
 .chat-footer {
-  border: 1px solid #263238;
+  background: #f2e2d2;
+  border: 0.1px solid #999;
   border-top: none;
   display: flex;
-  padding: 8px;
-  height : 40px;
-  
+  padding: 16px 12px;
+  height: 40px;
 }
 .chat-footer input {
-  flex: 85%;
+  flex: 95%;
   border: 0;
   padding: 0 0.7em;
   font-size: 1em;
@@ -223,18 +232,23 @@
 }
 .chat-footer button {
   border: 0;
+  margin: 0 2px 0 2px;
   display: grid;
   place-items: center;
   cursor: pointer;
-  flex: 15%;
+  flex: 5%;
   height: 100%;
-  background: transparent;
+  border: 4px solid #4db6ac;
+  border-radius: 2rem;
   outline: none;
+  background: #4db6ac;
   font-size: 25px;
-  color: lightgray;
+  color: black;
 }
 .chat-footer button:hover {
-  color: #43a047;
+  border: 4px solid #26a69a;
+  background: #26a69a;
+  color: white;
 }
 .hide {
   opacity: 0 !important;
