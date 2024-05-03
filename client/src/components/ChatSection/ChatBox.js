@@ -2,17 +2,24 @@ import React, { useEffect, useState } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import SearchIcon from "@mui/icons-material/Search";
 import mentors from "../../mentors";
+import { useNavigate } from "react-router-dom";
+import { useSelector } from "react-redux";
 
-function ChatBox({ socket, username, room, connectedUsers }) {
+function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, recipientName, setRecipientName }) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+
+  const currentUserName = useSelector((state) => state.currentUser.user.name);
+  const currentUserEmail = useSelector((state) => state.currentUser.user.email);
+  const currentUserType = useSelector((state) => state.currentUser.type);
+  const navigate=useNavigate()
   const users=connectedUsers;
   console.log(users)
   // const filteredMentors = mentors.filter((mentor) =>
   //   mentor.fullName.toLowerCase().includes(searchTerm.toLowerCase())
   // );
-
+  
   const sendMessage = async () => {
     if (currentMessage !== "") {
       const messageData = {
@@ -40,7 +47,30 @@ function ChatBox({ socket, username, room, connectedUsers }) {
       socket.off("receive_message", receiveMessage);
     };
   }, [socket]);
+  let recipientEmail;
+  
+  const initiateChat=async(email,name)=>{
+    if(currentUserType==='student'){
+    recipientEmail=email;
+    setRecipientName(name);
+    const roomkey=currentUserEmail+recipientEmail;
+    setRoomKey(roomkey);
+    setName(currentUserName)
+    console.log(roomkey+"from smp");
+    navigate('/chatsect')
+    }
+    
+    else{
+      recipientEmail=email
+      setRecipientName(name)
+      const roomkey= recipientEmail+currentUserEmail;
+      setRoomKey(roomkey);
+    setName(currentUserName)
+    console.log(roomkey+"from smp");
+    navigate('/chatsect')
 
+    }
+  }
   return (
     <div className="ConnectMsg">
       <div className="message">
@@ -56,7 +86,9 @@ function ChatBox({ socket, username, room, connectedUsers }) {
           <div className="connections">
             {users.length > 0 ? (
               users.map((user) => (
-                <div key={user._id} className="profile" >
+                <div key={user._id} className="profile" onClick={()=>{
+                  initiateChat(user.email, user.name)
+                }}>
                   <img src={mentors[0].image} className="profile-image" />
                   <p className="profile-name">{user.name}</p>
                 </div>
@@ -69,7 +101,7 @@ function ChatBox({ socket, username, room, connectedUsers }) {
 
         <div className="messenger">
           <div className="chat-header">
-            <p>Live Chat</p>
+            <p>{recipientName}</p>
           </div>
           <div className="chat-body">
             <ScrollToBottom className="message-container">

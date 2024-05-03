@@ -25,6 +25,7 @@ function App() {
   const [roomKey, setRoomKey] = useState("");
   const [name, setName] = useState("");
   const [connectedUsers, setConnectedUsers]=useState("")
+  const [recipientName, setRecipientName]=useState("")
 
   return (
     <Provider store={store}>
@@ -63,8 +64,8 @@ function App() {
               
             />
             <Route path="/pending-requests" element={<PendingReqs roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>}></Route>
-            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name} setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers}/>}></Route>
-            <Route path="/count" element={< ListCount setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>} />
+            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name} setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} setRoomKey={setRoomKey} setName={setName} recipientName={recipientName} setRecipientName={setRecipientName}/>}></Route>
+            <Route path="/count" element={< ListCount setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName} recipientName={recipientName} setRecipientName={setRecipientName}/>} />
             
           </Routes>
         </div>

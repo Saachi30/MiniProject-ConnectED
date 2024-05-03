@@ -22,13 +22,15 @@ const ListCount = (props) => {
   const currentUserName = useSelector((state) => state.currentUser.user.name);
   const currentUserEmail = useSelector((state) => state.currentUser.user.email);
   const currentUserType = useSelector((state) => state.currentUser.type);
+  
   let mentorEmail, studentEmail, roomkey;
-  const initiateChat=async(email)=>{
+  const initiateChat=async(email, name)=>{
     if(currentUserType==='student'){
     mentorEmail=email;
     roomkey=currentUserEmail+mentorEmail;
     props.setRoomKey(roomkey);
     props.setName(currentUserName)
+    props.setRecipientName(name)
     console.log(roomkey+"from smp");
     navigate('/chatsect')
     }
@@ -38,6 +40,7 @@ const ListCount = (props) => {
       roomkey= studentEmail+currentUserEmail;
       props.setRoomKey(roomkey);
     props.setName(currentUserName)
+    props.setRecipientName(name)
     console.log(roomkey+"from smp");
     navigate('/chatsect')
 
@@ -85,7 +88,7 @@ const ListCount = (props) => {
               <td>
                 <button className="chat-button" onClick={()=>{
                   handleCountClick();
-                  initiateChat(item.email)
+                  initiateChat(item.email, item.name)
                   }}>Chat</button>
               </td>
             </tr>
