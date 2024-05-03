@@ -83,16 +83,7 @@ const ListPage = (props) => {
           })}
       </div>
       </div>
-      <div className='chatOption'>
-        <div className='searchChat'>
-        <input
-          className='search-input'
-          placeholder='Search'
-        />
-        <SearchIcon className='search-icon' />
-        </div>
-        <div className='chatSection'></div>
-      </div>
+     
       </div>
       
       
