@@ -1,14 +1,16 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useCallback } from "react";
 import ScrollToBottom from "react-scroll-to-bottom";
 import SearchIcon from "@mui/icons-material/Search";
 import mentors from "../../mentors";
 import { useNavigate } from "react-router-dom";
 import { useSelector } from "react-redux";
 
-function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, recipientName, setRecipientName }) {
+
+function ChatBox({ socket, username, room, connectedUsers, setName, roomkey, setRoomKey, recipientName, setRecipientName, roomKey}) {
   const [currentMessage, setCurrentMessage] = useState("");
   const [messageList, setMessageList] = useState([]);
   const [searchTerm, setSearchTerm] = useState("");
+  
 
   const currentUserName = useSelector((state) => state.currentUser.user.name);
   const currentUserEmail = useSelector((state) => state.currentUser.user.email);
@@ -37,7 +39,7 @@ function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, 
       setCurrentMessage("");
     }
   };
-
+ 
   useEffect(() => {
     const receiveMessage = (data) => {
       setMessageList((list) => [...list, data]);
@@ -48,12 +50,12 @@ function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, 
     };
   }, [socket]);
   let recipientEmail;
-  
+  var roomkey;
   const initiateChat=async(email,name)=>{
     if(currentUserType==='student'){
     recipientEmail=email;
     setRecipientName(name);
-    const roomkey=currentUserEmail+recipientEmail;
+    roomkey=currentUserEmail+recipientEmail;
     setRoomKey(roomkey);
     setName(currentUserName)
     console.log(roomkey+"from smp");
@@ -63,13 +65,18 @@ function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, 
     else{
       recipientEmail=email
       setRecipientName(name)
-      const roomkey= recipientEmail+currentUserEmail;
+      roomkey= recipientEmail+currentUserEmail;
       setRoomKey(roomkey);
+      
     setName(currentUserName)
     console.log(roomkey+"from smp");
     navigate('/chatsect')
 
     }
+  }
+  const handleJoinVc=()=>{
+      console.log(roomKey)
+      navigate(`/room/${roomKey}`)
   }
   return (
     <div className="ConnectMsg">
@@ -102,7 +109,7 @@ function ChatBox({ socket, username, room, connectedUsers, setName, setRoomKey, 
         <div className="messenger">
           <div className="chat-header">
             <p>{recipientName}</p> 
-           <i class="fa-solid fa-video" style={{color: "#ffffff" }}></i>
+           <i class="fa-solid fa-video" style={{color: "#ffffff" }} onClick={handleJoinVc}></i>
           </div>
           <div className="chat-body">
             <ScrollToBottom className="message-container">

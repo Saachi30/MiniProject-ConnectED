@@ -17,6 +17,7 @@ import "./App.css";
 import ChatSect from "./components/ChatSection/ChatSect";
 import ListCount from "./components/ListCount/ListCount";
 import MentorsMyProfile from "./components/ProfilePage/MentorsMyProfile";
+import VcRoom from "./components/ChatSection/VcRoom";
 
 function App() {
   const [searchedMentorData, setSearchedMentorData] = useState({});
@@ -64,9 +65,9 @@ function App() {
               
             />
             <Route path="/pending-requests" element={<PendingReqs roomKey={roomKey} setRoomKey={setRoomKey} setName={setName}/>}></Route>
-            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name} setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} setRoomKey={setRoomKey} setName={setName} recipientName={recipientName} setRecipientName={setRecipientName}/>}></Route>
+            <Route path="/chatsect" element={<ChatSect roomKey={roomKey} name={name} setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} setRoomKey={setRoomKey} setName={setName} recipientName={recipientName} setRecipientName={setRecipientName} />}></Route>
             <Route path="/count" element={< ListCount setConnectedUsers={setConnectedUsers} connectedUsers={connectedUsers} roomKey={roomKey} setRoomKey={setRoomKey} setName={setName} recipientName={recipientName} setRecipientName={setRecipientName}/>} />
-            
+            <Route path="/room/:roomId" element={<VcRoom name={name}/>}></Route>
           </Routes>
         </div>
       </Router>

@@ -48,7 +48,7 @@ function ChatSect(props) {
     //   )}
     // </div>
     <div className="App">
-        <ChatBox socket={socket} username={username} room={room} setConnectedUsers={props.setConnectedUsers} connectedUsers={props.connectedUsers} setName={props.setName} setRoomKey={props.setRoomKey} recipientName={props.recipientName} setRecipientName={props.setRecipientName}/>
+        <ChatBox socket={socket} username={username} room={room} setConnectedUsers={props.setConnectedUsers} connectedUsers={props.connectedUsers} setName={props.setName} roomKey={props.roomKey} setRoomKey={props.setRoomKey} recipientName={props.recipientName} setRecipientName={props.setRecipientName}/>
     </div>
   );
 }
