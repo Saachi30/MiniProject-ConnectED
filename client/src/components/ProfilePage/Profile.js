@@ -31,6 +31,12 @@ export const MentorsMyProfile = (props) => {
     props.setConnectedUsers(connectedMentors)
     navigate("/count");
   };
+  const handlePredictJob=async()=>{
+    const flaskAppUrl = 'http://localhost:5000';
+
+    // Open a new window or tab with the URL of your Flask app
+    window.open(flaskAppUrl, '_blank');
+  }
   return (
     <>
     <div className="HeadSec" style={{marginRight:"3rem"}}>
@@ -163,8 +169,11 @@ export const MentorsMyProfile = (props) => {
           </div>
 
           <div className="mentorTalentCard">
+         
             <div className="mentorskillcard">
                 <h3>Skills</h3>
+                {type==="student" ? (<button onClick={handlePredictJob}>Predict my job</button>) : (<div></div>)}
+                
             </div>
             <div className="mentorstatscard">
                 <h3>Company</h3>
