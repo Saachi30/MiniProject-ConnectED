@@ -191,3 +191,6 @@ p {
 .buttons button:hover {
   background-color: #0056b3;
 }
+.action-buttons {
+  text-align: center !important;
+}

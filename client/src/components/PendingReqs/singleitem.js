@@ -54,7 +54,7 @@ const SingleItem = (props) => {
         <table>
           <tbody>
             <tr>
-              <td>{name}</td>
+              <td colSpan='6'>{name}</td>
               <td>{yearOfStudy}</td>
               <td>{preferredDomain}</td>
               <td className="action-buttons"><button  className="accept" onClick={handleAccept}>Accept</button></td>
@@ -63,7 +63,7 @@ const SingleItem = (props) => {
             </tr>
           </tbody>
         </table>
-        <button onClick={initiateChat}>Chat</button>
+        {/* <button onClick={initiateChat}>Chat</button> */}
    
     </div>
   );

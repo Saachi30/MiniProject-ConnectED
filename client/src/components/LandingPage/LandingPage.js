@@ -32,13 +32,12 @@ const LandingPage = () => {
           <h1 ref={typedTextRef}></h1>
           <div id="typed-strings" style={{ display: "none" }}>
             <span>Flexible Connections</span>
-            <span>Machine Learning</span>
+            <span>Student Guidance</span>
+            <span>Learning community</span>
           </div>
 
           <p>
-            Lorem ipsum praesent ac massa at ligula reet est iaculis. Vivamus
-            est mist aliquet elit ac nisl. Lorem ipsum praesent ac massa at
-            ligula reet est iaculis. Vivamus est mist.
+          Connect with mentors and alumni for personalized guidance and career opportunities. Empowering students to thrive through mentorship and community support.
           </p>
           <button id="abt-btn" className="btn1">
             Read more about us{" "}

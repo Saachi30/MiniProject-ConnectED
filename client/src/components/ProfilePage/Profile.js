@@ -172,7 +172,7 @@ export const MentorsMyProfile = (props) => {
          
             <div className="mentorskillcard">
                 <h3>Skills</h3>
-                {type==="student" ? (<button onClick={handlePredictJob}>Predict my job</button>) : (<div></div>)}
+                {type==="student" ? (<button className="jobbtn" onClick={handlePredictJob}>Predict my job</button>) : (<div></div>)}
                 
             </div>
             <div className="mentorstatscard">
