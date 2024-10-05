@@ -32,8 +32,7 @@ const ListPage = (props) => {
   const getDummyProfileImage = () => {
     // Dummy image URLs
     const images = [
-      "https://images.unsplash.com/photo-1438761681033-6461ffad8d80?q=80&w=1000&auto=format&fit=crop&ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8M3x8cmFuZG9tJTIwcGVvcGxlfGVufDB8fDB8fHww",
-      "https://img.freepik.com/free-photo/happy-joyful-guy-enjoying-leisure-time_1262-20555.jpg",
+      "https://img.favpng.com/12/20/1/computer-icons-user-profile-login-avatar-png-favpng-EphX5rTBCrk1QLtEWPmS9h1M9.jpg",
       // Add more dummy image URLs as needed
     ];
     // Randomly select an image URL

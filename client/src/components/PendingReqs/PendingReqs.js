@@ -39,7 +39,7 @@ const PendingReqs = (props) => {
     <div className="table-container">
         <table>
           <thead>
-            <tr>
+            <tr style={{marginLeft:"20px !important"}}>
               <th>Name</th>
               <th>Year of Study</th>
               <th>Domain</th>
@@ -50,8 +50,11 @@ const PendingReqs = (props) => {
           </thead>
           <tbody>
         {mentorRequestsWithStudentData.map((request) => (
-          
+          <tr style={{padding: "10px 0px"}}>
+          <td colSpan='6'>
           <SingleItem key={request.request._id} data={request} mentorRequestsWithStudentData={mentorRequestsWithStudentData} setMentorRequestsWithStudentData={setMentorRequestsWithStudentData} roomKey={props.roomKey} setRoomKey={props.setRoomKey} setName={props.setName}/>
+          </td>
+          </tr>
           
         ))}
           </tbody>

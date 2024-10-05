@@ -194,3 +194,9 @@ p {
 .action-buttons {
   text-align: center !important;
 }
+.accept, .reject, .view-profile{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  text-align: center;
+}

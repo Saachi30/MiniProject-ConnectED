@@ -50,16 +50,16 @@ const SingleItem = (props) => {
     
   }
    return (
-    <div className="container">
+    <div className="container" style={{width:"98%"}}>
         <table>
           <tbody>
             <tr>
               <td colSpan='6'>{name}</td>
-              <td>{yearOfStudy}</td>
+              <td colSpan='2'>{yearOfStudy}</td>
               <td>{preferredDomain}</td>
               <td className="action-buttons"><button  className="accept" onClick={handleAccept}>Accept</button></td>
               <td className="action-buttons"><button className="reject" onClick={handleReject}>Reject</button></td>
-              <td className="action-buttons"><button onClick={handleViewProfile}>View Profile</button></td>
+              <td className="action-buttons"><button onClick={handleViewProfile} className='view-profile'>View Profile</button></td>
             </tr>
           </tbody>
         </table>
